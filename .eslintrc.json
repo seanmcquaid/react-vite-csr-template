@@ -1,0 +1,83 @@
+{
+  "extends": [
+    "react-app",
+    "prettier",
+    "plugin:jsx-a11y/strict",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:cypress/recommended"
+  ],
+  "plugins": ["prettier", "i18next", "jsx-a11y"],
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": ["node_modules/"],
+  // https://github.com/facebook/create-react-app/blob/master/packages/eslint-config-react-app/index.js
+  "rules": {
+    "no-shadow": "off",
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-shadow": "error",
+    "curly": ["warn", "all"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/label-has-for": [
+      "warn",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "i18next/no-literal-string": [
+      "warn",
+      {
+        "ignoreCallee": ["t"],
+        "markupOnly": true,
+        "ignoreAttribute": [
+          "aria-labelledby",
+          "autoComplete",
+          "data-cy",
+          "data-testid",
+          "favoriteSource",
+          "href",
+          "htmlFor",
+          "name",
+          "path",
+          "redirect",
+          "rel",
+          "role",
+          "source",
+          "target",
+          "to",
+          "variant"
+        ]
+      }
+    ],
+    "import/no-anonymous-default-export": "off",
+    "import/order": "warn",
+    "jsx-a11y/no-redundant-roles": "off",
+    "no-duplicate-imports": "warn",
+    "prefer-const": "warn",
+    "prettier/prettier": "warn",
+    "react/default-props-match-prop-types": "warn",
+    "react/jsx-uses-react": "off",
+    "react/jsx-key": "warn",
+    "react/no-unused-prop-types": "warn",
+    "react/prop-types": "warn",
+    "react/react-in-jsx-scope": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "name": "lodash",
+        "message": "Please import specifically Ex import get from 'lodash/get';"
+      }
+    ],
+    "@typescript-eslint/no-namespace": "off"
+  }
+}

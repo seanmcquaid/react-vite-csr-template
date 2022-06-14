@@ -5,17 +5,48 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "lint:nowarn": "eslint cypress src --max-warnings=0",
+    "lint": "eslint cypress src",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-legacy": "^1.8.2",
     "@vitejs/plugin-react": "^1.3.0",
+    "c8": "^7.11.3",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-i18next": "^6.0.0-4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-mocha": "^10.0.5",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "isomorphic-fetch": "^3.0.0",
+    "jsdom": "^19.0.0",
+    "lint-staged": "^13.0.1",
+    "prettier": "^2.6.2",
     "typescript": "^4.6.3",
-    "vite": "^2.9.9"
+    "vite": "^2.9.9",
+    "vite-plugin-package-version": "^1.0.2",
+    "vite-plugin-svgr": "^2.1.0",
+    "vitest": "^0.14.2",
+    "vitest-sonar-reporter": "^0.2.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "eslint --fix --max-warnings=0"
   }
 }

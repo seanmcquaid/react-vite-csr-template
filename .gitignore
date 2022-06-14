@@ -11,6 +11,9 @@ node_modules
 dist
 dist-ssr
 *.local
+coverage
+sonar-report.xml
+cypress/videos
 
 # Editor directories and files
 .vscode/*
