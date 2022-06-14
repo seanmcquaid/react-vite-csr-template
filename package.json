@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "lint:nowarn": "eslint cypress src --max-warnings=0",
     "lint": "eslint cypress src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "bundlesize": "bundlesize"
   },
   "dependencies": {
     "react": "^18.0.0",
@@ -23,7 +24,9 @@
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-legacy": "^1.8.2",
     "@vitejs/plugin-react": "^1.3.0",
+    "bundlesize": "^0.18.1",
     "c8": "^7.11.3",
+    "cypress": "^10.1.0",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
@@ -35,6 +38,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "husky": "^8.0.1",
     "isomorphic-fetch": "^3.0.0",
     "jsdom": "^19.0.0",
     "lint-staged": "^13.0.1",
