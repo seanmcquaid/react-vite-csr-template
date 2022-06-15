@@ -4,6 +4,16 @@ My personal React Template I use for all new personal projects for React.
 
 ## Todos
 
-2. Github Actions for Deploying
-3. File Structure setup - components, containers, routes, fonts, hooks, i18n, icons, services, store, testUtils, theme, types, utils
-4. Built example app
+1. Github Actions for Deploying
+2. Build example app
+3. Components
+4. Containters
+5. Fonts
+6. i18n
+7. Routes
+8. Services
+9. Store
+10. TestUtils - renderHook + render for RTL
+11. Cypress - TypeScript
+12. Theme - global theme
+13. Types
