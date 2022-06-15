@@ -51,7 +51,7 @@
     "vite-plugin-package-version": "^1.0.2",
     "vite-plugin-svgr": "^2.1.0",
     "vitest": "^0.14.2",
-    "vitest-sonar-reporter": "^0.2.0"
+    "vitest-sonar-reporter": "^0.2.1"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": "eslint --fix --max-warnings=0"
