@@ -17,3 +17,5 @@ My personal React Template I use for all new personal projects for React.
 11. Cypress - TypeScript
 12. Theme - global theme
 13. Types
+14. ErrorBoundary
+15. Device sizing
