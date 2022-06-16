@@ -12,7 +12,8 @@
     "lint:nowarn": "eslint cypress src --max-warnings=0",
     "lint": "eslint cypress src",
     "prepare": "husky install",
-    "bundlesize": "bundlesize"
+    "bundlesize": "bundlesize",
+    "serve": "node ./scripts/build.js"
   },
   "dependencies": {
     "i18next": "^21.8.9",
@@ -45,6 +46,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "express": "^4.18.1",
     "husky": "^8.0.1",
     "isomorphic-fetch": "^3.0.0",
     "jsdom": "^19.0.0",
