@@ -1,6 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
+import Karla from '../fonts/Karla-Regular.ttf';
+import Rubik from '../fonts/Rubik-Regular.ttf';
 
 const GlobalStyle = createGlobalStyle`
+ @font-face {
+  font-family: 'Karla';
+    src: url(${Karla}) format('truetype');
+  }
+
+  @font-face {
+  font-family: 'Rubik';
+    src: url(${Rubik}) format('truetype');
+  }
+  
   html,
   body, 
   #root {
