@@ -9,13 +9,12 @@ My personal React Template I use for all new personal projects for React.
 3. Components
 4. Containters
 5. Fonts
-6. i18n
-7. Routes
-8. Services
-9. Store
-10. TestUtils - renderHook + render for RTL
-11. Cypress - TypeScript
-12. Theme - global theme
-13. Types
-14. ErrorBoundary
-15. Device sizing
+6. Routes
+7. Services
+8. Store
+9. TestUtils - renderHook + render for RTL
+10. Cypress - TypeScript
+11. Theme - global theme
+12. Types
+13. ErrorBoundary
+14. Device sizing
