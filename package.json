@@ -50,7 +50,7 @@
     "vite": "^2.9.9",
     "vite-plugin-package-version": "^1.0.2",
     "vite-plugin-svgr": "^2.1.0",
-    "vitest": "^0.14.2",
+    "vitest": "^0.15.1",
     "vitest-sonar-reporter": "^0.2.1"
   },
   "lint-staged": {
