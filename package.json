@@ -20,7 +20,7 @@
     "i18next-browser-languagedetector": "^6.1.4",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
-    "react-dom": "^18.0.0",
+    "react-dom": "^18.2.0",
     "react-i18next": "^11.17.2",
     "reselect": "^4.1.6",
     "styled-components": "^5.3.5"
