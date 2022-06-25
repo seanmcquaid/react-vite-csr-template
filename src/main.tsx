@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ThemeProvider } from 'styled-components';
-import App from './App';
 import './i18n';
-import theme from './theme';
-import GlobalStyle from './theme/GlobalStyle';
+
+const App = React.lazy(() => import('./App'));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
+    <React.Suspense>
       <App />
-    </ThemeProvider>
+    </React.Suspense>
   </React.StrictMode>,
 );
