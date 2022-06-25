@@ -6,4 +6,3 @@ My personal React Template I use for all new personal projects for React.
 
 1. Github Actions for Deploying
 2. Build example app
-3. ErrorBoundary

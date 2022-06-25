@@ -1,4 +1,5 @@
 import { Component, ReactNode } from 'react';
+import AppError from './types/AppError';
 
 class ErrorBoundary extends Component<
   { children: ReactNode },
@@ -8,17 +9,19 @@ class ErrorBoundary extends Component<
     hasError: false,
   };
 
-  static getDerivedStateFromError(error: any) {
+  static getDerivedStateFromError(error: AppError) {
     return { hasError: true };
   }
 
-  componentDidCatch(error: any, errorInfo: any) {
+  componentDidCatch(error: AppError, errorInfo: AppError) {
+    // Report to logging service
     console.log(error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
+      // eslint-disable-next-line i18next/no-literal-string
       return <h1>Something went wrong.</h1>;
     }
 
