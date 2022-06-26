@@ -7,9 +7,10 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import persistedReducer from './reducers';
 
 const store = configureStore({
-  reducer: {},
+  reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

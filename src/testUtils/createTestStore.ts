@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { RootState } from '../store';
+import persistedReducer from '../store/reducers';
 
 const createTestStore = (preloadedState?: RootState) => {
   return configureStore({
-    reducer: {},
+    reducer: persistedReducer,
     preloadedState,
     middleware: getDefaultMiddleware =>
       getDefaultMiddleware({

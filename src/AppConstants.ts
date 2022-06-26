@@ -12,6 +12,7 @@ enum API_STATE {
 
 const AppConstants = {
   API_STATE,
+  REDUX_STORE_VERSION: 0,
 };
 
 export default AppConstants;
