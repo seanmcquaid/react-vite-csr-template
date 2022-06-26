@@ -8,14 +8,14 @@ const AppRouter = lazy(() => import('./routes/AppRouter'));
 
 function App() {
   return (
-    <ErrorBoundary>
-      <ThemeProvider theme={theme}>
-        <Suspense>
+    <ThemeProvider theme={theme}>
+      <ErrorBoundary>
+        <Suspense fallback={null}>
           <GlobalStyle />
           <AppRouter />
         </Suspense>
-      </ThemeProvider>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </ThemeProvider>
   );
 }
 
