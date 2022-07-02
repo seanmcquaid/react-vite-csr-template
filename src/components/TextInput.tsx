@@ -35,6 +35,9 @@ const TextInput: FC<TextInputProps> = ({
 
 const Input = styled.input``;
 
-const Label = styled.label``;
+const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default TextInput;

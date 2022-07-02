@@ -19,6 +19,6 @@ const postsApi = createApi({
   }),
 });
 
-export const { useGetPostsQuery, useGetPostByIdQuery } = postsApi;
+export const { useGetPostsQuery, useGetPostByIdQuery, usePrefetch } = postsApi;
 
 export default postsApi;
