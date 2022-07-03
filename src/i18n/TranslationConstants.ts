@@ -1,5 +1,5 @@
 enum NotFound {
-  home = 'NotFound.Home',
+  home = 'NotFound.home',
   text = 'NotFound.text',
   title = 'NotFound.title',
 }
