@@ -13,7 +13,7 @@ const AppRoutes: FC = () => (
     <Routes>
       <Route path={RouteConstants.HOME} element={<Posts />} />
       <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />
-      <Route element={<NotFound />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Suspense>
 );

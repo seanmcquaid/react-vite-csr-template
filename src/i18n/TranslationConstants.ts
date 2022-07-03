@@ -1,3 +1,9 @@
+enum NotFound {
+  home = 'NotFound.Home',
+  text = 'NotFound.text',
+  title = 'NotFound.title',
+}
+
 enum Posts {
   clear = 'Posts.clear',
   textInputLabel = 'Posts.textInputLabel',
@@ -5,6 +11,6 @@ enum Posts {
   title = 'Posts.title',
 }
 
-const TranslationConstants = { Posts };
+const TranslationConstants = { Posts, NotFound };
 
 export default TranslationConstants;
