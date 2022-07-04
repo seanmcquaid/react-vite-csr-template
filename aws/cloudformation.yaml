@@ -44,10 +44,6 @@ Outputs:
     Description: SSL Certificate for URL
     Value: !Ref SSLCertificate
 
-  Route53Domain:
-    Description: Custom Domain CNAME via Route 53
-    Value: !Ref Route53Domain
-
   CloudfrontDistribution:
     Description: Cloudfront Distribution
     Value: !Ref CloudfrontDistribution
@@ -55,3 +51,7 @@ Outputs:
   CloudfrontDomainName:
     Description: URL to access the Cloudfront Distribution
     Value: !GetAtt CloudfrontDistribution.DomainName
+
+  Route53Domain:
+    Description: Custom Domain CNAME via Route 53
+    Value: !Ref Route53Domain
