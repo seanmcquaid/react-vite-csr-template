@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: 'Personal Template for React Projects'
+
+Parameters:
+  Name:
+    Description: Name of the React project, will be used for resource names
+    Type: String
+    Default: project-name
+
+  Environment:
+    Type: String
+    Default: dev
+    Description: Environment name
+    AllowedValues:
+      - dev
+      - test
+      - staging
+      - prod
+
+  AccountAlias:
+    Description: Alias of the AWS account that is currently being deployed to.
+    Type: String
+    Default: account-name
+
+Mappings:
+  Environment:
+    dev:
+      domain: domain-dev.com
+    test:
+      domain: domain-test.com
+    staging:
+      domain: domain-staging.com
+    prod:
+      domain: domain.com
+
+Resources:
+
+Outputs:
+  CloudfrontDistribution:
+    Description: Cloudfront Distribution
+    Value: !Ref CloudfrontDistribution
+
+  CloudfrontDomainName:
+    Description: URL to access the Cloudfront Distribution
+    Value: !GetAtt CloudfrontDistribution.DomainName
