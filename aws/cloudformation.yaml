@@ -40,6 +40,14 @@ Outputs:
     Description: EKS Cluster hosting React app
     Value: !Ref EKSCluster
 
+  SSLCertificate:
+    Description: SSL Certificate for URL
+    Value: !Ref SSLCertificate
+
+  Route53Domain:
+    Description: Custom Domain CNAME via Route 53
+    Value: !Ref Route53Domain
+
   CloudfrontDistribution:
     Description: Cloudfront Distribution
     Value: !Ref CloudfrontDistribution
