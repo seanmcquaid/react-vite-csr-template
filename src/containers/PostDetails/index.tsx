@@ -21,7 +21,7 @@ const PostDetails: FC = () => {
 };
 
 const StyledPageContainer = styled(PageContainer)`
-  padding: 16px;
+  justify-content: flex-start;
 `;
 
 export default PostDetails;

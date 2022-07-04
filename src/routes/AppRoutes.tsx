@@ -6,15 +6,18 @@ const Posts = lazy(() => import('../containers/Posts'));
 const PostDetails = lazy(() => import('../containers/PostDetails'));
 const NotFound = lazy(() => import('../containers/NotFound'));
 const Overlays = lazy(() => import('../containers/Overlays'));
+const Layout = lazy(() => import('../components/Layout'));
 
 const AppRoutes: FC = () => (
   <Suspense fallback={null}>
-    <Overlays />
-    <Routes>
-      <Route path={RouteConstants.HOME} element={<Posts />} />
-      <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Layout>
+      <Overlays />
+      <Routes>
+        <Route path={RouteConstants.HOME} element={<Posts />} />
+        <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
   </Suspense>
 );
 

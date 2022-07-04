@@ -40,6 +40,8 @@ const StyledList = styled.ul`
   list-style: none;
   margin: 32px 0;
   padding: 0;
+  max-height: 600px;
+  overflow: auto;
 `;
 
 const StyledListItem = styled.li`

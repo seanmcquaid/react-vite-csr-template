@@ -11,6 +11,10 @@ enum Posts {
   title = 'Posts.title',
 }
 
-const TranslationConstants = { Posts, NotFound };
+enum Navbar {
+  home = 'Navbar.home',
+}
+
+const TranslationConstants = { Posts, NotFound, Navbar };
 
 export default TranslationConstants;
