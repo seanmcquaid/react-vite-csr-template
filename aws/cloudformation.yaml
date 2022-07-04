@@ -36,6 +36,10 @@ Mappings:
 Resources:
 
 Outputs:
+  EKSCluster:
+    Description: EKS Cluster hosting React app
+    Value: !Ref EKSCluster
+
   CloudfrontDistribution:
     Description: Cloudfront Distribution
     Value: !Ref CloudfrontDistribution
