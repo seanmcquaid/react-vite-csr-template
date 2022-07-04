@@ -4,10 +4,15 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import 'isomorphic-fetch';
-import { vi } from 'vitest';
+import { vi, beforeEach, afterEach, afterAll } from 'vitest';
+import mswServer from './testUtils/mswServer';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
     t: (str: string) => str,
   }),
 }));
+
+beforeEach(() => mswServer.listen());
+afterEach(() => mswServer.resetHandlers());
+afterAll(() => mswServer.close());

@@ -4,6 +4,15 @@ export enum NODE_ENV {
   PRODUCTION = 'production',
 }
 
-enum AppConstants {}
+enum API_STATE {
+  IDLE = 'idle', // No API call or error
+  LOADING = 'loading', // Currently requesting
+  ERROR = 'error', // Attempting request produced an error
+}
+
+const AppConstants = {
+  API_STATE,
+  REDUX_STORE_VERSION: 0,
+};
 
 export default AppConstants;
