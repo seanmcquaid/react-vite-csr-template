@@ -10,38 +10,10 @@ Parameters:
       - staging
       - prod
     Description: 'Define the environment to deploy. Accepted values are "develop", "qa", "staging" and "production"'
-  # Certificates are not included in CloudFormation stacks:
-  #   1.They are blocking automatic stack deployment as long as the certificates are not validated
-  #     https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
-  #   2.They must be in us-east-1 to be accessed by CloudFront and multi-regions
-  #     CloudFormation stack is not possible
-  #   3.It is possible that a single certificate is shared among multiple domains
-  #     (e.g. development and staging domain). So far, a CloudFormation resource
-  #     must belong to one stack
-  # Points 2. and 3. can be addressed with StackSets but I have not digged this
-  # option yet
-  #
-  # CLI command example to request a certificate (DNS validation is recommended):
-  #   aws acm request-certificate --domain-name {production domain} \
-  #     -subject-alternative-names {development domain} {staging domain} \
-  #     --validation-method DNS ---region us-east-1
-  # which ouputs the Certificate ARN:
-  # {
-  #   "CertificateArn": "arn:aws:acm:us-east-1:265302555616:certificate/3bafabfc-d488-49fd-82c5-d59f55802b46"
-  # }
-  AwsCertificateArn:
-    Type: String
-    Default: <YOUR CERTIFICATE ARN HERE>
-    Description: Certificate must be created before CloudFormation stack so the value is fixed
-  # Each AWS resources has a HostedZoneId depending on the resource type and its
-  # region. CloudFront resources, however, are hosted in the same HostedZoneId
-  # regardless their region:
-  #   https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html
   AwsRoute53CloudFrontHostedZoneId:
     Type: String
-    Default: Z2FDTNDATAQYW2
+    Default: Z068263715RVIFNDD3OQ3
     Description: CloudFront resources HostedZoneId
-
 Mappings:
   EnvironmentMaps:
     develop:
@@ -49,27 +21,30 @@ Mappings:
       'Domain': sean-react-template-dev.app.com
       'Route53HostedZoneName': app.com
       'S3BucketName': sean-react-template-dev
-      'AwsCertificateArn': <DEVELOPMENT CERTIFICATE ARN>
     qa:
       'CloudFrontPriceClass': PriceClass_200
       'Domain': sean-react-template-qa.app.com
       'Route53HostedZoneName': app.com
       'S3BucketName': sean-react-template-qa
-      'AwsCertificateArn': <QA CERTIFICATE ARN>
     staging:
       'CloudFrontPriceClass': PriceClass_200
       'Domain': sean-react-template-staging.app.com
       'Route53HostedZoneName': app.com
       'S3BucketName': sean-react-template-staging
-      'AwsCertificateArn': <STAGING CERTIFICATE ARN>
     production:
       'CloudFrontPriceClass': PriceClass_All
       'Domain': sean-react-template.app.com
       'Route53HostedZoneName': app.com
       'S3BucketName': sean-react-template
-      'AwsCertificateArn': <PROD CERTIFICATE ARN>
-
 Resources:
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+      DomainValidationOptions:
+        - DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+          HostedZoneId: !Ref AwsRoute53CloudFrontHostedZoneId
+      ValidationMethod: DNS
   CloudFrontIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
@@ -79,12 +54,10 @@ Resources:
             '',
             ['Sean React Template (', !Ref Env, ') Origin Access Identity'],
           ]
-
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName']
-
   CloudFront:
     Type: 'AWS::CloudFront::Distribution'
     Properties:
@@ -132,7 +105,6 @@ Resources:
           AcmCertificateArn: !Ref AwsCertificateArn
           MinimumProtocolVersion: TLSv1.2_2018
           SslSupportMethod: sni-only
-
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -153,7 +125,6 @@ Resources:
                 ]
             Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
         Version: '2012-10-17'
-
   Route53:
     Type: AWS::Route53::RecordSet
     Properties:
@@ -166,7 +137,6 @@ Resources:
         !FindInMap [EnvironmentMaps, !Ref Env, 'Route53HostedZoneName']
       Name: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
       Type: A
-
 Outputs:
   Route53URL:
     Value: !Ref Route53
