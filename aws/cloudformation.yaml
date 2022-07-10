@@ -71,52 +71,28 @@ Mappings:
 
 # ---------- Resources lists --------------------------------------------------
 Resources:
-  # --- CloudFront origin identity definition for S3 bucket policy
-  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
-  #
-  # This identity will be used in the S3 bucket policy to identify the CloudFront
-  # resouce which is allowed to access the S3 content
-  AcmeAcmeCloudFrontIdentity:
+  CloudFrontIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
       CloudFrontOriginAccessIdentityConfig:
         Comment:
-          !Join ['', ['AcmeAcmeApp (', !Ref Env, ') Origin Access Identity']]
+          !Join [
+            '',
+            ['Sean React Template (', !Ref Env, ') Origin Access Identity'],
+          ]
 
-  # --- S3 Bucket: to host the content
-  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
-  #
-  # Route53 / CloudFront handle content service so there is no need of a static
-  # website hosting configuration.
-  #
-  # As the S3BucketPolicy will grant access to CloudFront, there is no need to
-  # define an "AccessControl". This also ensures that the content is only
-  # accessible through CloudFront and directly accessing the S3 bucket content
-  # is not possible. Using the example values, accessing
-  #   https://acmeacme-app-dev.s3-{region}.amazonaws.com/index.html
-  # will end up with a 403 error. This "index.html" must be accessed through
-  #   https://app-dev.acmeacme.tech/index.htmll
-  AcmeAcmeS3Bucket:
+  S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName']
 
-  # --- CloudFront definition: to serve the content / with CDN / with HTTPS
-  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
-  # Snippet : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-cloudfront.html#scenario-cloudfront-s3origin
-  AcmeAcmeCloudFront:
+  CloudFront:
     Type: 'AWS::CloudFront::Distribution'
     Properties:
-      # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
       DistributionConfig:
         Aliases:
           - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
-        Comment: !Join ['', ['AcmeAcmeApp ', !Ref Env]]
-        # This must be defined, even with all default values. Altough values are
-        # a list of string, only certain combinations are allowed. Please check
-        # the documentation for more details
-        #
-        # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
+        Comment: !Join ['', ['Sean React Template ', !Ref Env]]
         DefaultCacheBehavior:
           AllowedMethods:
             - GET
@@ -124,11 +100,8 @@ Resources:
           CachedMethods:
             - GET
             - HEAD
-          # Required field
           ForwardedValues:
             QueryString: True
-          # This value must match the Origin.Id defined below, under the
-          # Origins key
           TargetOriginId:
             !Join [
               '',
@@ -137,27 +110,13 @@ Resources:
                 !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName'],
               ],
             ]
-          # Super nice automatic redirection of HTTP to HTTPS
           ViewerProtocolPolicy: redirect-to-https
-        # This is required, even if not mentioned in the AWS documentation. For
-        # some reason, SPA will not work properly if CloudFront does not have a
-        # default entry point
         DefaultRootObject: index.html
-        # Enabled CloudFront as soon as created
         Enabled: True
         HttpVersion: http2
         IPV6Enabled: True
-        # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
         Origins:
-          # Use the regional domain name instead of the global name
-          # ( {bucket}.s3.amazonaws.com )
-          # If the global name is used, the CloudFront URL will only redirect the
-          # requests to S3 global domain name instead of serving the content. As
-          # S3 content is only available to CloudFront, not to the public access,
-          # such request ends up with a 403 enrror
-          #
-          # https://stackoverflow.com/a/58423033/4906586
-          - DomainName: !GetAtt AcmeAcmeS3Bucket.RegionalDomainName
+          - DomainName: !GetAtt S3Bucket.RegionalDomainName
             Id:
               !Join [
                 '',
@@ -166,29 +125,19 @@ Resources:
                   !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName'],
                 ],
               ]
-            # S3 bucket access restriction: ensure that content is only available
-            # through CloudFront
-            #
-            # https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_S3OriginConfig.html
             S3OriginConfig:
-              OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${AcmeAcmeCloudFrontIdentity}'
+              OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CloudFrontIdentity}'
         PriceClass:
           !FindInMap [EnvironmentMaps, !Ref Env, 'CloudFrontPriceClass']
-        # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html
         ViewerCertificate:
-          # If the certificate is part of the CloudFormation stack, use its reference
-          # instead:
-          #   !Ref <CERTIFICATE LOGICAL ID>
           AcmCertificateArn: !Ref AwsCertificateArn
-          MinimumProtocolVersion: TLSv1.2_2018 # recommended value if there is no browser support issue
+          MinimumProtocolVersion: TLSv1.2_2018
           SslSupportMethod: sni-only
 
-  # --- S3 Bucket policy: to control access to the content
-  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
-  AcmeAcmeS3BucketPolicy:
+  S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref AcmeAcmeS3Bucket
+      Bucket: !Ref S3Bucket
       PolicyDocument:
         Statement:
           - Action:
@@ -200,23 +149,23 @@ Resources:
                   '',
                   [
                     'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ',
-                    !Ref AcmeAcmeCloudFrontIdentity,
+                    !Ref CloudFrontIdentity,
                   ],
                 ]
-            Resource: !Join ['', ['arn:aws:s3:::', !Ref AcmeAcmeS3Bucket, '/*']]
+            Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
         Version: '2012-10-17'
 
   # --- Route 53: to expose the nice URL
   # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
   # Snippet : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-route53.html
-  AcmeAcmeRoute53:
+  Route53:
     Type: AWS::Route53::RecordSet
     Properties:
       AliasTarget:
-        DNSName: !GetAtt AcmeAcmeCloudFront.DomainName
+        DNSName: !GetAtt CloudFront.DomainName
         EvaluateTargetHealth: False
         HostedZoneId: !Ref AwsRoute53CloudFrontHostedZoneId
-      Comment: !Join ['', ['AcmeAcmeApp ', !Ref Env, ' Route']]
+      Comment: !Join ['', ['Sean React Template ', !Ref Env, ' Route']]
       HostedZoneName:
         !FindInMap [EnvironmentMaps, !Ref Env, 'Route53HostedZoneName']
       Name: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
@@ -224,8 +173,8 @@ Resources:
 
 Outputs:
   Route53URL:
-    Value: !Ref AcmeAcmeRoute53
-    Description: 'AcmeAcmeApp URL'
+    Value: !Ref Route53
+    Description: 'App URL'
   CloudFrontURL:
-    Value: !GetAtt AcmeAcmeCloudFront.DomainName
-    Description: 'AcmeAcmeCloudFront URL'
+    Value: !GetAtt CloudFront.DomainName
+    Description: 'CloudFront URL'
