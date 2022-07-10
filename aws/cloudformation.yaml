@@ -136,7 +136,6 @@ Resources:
       DomainValidationOptions:
         - DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
           ValidationDomain: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
-          HostedZoneId: !Ref AwsRoute53CloudFrontHostedZoneId
       ValidationMethod: DNS
 Outputs:
   Route53URL:
