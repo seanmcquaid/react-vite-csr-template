@@ -69,7 +69,6 @@ Mappings:
       'S3BucketName': sean-react-template
       'AwsCertificateArn': <PROD CERTIFICATE ARN>
 
-# ---------- Resources lists --------------------------------------------------
 Resources:
   CloudFrontIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -155,9 +154,6 @@ Resources:
             Resource: !Join ['', ['arn:aws:s3:::', !Ref S3Bucket, '/*']]
         Version: '2012-10-17'
 
-  # --- Route 53: to expose the nice URL
-  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
-  # Snippet : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-route53.html
   Route53:
     Type: AWS::Route53::RecordSet
     Properties:
