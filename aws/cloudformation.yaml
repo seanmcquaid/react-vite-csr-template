@@ -1,18 +1,6 @@
-# AWS CloudFormation template file follows the following anatomy:
-#   https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
-# More documentation in the API reference:
-#   https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html
-
-# As-of 2020, "2010-09-09" is the latest FormatVersion:
-#   https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html
 AWSTemplateFormatVersion: 2010-09-09
 Description: S3 / Route53 / CloudFront CloudFormation configuration
-
-# ---------- Parameters -------------------------------------------------------
-# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
 Parameters:
-  # This file takes an example for three environments which can obviously be
-  # easily adjusted by updated the "Mappings" key
   Env:
     Type: String
     Default: develop
@@ -54,35 +42,32 @@ Parameters:
     Default: Z2FDTNDATAQYW2
     Description: CloudFront resources HostedZoneId
 
-# ---------- Mapping variables ------------------------------------------------
-# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html
 Mappings:
-  # In this example:
-  #   - CloudFront pricing has incremental values
-  #   - Root domains are assumed to be potentially distinct
-  # S3 buckets are purely used for hosting content, without static hosting option
-  # so the name is not constrained to be a domain name.
   EnvironmentMaps:
     develop:
       'CloudFrontPriceClass': PriceClass_100
-      'Domain': sean-react-template-dev. # e.g. app-dev.acmeacme.tech
-      'Route53HostedZoneName': <DEVELOPMENT ROUTE 53 HOSTED ZONE NAME> # e.g. acmeacme.tech.
-      'S3BucketName': <DEVELOPMENT S3 BUCKET NAME> # e.g. acmeacme-app-dev
+      'Domain': sean-react-template-dev.app.com
+      'Route53HostedZoneName': app.com
+      'S3BucketName': sean-react-template-dev
+      'AwsCertificateArn': <DEVELOPMENT CERTIFICATE ARN>
     qa:
       'CloudFrontPriceClass': PriceClass_200
-      'Domain': <QA DOMAIN URL> # e.g. app-stag.acmeacme.tech
-      'Route53HostedZoneName': <QA ROUTE 53 HOSTED ZONE NAME> # e.g. acmeacme.tech.
-      'S3BucketName': <QA S3 BUCKET NAME> # e.g. acmeacme-app-stag
+      'Domain': sean-react-template-qa.app.com
+      'Route53HostedZoneName': app.com
+      'S3BucketName': sean-react-template-qa
+      'AwsCertificateArn': <QA CERTIFICATE ARN>
     staging:
       'CloudFrontPriceClass': PriceClass_200
-      'Domain': <STAGING DOMAIN URL> # e.g. app-stag.acmeacme.tech
-      'Route53HostedZoneName': <STAGING ROUTE 53 HOSTED ZONE NAME> # e.g. acmeacme.tech.
-      'S3BucketName': <STAGING S3 BUCKET NAME> # e.g. acmeacme-app-stag
+      'Domain': sean-react-template-staging.app.com
+      'Route53HostedZoneName': app.com
+      'S3BucketName': sean-react-template-staging
+      'AwsCertificateArn': <STAGING CERTIFICATE ARN>
     production:
       'CloudFrontPriceClass': PriceClass_All
-      'Domain': <PRODUCTION DOMAIN URL> # e.g. app.acmeacme.com
-      'Route53HostedZoneName': <PRODUCTION ROUTE 53 HOSTED ZONE NAME> # e.g. acmeacme.com.
-      'S3BucketName': <PRODUCTION S3 BUCKET NAME> # e.g. acmeacme-app-prod
+      'Domain': sean-react-template.app.com
+      'Route53HostedZoneName': app.com
+      'S3BucketName': sean-react-template
+      'AwsCertificateArn': <PROD CERTIFICATE ARN>
 
 # ---------- Resources lists --------------------------------------------------
 Resources:
