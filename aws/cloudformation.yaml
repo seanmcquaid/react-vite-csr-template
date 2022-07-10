@@ -102,7 +102,7 @@ Resources:
         PriceClass:
           !FindInMap [EnvironmentMaps, !Ref Env, 'CloudFrontPriceClass']
         ViewerCertificate:
-          AcmCertificateArn: !Ref AwsCertificateArn
+          AcmCertificateArn: !Ref Certificate
           MinimumProtocolVersion: TLSv1.2_2018
           SslSupportMethod: sni-only
   S3BucketPolicy:
