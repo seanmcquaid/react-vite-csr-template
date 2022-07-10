@@ -1,37 +1,246 @@
-AWSTemplateFormatVersion: '2010-09-09'
-Description: |
-  Cloudformation Stacks to Deploy a React App to AWS with the following :
-  - S3 Bucket to store the build
+# AWS CloudFormation template file follows the following anatomy:
+#   https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+# More documentation in the API reference:
+#   https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html
+
+# As-of 2020, "2010-09-09" is the latest FormatVersion:
+#   https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html
+AWSTemplateFormatVersion: 2010-09-09
+Description: S3 / Route53 / CloudFront CloudFormation configuration
+
+# ---------- Parameters -------------------------------------------------------
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
+Parameters:
+  # This file takes an example for three environments which can obviously be
+  # easily adjusted by updated the "Mappings" key
+  Env:
+    Type: String
+    Default: develop
+    AllowedValues:
+      - develop
+      - qa
+      - staging
+      - prod
+    Description: 'Define the environment to deploy. Accepted values are "develop", "qa", "staging" and "production"'
+  # Certificates are not included in CloudFormation stacks:
+  #   1.They are blocking automatic stack deployment as long as the certificates are not validated
+  #     https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
+  #   2.They must be in us-east-1 to be accessed by CloudFront and multi-regions
+  #     CloudFormation stack is not possible
+  #   3.It is possible that a single certificate is shared among multiple domains
+  #     (e.g. development and staging domain). So far, a CloudFormation resource
+  #     must belong to one stack
+  # Points 2. and 3. can be addressed with StackSets but I have not digged this
+  # option yet
+  #
+  # CLI command example to request a certificate (DNS validation is recommended):
+  #   aws acm request-certificate --domain-name {production domain} \
+  #     -subject-alternative-names {development domain} {staging domain} \
+  #     --validation-method DNS ---region us-east-1
+  # which ouputs the Certificate ARN:
+  # {
+  #   "CertificateArn": "arn:aws:acm:us-east-1:265302555616:certificate/3bafabfc-d488-49fd-82c5-d59f55802b46"
+  # }
+  AwsCertificateArn:
+    Type: String
+    Default: <YOUR CERTIFICATE ARN HERE>
+    Description: Certificate must be created before CloudFormation stack so the value is fixed
+  # Each AWS resources has a HostedZoneId depending on the resource type and its
+  # region. CloudFront resources, however, are hosted in the same HostedZoneId
+  # regardless their region:
+  #   https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html
+  AwsRoute53CloudFrontHostedZoneId:
+    Type: String
+    Default: Z2FDTNDATAQYW2
+    Description: CloudFront resources HostedZoneId
+
+# ---------- Mapping variables ------------------------------------------------
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html
+Mappings:
+  # In this example:
+  #   - CloudFront pricing has incremental values
+  #   - Root domains are assumed to be potentially distinct
+  # S3 buckets are purely used for hosting content, without static hosting option
+  # so the name is not constrained to be a domain name.
+  EnvironmentMaps:
+    develop:
+      'CloudFrontPriceClass': PriceClass_100
+      'Domain': sean-react-template-dev. # e.g. app-dev.acmeacme.tech
+      'Route53HostedZoneName': <DEVELOPMENT ROUTE 53 HOSTED ZONE NAME> # e.g. acmeacme.tech.
+      'S3BucketName': <DEVELOPMENT S3 BUCKET NAME> # e.g. acmeacme-app-dev
+    qa:
+      'CloudFrontPriceClass': PriceClass_200
+      'Domain': <QA DOMAIN URL> # e.g. app-stag.acmeacme.tech
+      'Route53HostedZoneName': <QA ROUTE 53 HOSTED ZONE NAME> # e.g. acmeacme.tech.
+      'S3BucketName': <QA S3 BUCKET NAME> # e.g. acmeacme-app-stag
+    staging:
+      'CloudFrontPriceClass': PriceClass_200
+      'Domain': <STAGING DOMAIN URL> # e.g. app-stag.acmeacme.tech
+      'Route53HostedZoneName': <STAGING ROUTE 53 HOSTED ZONE NAME> # e.g. acmeacme.tech.
+      'S3BucketName': <STAGING S3 BUCKET NAME> # e.g. acmeacme-app-stag
+    production:
+      'CloudFrontPriceClass': PriceClass_All
+      'Domain': <PRODUCTION DOMAIN URL> # e.g. app.acmeacme.com
+      'Route53HostedZoneName': <PRODUCTION ROUTE 53 HOSTED ZONE NAME> # e.g. acmeacme.com.
+      'S3BucketName': <PRODUCTION S3 BUCKET NAME> # e.g. acmeacme-app-prod
+
+# ---------- Resources lists --------------------------------------------------
 Resources:
-  # Create an S3 Bucket that serves a static website (i.e. React app)
-  MyBucket:
+  # --- CloudFront origin identity definition for S3 bucket policy
+  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
+  #
+  # This identity will be used in the S3 bucket policy to identify the CloudFront
+  # resouce which is allowed to access the S3 content
+  AcmeAcmeCloudFrontIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment:
+          !Join ['', ['AcmeAcmeApp (', !Ref Env, ') Origin Access Identity']]
+
+  # --- S3 Bucket: to host the content
+  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
+  #
+  # Route53 / CloudFront handle content service so there is no need of a static
+  # website hosting configuration.
+  #
+  # As the S3BucketPolicy will grant access to CloudFront, there is no need to
+  # define an "AccessControl". This also ensures that the content is only
+  # accessible through CloudFront and directly accessing the S3 bucket content
+  # is not possible. Using the example values, accessing
+  #   https://acmeacme-app-dev.s3-{region}.amazonaws.com/index.html
+  # will end up with a 403 error. This "index.html" must be accessed through
+  #   https://app-dev.acmeacme.tech/index.htmll
+  AcmeAcmeS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: sean-react-template
-      AccessControl: PublicRead # visitors need to be able to access the sie
-      WebsiteConfiguration: # this makes the S3 Bucket a static website/app
-        IndexDocument: index.html # default object served when visiting S3 domain
-        ErrorDocument: index.html # just send to app, let React handle errors and routing
+      BucketName: !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName']
 
-  # Add a Bucket Policy that lets public visitors access the web app
-  MyBucketPolicy:
+  # --- CloudFront definition: to serve the content / with CDN / with HTTPS
+  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
+  # Snippet : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-cloudfront.html#scenario-cloudfront-s3origin
+  AcmeAcmeCloudFront:
+    Type: 'AWS::CloudFront::Distribution'
+    Properties:
+      # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
+      DistributionConfig:
+        Aliases:
+          - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+        Comment: !Join ['', ['AcmeAcmeApp ', !Ref Env]]
+        # This must be defined, even with all default values. Altough values are
+        # a list of string, only certain combinations are allowed. Please check
+        # the documentation for more details
+        #
+        # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          # Required field
+          ForwardedValues:
+            QueryString: True
+          # This value must match the Origin.Id defined below, under the
+          # Origins key
+          TargetOriginId:
+            !Join [
+              '',
+              [
+                'S3-origin-',
+                !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName'],
+              ],
+            ]
+          # Super nice automatic redirection of HTTP to HTTPS
+          ViewerProtocolPolicy: redirect-to-https
+        # This is required, even if not mentioned in the AWS documentation. For
+        # some reason, SPA will not work properly if CloudFront does not have a
+        # default entry point
+        DefaultRootObject: index.html
+        # Enabled CloudFront as soon as created
+        Enabled: True
+        HttpVersion: http2
+        IPV6Enabled: True
+        # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
+        Origins:
+          # Use the regional domain name instead of the global name
+          # ( {bucket}.s3.amazonaws.com )
+          # If the global name is used, the CloudFront URL will only redirect the
+          # requests to S3 global domain name instead of serving the content. As
+          # S3 content is only available to CloudFront, not to the public access,
+          # such request ends up with a 403 enrror
+          #
+          # https://stackoverflow.com/a/58423033/4906586
+          - DomainName: !GetAtt AcmeAcmeS3Bucket.RegionalDomainName
+            Id:
+              !Join [
+                '',
+                [
+                  'S3-origin-',
+                  !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName'],
+                ],
+              ]
+            # S3 bucket access restriction: ensure that content is only available
+            # through CloudFront
+            #
+            # https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_S3OriginConfig.html
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${AcmeAcmeCloudFrontIdentity}'
+        PriceClass:
+          !FindInMap [EnvironmentMaps, !Ref Env, 'CloudFrontPriceClass']
+        # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html
+        ViewerCertificate:
+          # If the certificate is part of the CloudFormation stack, use its reference
+          # instead:
+          #   !Ref <CERTIFICATE LOGICAL ID>
+          AcmCertificateArn: !Ref AwsCertificateArn
+          MinimumProtocolVersion: TLSv1.2_2018 # recommended value if there is no browser support issue
+          SslSupportMethod: sni-only
+
+  # --- S3 Bucket policy: to control access to the content
+  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
+  AcmeAcmeS3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
-      Bucket: !Ref MyBucket # attach to bucket being created
+      Bucket: !Ref AcmeAcmeS3Bucket
       PolicyDocument:
-        Id: MyPolicy
-        Version: 2012-10-17
-        Statement: # lets the public access/view the contents of your Bucket, i.e. web app
-          - Sid: PublicReadForGetBucketObjects
+        Statement:
+          - Action:
+              - 's3:GetObject'
             Effect: Allow
-            Principal: '*' # wildcard, allow all requests
-            Action: 's3:GetObject'
-            Resource: !Join ['', ['arn:aws:s3:::', !Ref MyBucket, /*]]
-  # Route53DomainHost:
-  # CertificateManager:
-  # CloudfrontDistribution:
-  # Route53DistributionDomain:
+            Principal:
+              AWS:
+                !Join [
+                  '',
+                  [
+                    'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ',
+                    !Ref AcmeAcmeCloudFrontIdentity,
+                  ],
+                ]
+            Resource: !Join ['', ['arn:aws:s3:::', !Ref AcmeAcmeS3Bucket, '/*']]
+        Version: '2012-10-17'
+
+  # --- Route 53: to expose the nice URL
+  # Doc     : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
+  # Snippet : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-route53.html
+  AcmeAcmeRoute53:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      AliasTarget:
+        DNSName: !GetAtt AcmeAcmeCloudFront.DomainName
+        EvaluateTargetHealth: False
+        HostedZoneId: !Ref AwsRoute53CloudFrontHostedZoneId
+      Comment: !Join ['', ['AcmeAcmeApp ', !Ref Env, ' Route']]
+      HostedZoneName:
+        !FindInMap [EnvironmentMaps, !Ref Env, 'Route53HostedZoneName']
+      Name: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+      Type: A
+
 Outputs:
-  WebsiteURL:
-    Value: !GetAtt MyBucket.WebsiteURL
-    Description: URL for website hosted on S3
+  Route53URL:
+    Value: !Ref AcmeAcmeRoute53
+    Description: 'AcmeAcmeApp URL'
+  CloudFrontURL:
+    Value: !GetAtt AcmeAcmeCloudFront.DomainName
+    Description: 'AcmeAcmeCloudFront URL'
