@@ -12,7 +12,7 @@ Parameters:
     Description: 'Define the environment to deploy. Accepted values are "develop", "qa", "staging" and "production"'
   AwsRoute53CloudFrontHostedZoneId:
     Type: String
-    Default: Z068263715RVIFNDD3OQ3
+    Default: Z2FDTNDATAQYW2
     Description: CloudFront resources HostedZoneId
 Mappings:
   EnvironmentMaps:
