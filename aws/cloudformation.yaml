@@ -37,14 +37,6 @@ Mappings:
       'Route53HostedZoneName': app.com
       'S3BucketName': sean-react-template
 Resources:
-  Certificate:
-    Type: AWS::CertificateManager::Certificate
-    Properties:
-      DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
-      DomainValidationOptions:
-        - DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
-          HostedZoneId: !Ref AwsRoute53CloudFrontHostedZoneId
-      ValidationMethod: DNS
   CloudFrontIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Properties:
@@ -137,6 +129,14 @@ Resources:
         !FindInMap [EnvironmentMaps, !Ref Env, 'Route53HostedZoneName']
       Name: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
       Type: A
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+      DomainValidationOptions:
+        - DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+          HostedZoneId: !Ref AwsRoute53CloudFrontHostedZoneId
+      ValidationMethod: DNS
 Outputs:
   Route53URL:
     Value: !Ref Route53
