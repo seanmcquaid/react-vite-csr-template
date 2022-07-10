@@ -2,7 +2,6 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: |
   Cloudformation Stacks to Deploy a React App to AWS with the following :
   - S3 Bucket to store the build
-Parameters: {}
 Resources:
   # Create an S3 Bucket that serves a static website (i.e. React app)
   MyBucket:
@@ -33,3 +32,6 @@ Resources:
   # CloudfrontDistribution:
   # Route53DistributionDomain:
 Outputs:
+  WebsiteURL:
+    Value: !GetAtt MyBucket.WebsiteURL
+    Description: URL for website hosted on S3
