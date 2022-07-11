@@ -93,10 +93,6 @@ Resources:
               OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CloudFrontIdentity}'
         PriceClass:
           !FindInMap [EnvironmentMaps, !Ref Env, 'CloudFrontPriceClass']
-        ViewerCertificate:
-          AcmCertificateArn: !Ref Certificate
-          MinimumProtocolVersion: TLSv1.2_2018
-          SslSupportMethod: sni-only
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -129,11 +125,6 @@ Resources:
         !FindInMap [EnvironmentMaps, !Ref Env, 'Route53HostedZoneName']
       Name: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
       Type: A
-  Certificate:
-    Type: AWS::CertificateManager::Certificate
-    Properties:
-      DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
-      ValidationMethod: DNS
 Outputs:
   Route53URL:
     Value: !Ref Route53
