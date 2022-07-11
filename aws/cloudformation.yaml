@@ -135,7 +135,7 @@ Resources:
       DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
       DomainValidationOptions:
         - DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
-          ValidationDomain: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+          HostedZoneId: 'Z068263715RVIFNDD3OQ3'
       ValidationMethod: DNS
 Outputs:
   Route53URL:
