@@ -50,4 +50,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Deploy Cloudformation Stacks
-        run: aws cloudformation deploy --template-file 'aws/cloudformation.yaml' --stack-name react-template --parameters ParameterKey=CertificateArn,ParameterValue=${{ secrets.AWS_CERTIFICATE_ARN }}
+        run: aws cloudformation deploy --template-file 'aws/cloudformation.yaml' --stack-name react-template --parameter-overrides CertificateArn=${{ secrets.AWS_CERTIFICATE_ARN }}
