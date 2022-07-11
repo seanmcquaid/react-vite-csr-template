@@ -14,6 +14,10 @@ Parameters:
     Type: String
     Default: Z2FDTNDATAQYW2
     Description: CloudFront resources HostedZoneId
+  CertificateArn:
+    Type: String
+    Default: certificate-arn-here
+    Description: AWS Certificate Manager ARN
 Mappings:
   EnvironmentMaps:
     develop:
@@ -94,7 +98,7 @@ Resources:
         PriceClass:
           !FindInMap [EnvironmentMaps, !Ref Env, 'CloudFrontPriceClass']
         ViewerCertificate:
-          AcmCertificateArn: !Ref Certificate
+          AcmCertificateArn: !Ref CertificateArn
           MinimumProtocolVersion: TLSv1.2_2018
           SslSupportMethod: sni-only
   S3BucketPolicy:
@@ -129,14 +133,6 @@ Resources:
         !FindInMap [EnvironmentMaps, !Ref Env, 'Route53HostedZoneName']
       Name: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
       Type: A
-  Certificate:
-    Type: AWS::CertificateManager::Certificate
-    Properties:
-      DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
-      DomainValidationOptions:
-        - DomainName: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
-          HostedZoneId: Z068263715RVIFNDD3OQ3
-      ValidationMethod: DNS
 Outputs:
   Route53URL:
     Value: !Ref Route53
