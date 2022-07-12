@@ -70,7 +70,7 @@
     "vite-plugin-checker": "^0.4.8",
     "vite-plugin-package-version": "^1.0.2",
     "vite-plugin-svgr": "^2.1.1",
-    "vitest": "^0.17.0",
+    "vitest": "^0.18.0",
     "vitest-sonar-reporter": "^0.2.1"
   },
   "lint-staged": {
