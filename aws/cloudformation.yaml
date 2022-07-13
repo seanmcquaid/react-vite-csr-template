@@ -97,10 +97,10 @@ Resources:
               OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CloudFrontIdentity}'
         PriceClass:
           !FindInMap [EnvironmentMaps, !Ref Env, 'CloudFrontPriceClass']
-        ViewerCertificate:
-          AcmCertificateArn: !Ref CertificateArn
-          MinimumProtocolVersion: TLSv1.2_2018
-          SslSupportMethod: sni-only
+        # ViewerCertificate:
+        #   AcmCertificateArn: !Ref CertificateArn
+        #   MinimumProtocolVersion: TLSv1.2_2018
+        #   SslSupportMethod: sni-only
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
