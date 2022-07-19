@@ -18,22 +18,22 @@ Mappings:
   EnvironmentMaps:
     develop:
       'CloudFrontPriceClass': PriceClass_100
-      'Domain': sean-react-template-dev.app.com
+      'Domain': sean-react-template-dev.app.io
       'S3BucketName': sean-react-template-dev
       'S3LoggingBucketName': sean-react-template-dev-logs
     qa:
       'CloudFrontPriceClass': PriceClass_200
-      'Domain': sean-react-template-qa.app.com
+      'Domain': sean-react-template-qa.app.io
       'S3BucketName': sean-react-template-qa
       'S3LoggingBucketName': sean-react-template-qa-logs
     staging:
       'CloudFrontPriceClass': PriceClass_200
-      'Domain': sean-react-template-staging.app.com
+      'Domain': sean-react-template-staging.app.io
       'S3BucketName': sean-react-template-staging
       'S3LoggingBucketName': sean-react-template-staging-logs
     production:
       'CloudFrontPriceClass': PriceClass_All
-      'Domain': sean-react-template.app.com
+      'Domain': sean-react-template.app.io
       'S3BucketName': sean-react-template
       'S3LoggingBucketName': sean-react-template-logs
 Resources:
