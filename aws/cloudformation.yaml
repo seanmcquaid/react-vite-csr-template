@@ -136,7 +136,7 @@ Resources:
           Prefix: 'cloudfront-access-logs'
 
 Outputs:
-  BucketName:
-    Value: !Ref S3Bucket.BucketName
-  CFDistributionConfig:
-    Value: !Ref CFDistribution.DistributionConfig
+  S3Bucket:
+    Value: !Ref S3Bucket
+  CFDistribution:
+    Value: !Ref CFDistribution
