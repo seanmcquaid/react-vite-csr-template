@@ -50,7 +50,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Deploy Cloudformation Stacks
-        run: aws cloudformation deploy --template-file 'aws/cloudformation.yaml' --stack-name react-template --parameter-overrides HostedZoneId=${{ secrets.AWS_HOSTED_ZONE_ID }}
+        run: aws cloudformation deploy --template-file 'aws/cloudformation.yaml' --stack-name react-template --parameter-overrides HostedZoneId=${{ secrets.AWS_HOSTED_ZONE_ID }} CertificateArn=${{ secrets.AWS_CERTIFICATE_ARN }}
       - name: Deploy App to S3 + CloudFront
         run: |
           echo "Clearing bucket..."
