@@ -1018,10 +1018,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/standalone@^7.17.11":
-  version "7.18.8"
-  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.18.8.tgz#d39a524a8a77a4f9d0798e71be5482187ea2c9f3"
-  integrity sha512-cDayR7x6IAp7k1947fYeo7OxD7QwT9/UZ+BT05Zq2pfsOzkhOJZdY19X0NvL6fYaszwnzO0zVHgp04OspPh3SA==
+"@babel/standalone@^7.18.8":
+  version "7.18.9"
+  resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.18.9.tgz#27d9bccac590df9e2d34b632e5d600f68b3fe581"
+  integrity sha512-6E+p5azHMHcMkHzGFnA7Pqhtgfwx1cClwjMqomMHhdFupCLZDDpVQUctRGYE7p7nn7cXJZSI/L9en+tt30AP3w==
 
 "@babel/template@^7.18.6":
   version "7.18.6"
@@ -1686,14 +1686,14 @@
     "@typescript-eslint/types" "5.30.6"
     eslint-visitor-keys "^3.3.0"
 
-"@vitejs/plugin-legacy@^1.8.2":
-  version "1.8.2"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-1.8.2.tgz#2f315bcb6685b12719813fb9412851445cca636f"
-  integrity sha512-NCOKU+pU+cxLMR9P9RTolEuOK+h+zYBXlknj+zGcKSj/NXBZYgA1GAH1FnO4zijoWRiTaiOm2ha9LQrELE7XHg==
+"@vitejs/plugin-legacy@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-legacy/-/plugin-legacy-2.0.0.tgz#63e9a919c5b3bd8e43e18cbf497f4c270efdf1b9"
+  integrity sha512-cuc45C4BQo2VlOsHZML4fc3MPfSjOEFeezHxr+WWlOOmi+muy1rz2snnFiePtyjVc1CYGTsnxk13cXpzQvMZaw==
   dependencies:
-    "@babel/standalone" "^7.17.11"
-    core-js "^3.22.3"
-    magic-string "^0.26.1"
+    "@babel/standalone" "^7.18.8"
+    core-js "^3.23.4"
+    magic-string "^0.26.2"
     regenerator-runtime "^0.13.9"
     systemjs "^6.12.1"
 
@@ -2622,10 +2622,10 @@ core-js-pure@^3.20.2:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.23.4.tgz#aba5c7fb297063444f6bf93afb0362151679a012"
   integrity sha512-lizxkcgj3XDmi7TUBFe+bQ1vNpD5E4t76BrBWI3HdUxdw/Mq1VF4CkiHzIKyieECKtcODK2asJttoofEeUKICQ==
 
-core-js@^3.22.3:
-  version "3.23.4"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.23.4.tgz#92d640faa7f48b90bbd5da239986602cfc402aa6"
-  integrity sha512-vjsKqRc1RyAJC3Ye2kYqgfdThb3zYnx9CrqoCcjMOENMtQPC7ZViBvlDxwYU/2z2NI/IPuiXw5mT4hWhddqjzQ==
+core-js@^3.23.4:
+  version "3.23.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.23.5.tgz#1f82b0de5eece800827a2f59d597509c67650475"
+  integrity sha512-7Vh11tujtAZy82da4duVreQysIoO2EvVrur7y6IzZkH1IHPSekuDi8Vuw1+YKjkbfWLRD7Nc9ICQ/sIUDutcyg==
 
 core-util-is@1.0.2:
   version "1.0.2"
@@ -5040,7 +5040,7 @@ madge@^5.0.1:
     typescript "^3.9.5"
     walkdir "^0.4.1"
 
-magic-string@^0.26.1:
+magic-string@^0.26.2:
   version "0.26.2"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.26.2.tgz#5331700e4158cd6befda738bb6b0c7b93c0d4432"
   integrity sha512-NzzlXpclt5zAbmo6h6jNc8zl2gNRGHvmsZW4IvZhTC4W7k4OlLP+S5YLussa/r3ixNT66KOQfNORlXHSOy/X4A==
