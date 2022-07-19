@@ -94,7 +94,7 @@ Resources:
     DeletionPolicy: Delete
 
   # The Amazon CloudFront origin access identity
-  CloudFrontIdentity:
+  CFOriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     DependsOn:
       - S3Bucket
