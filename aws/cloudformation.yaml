@@ -10,6 +10,10 @@ Parameters:
       - staging
       - prod
     Description: 'Define the environment to deploy. Accepted values are "develop", "qa", "staging" and "production"'
+  HostedZoneId:
+    Type: String
+    Default: hosted-zone-id
+    Description: 'Hosted Zone ID for DNS'
 Mappings:
   EnvironmentMaps:
     develop:
@@ -136,8 +140,22 @@ Resources:
           Bucket: !GetAtt LoggingBucket.RegionalDomainName
           Prefix: 'cloudfront-access-logs'
 
+  Route53:
+    Type: 'AWS::Route53::RecordSetGroup'
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      RecordSets:
+        - Name: !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2
+            DNSName: !GetAtt
+              - !Ref CFDistribution
+              - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
 Outputs:
   S3Bucket:
     Value: !Ref S3Bucket
   CFDistribution:
     Value: !Ref CFDistribution
+  Route53:
+    Value: !Ref Route53
