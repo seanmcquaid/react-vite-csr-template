@@ -118,6 +118,8 @@ Resources:
       - CFOriginAccessIdentity
     Properties:
       DistributionConfig:
+        CNAMES:
+          - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
         Origins:
           - DomainName: !GetAtt S3Bucket.RegionalDomainName
             Id: myS3Origin
