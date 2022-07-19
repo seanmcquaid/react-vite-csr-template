@@ -14,6 +14,10 @@ Parameters:
     Type: String
     Default: hosted-zone-id
     Description: 'Hosted Zone ID for DNS'
+  CertificateArn:
+    Type: String
+    Default: certificate-arn
+    Description: 'ARN Certificate for Domain'
 Mappings:
   EnvironmentMaps:
     develop:
@@ -118,8 +122,12 @@ Resources:
       - CFOriginAccessIdentity
     Properties:
       DistributionConfig:
-        CNAMEs:
+        Aliases:
           - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertificateArn
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2018
         Origins:
           - DomainName: !GetAtt S3Bucket.RegionalDomainName
             Id: myS3Origin
