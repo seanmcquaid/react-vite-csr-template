@@ -139,4 +139,4 @@ Outputs:
   BucketName:
     Value: !Ref S3Bucket.BucketName
   CFDistributionConfig:
-    Value: !CFDistribution.DistributionConfig
+    Value: !Ref CFDistribution.DistributionConfig
