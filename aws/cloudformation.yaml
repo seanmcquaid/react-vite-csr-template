@@ -16,33 +16,33 @@ Mappings:
       'CloudFrontPriceClass': PriceClass_100
       'Domain': sean-react-template-dev.app.com
       'S3BucketName': sean-react-template-dev
-      'S3LoggingBucketName:' sean-react-template-dev-logs
+      'S3LoggingBucketName': sean-react-template-dev-logs
     qa:
       'CloudFrontPriceClass': PriceClass_200
       'Domain': sean-react-template-qa.app.com
       'S3BucketName': sean-react-template-qa
-      'S3LoggingBucketName:' sean-react-template-qa-logs
+      'S3LoggingBucketName': sean-react-template-qa-logs
     staging:
       'CloudFrontPriceClass': PriceClass_200
       'Domain': sean-react-template-staging.app.com
       'S3BucketName': sean-react-template-staging
-      'S3LoggingBucketName:' sean-react-template-staging-logs
+      'S3LoggingBucketName': sean-react-template-staging-logs
     production:
       'CloudFrontPriceClass': PriceClass_All
       'Domain': sean-react-template.app.com
       'S3BucketName': sean-react-template
-      'S3LoggingBucketName:' sean-react-template-logs
+      'S3LoggingBucketName': sean-react-template-logs
 Resources:
-# The Amazon S3 bucket into which our Single Page Application build files must be deployed
+  # The Amazon S3 bucket into which our Single Page Application build files must be deployed
   S3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
       BucketName: !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName']
       PublicAccessBlockConfiguration:
-        BlockPublicAcls : true
-        BlockPublicPolicy : true
-        IgnorePublicAcls : true
-        RestrictPublicBuckets : true
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
       LoggingConfiguration:
         DestinationBucketName: !Ref LoggingBucket
         LogFilePrefix: s3-access-logs
@@ -50,8 +50,8 @@ Resources:
         Status: Enabled
       BucketEncryption:
         ServerSideEncryptionConfiguration:
-        - ServerSideEncryptionByDefault:
-            SSEAlgorithm: 'AES256'
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'AES256'
 
   # The Amazon S3 bucket policy for securing the bucket hosting the application
   BucketPolicy:
@@ -66,7 +66,7 @@ Resources:
             Principal:
               CanonicalUser: !GetAtt CFOriginAccessIdentity.S3CanonicalUserId
             Action: 's3:GetObject*'
-            Resource: !Join 
+            Resource: !Join
               - ''
               - - 'arn:aws:s3:::'
                 - !Ref S3Bucket
@@ -80,19 +80,19 @@ Resources:
     Properties:
       BucketName: !FindInMap [EnvironmentMaps, !Ref Env, 'S3LoggingBucketName']
       PublicAccessBlockConfiguration:
-        BlockPublicAcls : true
-        BlockPublicPolicy : true
-        IgnorePublicAcls : true
-        RestrictPublicBuckets : true
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
       AccessControl: LogDeliveryWrite
       VersioningConfiguration:
         Status: Enabled
       BucketEncryption:
         ServerSideEncryptionConfiguration:
-        - ServerSideEncryptionByDefault:
-            SSEAlgorithm: 'AES256'
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'AES256'
     DeletionPolicy: Delete
-  
+
   # The Amazon CloudFront origin access identity
   CloudFrontIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
@@ -106,7 +106,7 @@ Resources:
             ['Sean React Template (', !Ref Env, ') Origin Access Identity'],
           ]
 
-# The Amazon CloudFront distribution exposing our Single Page Application
+  # The Amazon CloudFront distribution exposing our Single Page Application
   CFDistribution:
     #checkov:skip=CKV_AWS_68: "For demo purposes and to reduce cost, no WAF is configured"
     Type: 'AWS::CloudFront::Distribution'
@@ -115,17 +115,17 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName: !GetAtt S3Bucket.RegionalDomainName
-          Id: myS3Origin
-          S3OriginConfig:
-            OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${CFOriginAccessIdentity}"
+          - DomainName: !GetAtt S3Bucket.RegionalDomainName
+            Id: myS3Origin
+            S3OriginConfig:
+              OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CFOriginAccessIdentity}'
         Enabled: 'true'
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
-          - GET
-          - HEAD
-          - OPTIONS
+            - GET
+            - HEAD
+            - OPTIONS
           TargetOriginId: myS3Origin
           CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # CachingOptimized
           OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # CORS-S3Origin
