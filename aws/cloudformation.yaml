@@ -150,6 +150,7 @@ Resources:
           Bucket: !GetAtt LoggingBucket.RegionalDomainName
           Prefix: 'cloudfront-access-logs'
 
+  # The Amazon Route53 Record with Type A for Aliasing the CloudFront Distribution
   Route53A:
     Type: 'AWS::Route53::RecordSetGroup'
     Properties:
@@ -161,6 +162,7 @@ Resources:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CFDistribution.DomainName
 
+  # The Amazon Route53 Record with Type AAAA for Aliasing the CloudFront Distribution
   Route53AAAA:
     Type: 'AWS::Route53::RecordSetGroup'
     Properties:
@@ -177,5 +179,7 @@ Outputs:
     Value: !Ref S3Bucket
   CFDistribution:
     Value: !Ref CFDistribution
-  Route53:
+  Route53A:
+    Value: !Ref Route53A
+  Route53AAAA:
     Value: !Ref Route53A
