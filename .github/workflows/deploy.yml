@@ -15,6 +15,8 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-20.04
+    env:
+      ENVIRONMENT: develop
     steps:
       - name: Checkout latest
         uses: actions/checkout@v3
@@ -22,6 +24,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16'
+      - name: Set env to qa
+        if: endsWith(github.ref, '/qa')
+        run: |
+          echo "ENVIRONMENT=qa" >> $GITHUB_ENV
+      - name: Set env to staging
+        if: endsWith(github.ref, '/staging')
+        run: |
+          echo "ENVIRONMENT=staging" >> $GITHUB_ENV
+      - name: Set env to prod
+        if: endsWith(github.ref, '/prod')
+        run: |
+          echo "ENVIRONMENT=prod" >> $GITHUB_ENV
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -50,10 +64,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Deploy Cloudformation Stacks
-        run: aws cloudformation deploy --template-file 'aws/cloudformation.yaml' --stack-name react-template --parameter-overrides HostedZoneId=${{ secrets.AWS_HOSTED_ZONE_ID }} CertificateArn=${{ secrets.AWS_CERTIFICATE_ARN }}
+        run: aws cloudformation deploy --template-file 'aws/cloudformation.yaml' --stack-name ${{ secrets.AWS_CLOUDFORMATION_STACK_NAME }}-${{env.ENVIRONMENT}} --parameter-overrides HostedZoneId=${{ secrets.AWS_HOSTED_ZONE_ID }} CertificateArn=${{ secrets.AWS_CERTIFICATE_ARN }} Env=${{ env.ENVIRONMENT }}
       - name: Deploy App to S3 + CloudFront
         run: |
           echo "Clearing bucket..."
-          aws s3 rm s3://sean-react-template-dev --recursive
+          aws s3 rm s3://${{ secrets.AWS_S3_BUCKET_NAME }}-${{ env.ENVIRONMENT }} --recursive
           echo "Syncing app to bucket..."
-          aws s3 sync ./dist s3://sean-react-template-dev
+          aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}-${{ env.ENVIRONMENT }}
