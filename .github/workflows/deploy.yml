@@ -1,22 +1,22 @@
 name: Deploy
-on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
       - main
-  # push:
-  #   branches:
-  #     - develop
-  #     - qa
-  #     - staging
-  #     - prod
+# on:
+#   push:
+#     branches:
+#       - develop
+#       - qa
+#       - staging
+#       - prod
 
 jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-20.04
     env:
-      ENVIRONMENT: develop
+      ENVIRONMENT: dev
     steps:
       - name: Checkout latest
         uses: actions/checkout@v3

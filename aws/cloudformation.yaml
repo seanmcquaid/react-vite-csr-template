@@ -3,13 +3,13 @@ Description: S3 / Route53 / CloudFront CloudFormation configuration
 Parameters:
   Env:
     Type: String
-    Default: develop
+    Default: dev
     AllowedValues:
-      - develop
+      - dev
       - qa
       - staging
       - prod
-    Description: 'Define the environment to deploy. Accepted values are "develop", "qa", "staging" and "production"'
+    Description: 'Define the environment to deploy. Accepted values are "dev", "qa", "staging" and "prod"'
   HostedZoneId:
     Type: String
     Default: hosted-zone-id
@@ -20,7 +20,7 @@ Parameters:
     Description: 'ARN Certificate for Domain'
 Mappings:
   EnvironmentMaps:
-    develop:
+    dev:
       'CloudFrontPriceClass': PriceClass_100
       'Domain': sean-react-template-dev.mcquaid-apps.com
       'S3BucketName': sean-react-template-dev
@@ -35,11 +35,11 @@ Mappings:
       'Domain': sean-react-template-staging.mcquaid-apps.com
       'S3BucketName': sean-react-template-staging
       'S3LoggingBucketName': sean-react-template-staging-logs
-    production:
+    prod:
       'CloudFrontPriceClass': PriceClass_All
       'Domain': sean-react-template.app.io
-      'S3BucketName': sean-react-template
-      'S3LoggingBucketName': sean-react-template-logs
+      'S3BucketName': sean-react-template-prod
+      'S3LoggingBucketName': sean-react-template-prod-logs
 Resources:
   # The Amazon S3 bucket into which our Single Page Application build files must be deployed
   S3Bucket:
