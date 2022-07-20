@@ -182,4 +182,4 @@ Outputs:
   Route53A:
     Value: !Ref Route53A
   Route53AAAA:
-    Value: !Ref Route53A
+    Value: !Ref Route53AAAA
