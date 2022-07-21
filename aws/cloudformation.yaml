@@ -174,6 +174,29 @@ Resources:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt CFDistribution.DomainName
 
+  # The Amazon Route53 Record with Type A for Aliasing the CloudFront Distribution
+  WWWRoute53A:
+    Type: 'AWS::Route53::RecordSetGroup'
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      RecordSets:
+        - Name: !Join ['www', !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']]
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2
+            DNSName: !GetAtt CFDistribution.DomainName
+
+  # The Amazon Route53 Record with Type AAAA for Aliasing the CloudFront Distribution
+  WWWRoute53AAAA:
+    Type: 'AWS::Route53::RecordSetGroup'
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      RecordSets:
+        - Name: !Join ['www', !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']]
+          Type: AAAA
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2
+            DNSName: !GetAtt CFDistribution.DomainName
 Outputs:
   S3Bucket:
     Value: !Ref S3Bucket
