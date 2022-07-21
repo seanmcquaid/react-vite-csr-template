@@ -1,16 +1,16 @@
 name: Deploy
-# on:
-#   pull_request:
-#     types: [opened, synchronize, reopened]
-#     branches:
-#       - main
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
     branches:
-      - develop
-      - qa
-      - staging
-      - prod
+      - main
+# on:
+#   push:
+#     branches:
+#       - develop
+#       - qa
+#       - staging
+#       - prod
 
 jobs:
   deploy:
