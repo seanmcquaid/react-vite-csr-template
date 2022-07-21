@@ -180,7 +180,8 @@ Resources:
     Properties:
       HostedZoneId: !Ref HostedZoneId
       RecordSets:
-        - Name: !Join ['www', !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']]
+        - Name:
+            !Join ['www.', [!FindInMap [EnvironmentMaps, !Ref Env, 'Domain']]]
           Type: A
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
@@ -192,7 +193,8 @@ Resources:
     Properties:
       HostedZoneId: !Ref HostedZoneId
       RecordSets:
-        - Name: !Join ['www', !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']]
+        - Name:
+            !Join ['www.', [!FindInMap [EnvironmentMaps, !Ref Env, 'Domain']]]
           Type: AAAA
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
