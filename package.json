@@ -52,7 +52,7 @@
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-i18next": "^6.0.0-4",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-mocha": "^10.0.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.0",
