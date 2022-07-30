@@ -127,7 +127,11 @@ Resources:
         DefaultTTL: 259200
         MaxTTL: 604800
         MinTTL: 1
-        Name: !Ref S3Bucket
+        Name:
+          !Join [
+            '',
+            [ '(', !Ref Env, ') Cache Policy' ],
+          ]
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
             CookieBehavior: "all"
