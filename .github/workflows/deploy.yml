@@ -6,6 +6,7 @@ on:
       - qa
       - staging
       - prod
+      - main
 
 jobs:
   deploy:

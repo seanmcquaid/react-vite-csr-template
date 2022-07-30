@@ -133,9 +133,10 @@ Resources:
             Id: myS3Origin
             S3OriginConfig:
               OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CFOriginAccessIdentity}'
-        Enabled: 'true'
+        Enabled: true
         DefaultRootObject: index.html
         DefaultCacheBehavior:
+          Compress: true
           AllowedMethods:
             - GET
             - HEAD
