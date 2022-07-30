@@ -126,7 +126,7 @@ Resources:
           ]
         DefaultTTL: 259200
         MaxTTL: 604800
-        MinTTL: 1
+        MinTTL: 259201
         Name: "React Template Cache Policy"
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
