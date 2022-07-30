@@ -71,3 +71,5 @@ jobs:
           aws s3 rm s3://${{ secrets.AWS_S3_BUCKET_NAME }}-${{ env.ENVIRONMENT }} --recursive
           echo "Syncing app to bucket..."
           aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}-${{ env.ENVIRONMENT }}
+      - name: Get CloudFront Distribution ID
+        run: echo aws cloudformation --query 'Stacks[?StackName=='${{ secrets.AWS_CLOUDFORMATION_STACK_NAME }}'][].Outputs[?OutputKey==`CFDistribution`].OutputValue' --output text >> $GITHUB_ENV
