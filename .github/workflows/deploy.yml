@@ -1,12 +1,15 @@
 name: Deploy
 on:
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+    branches:
+      - main
   push:
     branches:
       - develop
       - qa
       - staging
       - prod
-      - main
 
 jobs:
   deploy:
