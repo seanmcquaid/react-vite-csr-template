@@ -127,7 +127,11 @@ Resources:
         DefaultTTL: 259200
         MaxTTL: 604800
         MinTTL: 259201
-        Name: "React Template Cache Policy"
+        Name:
+          !Join [
+            '',
+            [ 'Sean React Template (', !Ref Env, ') Origin Cache Policy' ],
+          ]
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
             CookieBehavior: "all"
