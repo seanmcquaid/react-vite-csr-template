@@ -127,11 +127,7 @@ Resources:
         DefaultTTL: 259200
         MaxTTL: 604800
         MinTTL: 1
-        Name:
-          !Join [
-            '',
-            [ '(', !Ref Env, ') Cache Policy' ],
-          ]
+        Name: "React Template Cache Policy"
         ParametersInCacheKeyAndForwardedToOrigin:
           CookiesConfig:
             CookieBehavior: "all"
