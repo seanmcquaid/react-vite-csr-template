@@ -122,6 +122,7 @@ Resources:
       - CFOriginAccessIdentity
     Properties:
       DistributionConfig:
+        HttpVersion: 'http2'
         Aliases:
           - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
         ViewerCertificate:
