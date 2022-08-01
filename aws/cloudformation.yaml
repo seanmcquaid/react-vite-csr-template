@@ -122,6 +122,12 @@ Resources:
       - CFOriginAccessIdentity
     Properties:
       DistributionConfig:
+        CustomErrorResponses:
+          - ErrorCachingMinTTL: 1
+            ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: '/index.html'
+        HttpVersion: 'http2'
         Aliases:
           - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
         ViewerCertificate:
@@ -133,7 +139,7 @@ Resources:
             Id: myS3Origin
             S3OriginConfig:
               OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CFOriginAccessIdentity}'
-        Enabled: 'true'
+        Enabled: true
         DefaultRootObject: index.html
         DefaultCacheBehavior:
           AllowedMethods:
