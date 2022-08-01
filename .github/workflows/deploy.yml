@@ -72,7 +72,7 @@ jobs:
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
             HostedZoneId=${{ secrets.AWS_HOSTED_ZONE_ID }},
-            CertificateArn=${{ secrets.AWS_CERTIFICATE_ARN }}
+            CertificateArn=${{ secrets.AWS_CERTIFICATE_ARN }},
             Env=${{ env.ENVIRONMENT }}
       - name: Deploy App to S3 + CloudFront
         run: |
