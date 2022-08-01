@@ -122,6 +122,11 @@ Resources:
       - CFOriginAccessIdentity
     Properties:
       DistributionConfig:
+        CustomErrorResponses:
+          - ErrorCachingMinTTL: 1
+            ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: '/index.html'
         HttpVersion: 'http2'
         Aliases:
           - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
