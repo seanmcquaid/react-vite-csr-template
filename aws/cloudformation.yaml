@@ -37,7 +37,7 @@ Mappings:
       'S3LoggingBucketName': sean-react-template-staging-logs
     prod:
       'CloudFrontPriceClass': PriceClass_All
-      'Domain': sean-react-template.app.io
+      'Domain': sean-react-template.mcquaid-apps.com
       'S3BucketName': sean-react-template-prod
       'S3LoggingBucketName': sean-react-template-prod-logs
 Resources:
@@ -83,7 +83,6 @@ Resources:
 
   # The Amazon S3 bucket into which access logs from S3 (for the application) and CloudFront will be put
   LoggingBucket:
-    #checkov:skip=CKV_AWS_18: "This bucket is private and only for storing logs"
     Type: 'AWS::S3::Bucket'
     Properties:
       BucketName: !FindInMap [EnvironmentMaps, !Ref Env, 'S3LoggingBucketName']
@@ -114,12 +113,40 @@ Resources:
             ['Sean React Template (', !Ref Env, ') Origin Access Identity'],
           ]
 
+  WebACL:
+    Type: AWS::WAFv2::WebACL
+    Properties:
+      DefaultAction:
+        Allow: {}
+      Description: Web ACL.  Basic AWS Managed Ruleset.
+      Name: !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName']
+      Scope: CLOUDFRONT
+      VisibilityConfig:
+        SampledRequestsEnabled: true
+        CloudWatchMetricsEnabled: true
+        MetricName: !FindInMap [EnvironmentMaps, !Ref Env, 'S3BucketName']
+      Rules:
+        - Name: RuleWithAWSManagedRules
+          Priority: 0
+          OverrideAction:
+            None: {}
+          VisibilityConfig:
+            SampledRequestsEnabled: true
+            CloudWatchMetricsEnabled: true
+            MetricName: RuleWithAWSManagedRulesMetric
+          Statement:
+            ManagedRuleGroupStatement:
+              VendorName: AWS
+              Name: AWSManagedRulesCommonRuleSet
+              ExcludedRules: []
+
   # The Amazon CloudFront distribution exposing our Single Page Application
   CFDistribution:
     #checkov:skip=CKV_AWS_68: "For demo purposes and to reduce cost, no WAF is configured"
     Type: 'AWS::CloudFront::Distribution'
     DependsOn:
       - CFOriginAccessIdentity
+      - WebACL
     Properties:
       DistributionConfig:
         CustomErrorResponses:
@@ -128,6 +155,7 @@ Resources:
             ResponseCode: 200
             ResponsePagePath: '/index.html'
         HttpVersion: 'http2'
+        WebACLId: !GetAtt WebACL.Arn
         Aliases:
           - !FindInMap [EnvironmentMaps, !Ref Env, 'Domain']
         ViewerCertificate:
