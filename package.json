@@ -13,7 +13,7 @@
     "lint": "eslint cypress src",
     "prepare": "husky install",
     "bundlesize": "bundlesize",
-    "serve": "node ./scripts/build.js"
+    "serve": "node scripts/buildServer.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
