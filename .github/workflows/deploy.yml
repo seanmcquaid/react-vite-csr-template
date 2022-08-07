@@ -10,7 +10,7 @@ on:
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       ENVIRONMENT: dev
     steps:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '16'
+          node-version: '16.16.0'
       - name: Set env to qa
         if: endsWith(github.ref, '/qa')
         run: |
@@ -45,14 +45,8 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
-      - name: Lint
-        run: yarn lint:nowarn
-      - name: Run Unit Tests
-        run: yarn test
       - name: Build the app
         run: yarn build
-      - name: Bundlesize Check
-        run: yarn bundlesize
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
