@@ -112,7 +112,8 @@ Resources:
             '',
             ['Sean React Template (', !Ref Env, ') Origin Access Identity'],
           ]
-
+  
+  # The Amazon WAF WebACL surrounding our CloudFront Distribution
   WebACL:
     Type: AWS::WAFv2::WebACL
     Properties:
