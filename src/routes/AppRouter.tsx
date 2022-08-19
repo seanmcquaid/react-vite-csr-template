@@ -13,7 +13,7 @@ const AppRouter: FC = () => {
     <Suspense fallback={null}>
       <DataBrowserRouter>
         <Route
-          path={'/'}
+          path={RouteConstants.HOME}
           element={
             <Layout>
               <Overlays />
