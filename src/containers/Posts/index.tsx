@@ -24,10 +24,6 @@ const Posts: FC = () => {
     [text, posts],
   );
 
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
-
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.currentTarget.value);
   };

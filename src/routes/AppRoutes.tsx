@@ -10,14 +10,9 @@ const Layout = lazy(() => import('../components/Layout'));
 
 const AppRoutes: FC = () => (
   <Suspense fallback={null}>
-    <Layout>
-      <Overlays />
-      <Routes>
-        <Route path={RouteConstants.HOME} element={<Posts />} />
-        <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Layout>
+    <Route path={RouteConstants.HOME} element={<Posts />} />
+    <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />
+    <Route path="*" element={<NotFound />} />
   </Suspense>
 );
 
