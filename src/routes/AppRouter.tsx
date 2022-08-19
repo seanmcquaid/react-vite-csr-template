@@ -11,27 +11,45 @@ const NotFound = lazy(() => import('../containers/NotFound'));
 
 const AppRouter: FC = () => {
   return (
-    <Suspense fallback={null}>
-      <DataBrowserRouter>
-        <Route
-          path={RouteConstants.HOME}
-          element={
+    <DataBrowserRouter>
+      <Route
+        path={RouteConstants.HOME}
+        element={
+          <Suspense fallback={null}>
             <Layout>
               <Overlays />
               <Outlet />
             </Layout>
+          </Suspense>
+        }
+      >
+        <Route
+          path={RouteConstants.HOME}
+          element={
+            <Suspense fallback={null}>
+              <Posts />
+            </Suspense>
           }
-        >
-          <Route
-            path={RouteConstants.HOME}
-            element={<Posts />}
-            loader={postsLoader}
-          />
-          <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </DataBrowserRouter>
-    </Suspense>
+          loader={postsLoader}
+        />
+        <Route
+          path={RouteConstants.POST_DETAILS}
+          element={
+            <Suspense fallback={null}>
+              <PostDetails />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={null}>
+              <NotFound />
+            </Suspense>
+          }
+        />
+      </Route>
+    </DataBrowserRouter>
   );
 };
 
