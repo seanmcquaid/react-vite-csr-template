@@ -18,7 +18,7 @@ const persistConfig = {
 const postsPersistConfig = {
   key: ReducerNames.POSTS,
   storage,
-  blacklist: ['apiStatus'],
+  blacklist: ['apiStatus', 'posts'],
   version: AppConstants.REDUX_STORE_VERSION,
   migrate: createMigrate(
     {

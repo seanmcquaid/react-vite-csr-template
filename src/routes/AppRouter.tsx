@@ -1,12 +1,13 @@
-import { FC, Suspense } from 'react';
+import { FC, Suspense, lazy } from 'react';
 import { DataBrowserRouter, Outlet, Route } from 'react-router-dom';
-import Layout from '../components/Layout';
-import Overlays from '../containers/Overlays';
-import PostDetails from '../containers/PostDetails';
-import Posts from '../containers/Posts';
-import NotFound from '../containers/NotFound';
-import loader from '../containers/Posts/loader';
+import postsLoader from '../containers/Posts/postsLoader';
 import RouteConstants from './RouteConstants';
+
+const Layout = lazy(() => import('../components/Layout'));
+const Overlays = lazy(() => import('../containers/Overlays'));
+const Posts = lazy(() => import('../containers/Posts'));
+const PostDetails = lazy(() => import('../containers/PostDetails'));
+const NotFound = lazy(() => import('../containers/NotFound'));
 
 const AppRouter: FC = () => {
   return (
@@ -24,7 +25,7 @@ const AppRouter: FC = () => {
           <Route
             path={RouteConstants.HOME}
             element={<Posts />}
-            loader={loader}
+            loader={postsLoader}
           />
           <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />
           <Route path="*" element={<NotFound />} />
