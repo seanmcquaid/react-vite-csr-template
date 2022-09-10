@@ -184,9 +184,6 @@ Resources:
         Logging:
           Bucket: !GetAtt LoggingBucket.RegionalDomainName
           Prefix: 'cloudfront-access-logs'
-      OriginCustomHeader:
-        HeaderName: Cache-Control
-        HeaderValue: max-age=60
 
   # The Amazon Route53 Record with Type A for Aliasing the CloudFront Distribution
   Route53A:
