@@ -143,7 +143,6 @@ Resources:
 
   # The Amazon CloudFront distribution exposing our Single Page Application
   CFDistribution:
-    #checkov:skip=CKV_AWS_68: "For demo purposes and to reduce cost, no WAF is configured"
     Type: 'AWS::CloudFront::Distribution'
     DependsOn:
       - CFOriginAccessIdentity
@@ -185,6 +184,9 @@ Resources:
         Logging:
           Bucket: !GetAtt LoggingBucket.RegionalDomainName
           Prefix: 'cloudfront-access-logs'
+      OriginCustomHeader:
+        HeaderName: Cache-Control
+        HeaderValue: max-age=60
 
   # The Amazon Route53 Record with Type A for Aliasing the CloudFront Distribution
   Route53A:
