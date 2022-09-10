@@ -7,6 +7,7 @@ import loadVersion from 'vite-plugin-package-version';
 import svgr from 'vite-plugin-svgr';
 import legacy from '@vitejs/plugin-legacy';
 import checker from 'vite-plugin-checker';
+import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => {
@@ -19,6 +20,7 @@ export default defineConfig(async () => {
       legacy(),
       checker({ typescript: true }),
       splitVendorChunkPlugin(),
+      VitePWA({ registerType: 'autoUpdate' }),
     ],
     test: {
       globals: true,
