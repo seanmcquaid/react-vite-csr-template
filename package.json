@@ -30,7 +30,8 @@
     "redux-persist": "^6.0.0",
     "reselect": "^4.1.6",
     "reset-css": "^5.0.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "zod": "^3.19.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
