@@ -15,9 +15,9 @@ describe('postsSlice', () => {
       expect(
         postsReducer(initialState, {
           type: getPosts.fulfilled.type,
-          payload: [{ id: 1, body: 'example', title: '', userId: 1 } as Post],
+          payload: [{ id: 1, body: 'example', title: '', userId: 1 }] as Post[],
         }).posts,
-      ).toEqual([{ id: 1, body: 'example', title: '', userId: 1 } as Post]);
+      ).toEqual([{ id: 1, body: 'example', title: '', userId: 1 }] as Post[]);
     });
     it('should handle rejected properly', () => {
       expect(

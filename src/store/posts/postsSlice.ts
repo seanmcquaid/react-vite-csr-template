@@ -14,10 +14,18 @@ export const getPosts = createAsyncThunk<
   Post[],
   void,
   { dispatch: AppDispatch; state: RootState }
->(`${ReducerNames.POSTS}/${PostAsyncThunkNames.GET_POSTS}`, async () => {
-  const response = await services.postsService.getPosts();
-  return response.data;
-});
+>(
+  `${ReducerNames.POSTS}/${PostAsyncThunkNames.GET_POSTS}`,
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await services.postsService.getPosts();
+      return response.data;
+    } catch (e) {
+      console.log('log this to error logging service', e);
+      return rejectWithValue(e);
+    }
+  },
+);
 
 interface PostsApiStatus {
   getPosts: ApiStatus;

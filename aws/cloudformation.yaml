@@ -143,7 +143,6 @@ Resources:
 
   # The Amazon CloudFront distribution exposing our Single Page Application
   CFDistribution:
-    #checkov:skip=CKV_AWS_68: "For demo purposes and to reduce cost, no WAF is configured"
     Type: 'AWS::CloudFront::Distribution'
     DependsOn:
       - CFOriginAccessIdentity
@@ -179,6 +178,7 @@ Resources:
           CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # CachingOptimized
           OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # CORS-S3Origin
           ViewerProtocolPolicy: redirect-to-https
+          Compress: true
         PriceClass:
           !FindInMap [EnvironmentMaps, !Ref Env, 'CloudFrontPriceClass']
         Logging:
