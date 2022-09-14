@@ -74,7 +74,7 @@
     "vite-plugin-pwa": "^0.12.7",
     "vite-plugin-svgr": "^2.2.1",
     "vitest": "^0.23.2",
-    "vitest-sonar-reporter": "^0.3.1"
+    "vitest-sonar-reporter": "^0.3.2"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": "eslint --fix --max-warnings=0"
