@@ -1,16 +1,17 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
+import { Outlet } from 'react-router-dom';
+import Overlays from '../../containers/Overlays';
 import Navbar from './Navbar';
 
-interface LayoutProps {
-  children?: ReactNode;
-}
-
-const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout: FC = () => {
   return (
     <StyledContainer>
       <Navbar />
-      <StyledContentContainer>{children}</StyledContentContainer>
+      <StyledContentContainer>
+        <Overlays />
+        <Outlet />
+      </StyledContentContainer>
     </StyledContainer>
   );
 };
