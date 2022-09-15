@@ -1,56 +1,59 @@
 import { FC, Suspense, lazy } from 'react';
-import { DataBrowserRouter, Outlet, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
 import postsLoader from '../containers/Posts/postsLoader';
 import RouteConstants from './RouteConstants';
 
 const Layout = lazy(() => import('../components/Layout'));
-const Overlays = lazy(() => import('../containers/Overlays'));
 const Posts = lazy(() => import('../containers/Posts'));
 const PostDetails = lazy(() => import('../containers/PostDetails'));
 const NotFound = lazy(() => import('../containers/NotFound'));
 
-const AppRouter: FC = () => {
-  return (
-    <DataBrowserRouter>
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route
+      path={RouteConstants.HOME}
+      element={
+        <Suspense fallback={null}>
+          <Layout />
+        </Suspense>
+      }
+    >
       <Route
         path={RouteConstants.HOME}
         element={
           <Suspense fallback={null}>
-            <Layout>
-              <Overlays />
-              <Outlet />
-            </Layout>
+            <Posts />
           </Suspense>
         }
-      >
-        <Route
-          path={RouteConstants.HOME}
-          element={
-            <Suspense fallback={null}>
-              <Posts />
-            </Suspense>
-          }
-          loader={postsLoader}
-        />
-        <Route
-          path={RouteConstants.POST_DETAILS}
-          element={
-            <Suspense fallback={null}>
-              <PostDetails />
-            </Suspense>
-          }
-        />
-        <Route
-          path="*"
-          element={
-            <Suspense fallback={null}>
-              <NotFound />
-            </Suspense>
-          }
-        />
-      </Route>
-    </DataBrowserRouter>
-  );
+        loader={postsLoader}
+      />
+      <Route
+        path={RouteConstants.POST_DETAILS}
+        element={
+          <Suspense fallback={null}>
+            <PostDetails />
+          </Suspense>
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={null}>
+            <NotFound />
+          </Suspense>
+        }
+      />
+    </Route>,
+  ),
+);
+
+const AppRouter: FC = () => {
+  return <RouterProvider router={router} />;
 };
 
 export default AppRouter;
