@@ -1,13 +1,12 @@
-import { ChangeEvent, FC, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, FC, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button';
 import PageContainer from '../../components/PageContainer';
 import TextInput from '../../components/TextInput';
 import H1 from '../../components/Typography/H1';
 import TranslationConstants from '../../i18n/TranslationConstants';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
 import { selectPosts } from '../../store/posts/postsSelectors';
-import { getPosts } from '../../store/posts/postsSlice';
 import Post from '../../types/Post';
 import PostsList from './PostsList';
 
@@ -16,17 +15,12 @@ const filterPostsByText = (text: string, posts: Post[]): Post[] =>
 
 const Posts: FC = () => {
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
   const posts = useAppSelector(selectPosts);
   const [text, setText] = useState('');
   const filteredPosts: Post[] = useMemo(
     () => filterPostsByText(text, posts),
     [text, posts],
   );
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.currentTarget.value);
