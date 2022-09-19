@@ -1,12 +1,16 @@
 import { ChangeEvent, FC, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import ClipLoader from 'react-spinners/ClipLoader';
 import Button from '../../components/Button';
 import PageContainer from '../../components/PageContainer';
 import TextInput from '../../components/TextInput';
 import H1 from '../../components/Typography/H1';
 import TranslationConstants from '../../i18n/TranslationConstants';
 import { useAppSelector } from '../../store/hooks';
-import { selectPosts } from '../../store/posts/postsSelectors';
+import {
+  selectIsGetPostsLoading,
+  selectPosts,
+} from '../../store/posts/postsSelectors';
 import Post from '../../types/Post';
 import PostsList from './PostsList';
 
@@ -21,6 +25,7 @@ const Posts: FC = () => {
     () => filterPostsByText(text, posts),
     [text, posts],
   );
+  const getPostsLoading = useAppSelector(selectIsGetPostsLoading);
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.currentTarget.value);
@@ -44,6 +49,7 @@ const Posts: FC = () => {
       <Button onClick={handleOnClick}>
         {t(TranslationConstants.Posts.clear)}
       </Button>
+      <ClipLoader loading={getPostsLoading} />
       <PostsList posts={filteredPosts} />
     </PageContainer>
   );

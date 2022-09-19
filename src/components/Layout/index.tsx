@@ -1,15 +1,18 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { Outlet } from 'react-router-dom';
-import Overlays from '../../containers/Overlays';
+import { Outlet, useNavigation } from 'react-router-dom';
+import LoadingOverlay from '../LoadingOverlay';
 import Navbar from './Navbar';
 
 const Layout: FC = () => {
+  const navigation = useNavigation();
+  const isNavigating =
+    navigation.state === 'loading' || navigation.state === 'submitting';
   return (
     <StyledContainer>
       <Navbar />
       <StyledContentContainer>
-        <Overlays />
+        <LoadingOverlay isLoading={isNavigating} />
         <Outlet />
       </StyledContentContainer>
     </StyledContainer>
