@@ -5,9 +5,10 @@ import postsApi from '../../store/postsApi';
 const postDetailsLoader: LoaderFunction = ({ params }) => {
   const { id } = params;
   if (!id) {
-    throw new Error('ID is required');
+    return;
   }
-  return store.dispatch(postsApi.endpoints.getPostById.initiate(id));
+  const { data } = postsApi.endpoints.getPostById.select(id)(store.getState());
+  return data ?? store.dispatch(postsApi.endpoints.getPostById.initiate(id));
 };
 
 export default postDetailsLoader;
