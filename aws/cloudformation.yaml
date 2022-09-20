@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: S3 / Route53 / CloudFront CloudFormation configuration
+Description: S3 / Route53 / CloudFront / WAF CloudFormation configuration
 Parameters:
   Env:
     Type: String
