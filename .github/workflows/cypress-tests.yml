@@ -4,6 +4,11 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - develop
+
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
   cypress-tests:
     name: Cypress Tests

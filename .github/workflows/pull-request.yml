@@ -4,6 +4,11 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - develop
+
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
   unit-test:
     name: Unit Tests, Linting, Bundle Size Checks
