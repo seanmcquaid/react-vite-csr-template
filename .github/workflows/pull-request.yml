@@ -4,6 +4,7 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - develop
+
 jobs:
   unit-test:
     name: Unit Tests, Linting, Bundle Size Checks

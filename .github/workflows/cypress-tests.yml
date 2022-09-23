@@ -4,6 +4,7 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - develop
+
 jobs:
   cypress-tests:
     name: Cypress Tests
