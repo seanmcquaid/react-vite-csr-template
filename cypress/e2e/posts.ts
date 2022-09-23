@@ -1,6 +1,6 @@
 describe('Posts', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
     cy.injectAxe();
   });
   it('Has no detectable a11y violations on load', () => {
