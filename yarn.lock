@@ -24,14 +24,6 @@
     jsonpointer "^5.0.0"
     leven "^3.1.0"
 
-"@axe-core/react@^4.4.4":
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.4.4.tgz#599e8e1f3275e5ea8e14be507221d6671eda8b7b"
-  integrity sha512-xcjt7yRZ69NjRptHeujZJSqzuggKghlVVOLi0X1TjPY75Q7LnkNVSWCYmAKbnzdnFyZnyEVsT+iQulP6L0jHUw==
-  dependencies:
-    axe-core "^4.4.1"
-    requestidlecallback "^0.3.0"
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.18.6":
   version "7.18.6"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.18.6.tgz#3b25d38c89600baa2dcc219edfa88a74eb2c427a"
@@ -2565,7 +2557,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
-axe-core@^4.4.1, axe-core@^4.4.3:
+axe-core@^4.4.3:
   version "4.4.3"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.4.3.tgz#11c74d23d5013c0fa5d183796729bc3482bd2f6f"
   integrity sha512-32+ub6kkdhhWick/UjvEwRchgoetXqTK14INLqbGm5U2TzBkBNF3nQtLYm8ovxSkQWArjEQvftCKryjZaATu3w==
@@ -6558,11 +6550,6 @@ request-progress@^3.0.0:
   integrity sha512-MnWzEHHaxHO2iWiQuHrUPBi/1WeBf5PkxQqNyNvLl9VAYSdXkP8tQ3pBSeCPD+yw0v0Aq1zosWLz0BdeXpWwZg==
   dependencies:
     throttleit "^1.0.0"
-
-requestidlecallback@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/requestidlecallback/-/requestidlecallback-0.3.0.tgz#6fb74e0733f90df3faa4838f9f6a2a5f9b742ac5"
-  integrity sha512-TWHFkT7S9p7IxLC5A1hYmAYQx2Eb9w1skrXmQ+dS1URyvR8tenMLl4lHbqEOUnpEYxNKpkVMXUgknVpBZWXXfQ==
 
 require-directory@^2.1.1:
   version "2.1.1"
