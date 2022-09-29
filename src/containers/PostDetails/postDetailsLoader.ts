@@ -1,8 +1,7 @@
-import { LoaderFunction } from 'react-router-dom';
 import store from '../../store';
 import postsApi from '../../store/postsApi';
 
-const postDetailsLoader: LoaderFunction = ({ params }) => {
+const postDetailsLoader = ({ params }) => {
   const { id } = params;
   if (!id) {
     return;
