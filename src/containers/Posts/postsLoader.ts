@@ -1,8 +1,7 @@
-import { LoaderFunction } from 'react-router-dom';
 import store from '../../store';
 import { getPosts } from '../../store/posts/postsSlice';
 
-const postsLoader: LoaderFunction = () => {
+const postsLoader = () => {
   return store.dispatch(getPosts());
 };
 
