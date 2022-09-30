@@ -5,10 +5,10 @@ import Post from '../../types/Post';
 
 const postDetailsLoader = ({
   params,
-}: LoaderFunctionArgs): Post | undefined | Promise<Post> => {
+}: LoaderFunctionArgs): Post | Promise<Post> => {
   const { id } = params;
   if (!id) {
-    return;
+    throw new Error('An ID is required');
   }
   const { data } = postsApi.endpoints.getPostById.select(id)(store.getState());
   return (
