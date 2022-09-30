@@ -1,17 +1,27 @@
-import { FC, useTransition } from 'react';
+import { FC, useMemo, useTransition } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import Post from '../../types/Post';
 import { usePrefetch } from '../../store/postsApi';
+import { useAppSelector } from '../../store/hooks';
+import { selectPosts } from '../../store/posts/postsSelectors';
+
+const filterPostsByText = (text: string, posts: Post[]): Post[] =>
+  posts.filter(post => post.title.match(text));
 
 interface PostsListProps {
-  posts: Post[];
+  filterText: string;
 }
 
-const PostsList: FC<PostsListProps> = ({ posts }) => {
+const PostsList: FC<PostsListProps> = ({ filterText }) => {
   const [, startTransition] = useTransition();
   const navigate = useNavigate();
+  const posts = useAppSelector(selectPosts);
   const prefetchPost = usePrefetch('getPostById');
+  const filteredPosts: Post[] = useMemo(
+    () => filterPostsByText(filterText, posts),
+    [filterText, posts],
+  );
 
   const handleOnClick = (post: Post): void => {
     startTransition(() => {
@@ -22,7 +32,7 @@ const PostsList: FC<PostsListProps> = ({ posts }) => {
 
   return (
     <StyledList>
-      {posts.map(post => (
+      {filteredPosts.map(post => (
         <StyledListItem key={post.id} data-testid="post">
           <StyledPlainTextButton
             onClick={() => handleOnClick(post)}
