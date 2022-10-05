@@ -1,31 +1,19 @@
-import { ChangeEvent, FC, useMemo, useState } from 'react';
+import { ChangeEvent, FC, useState, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { Await, useLoaderData } from 'react-router-dom';
 import Button from '../../components/Button';
 import PageContainer from '../../components/PageContainer';
 import TextInput from '../../components/TextInput';
 import H1 from '../../components/Typography/H1';
 import TranslationConstants from '../../i18n/TranslationConstants';
-import { useAppSelector } from '../../store/hooks';
-import {
-  selectIsGetPostsLoading,
-  selectPosts,
-} from '../../store/posts/postsSelectors';
-import Post from '../../types/Post';
 import PostsList from './PostsList';
-
-const filterPostsByText = (text: string, posts: Post[]): Post[] =>
-  posts.filter(post => post.title.match(text));
+import { PostsLoaderData } from './postsLoader';
 
 const Posts: FC = () => {
   const { t } = useTranslation();
-  const posts = useAppSelector(selectPosts);
   const [text, setText] = useState('');
-  const filteredPosts: Post[] = useMemo(
-    () => filterPostsByText(text, posts),
-    [text, posts],
-  );
-  const getPostsLoading = useAppSelector(selectIsGetPostsLoading);
+  const { posts } = useLoaderData() as PostsLoaderData;
 
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.currentTarget.value);
@@ -49,8 +37,11 @@ const Posts: FC = () => {
       <Button onClick={handleOnClick}>
         {t(TranslationConstants.Posts.clear)}
       </Button>
-      <ClipLoader loading={getPostsLoading} />
-      <PostsList posts={filteredPosts} />
+      <Suspense fallback={<ClipLoader loading />}>
+        <Await resolve={posts} errorElement={'ERROR'}>
+          <PostsList filterText={text} />
+        </Await>
+      </Suspense>
     </PageContainer>
   );
 };
