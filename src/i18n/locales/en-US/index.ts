@@ -1,5 +1,10 @@
 /* eslint "sort-keys": ["warn", "asc", {"caseSensitive": false, "natural": false, "minKeys": 2}] */
 export default {
+  Error: {
+    button: 'Click here to reload the page',
+    header: 'There was an error with the current page you were on!',
+    home: 'Home',
+  },
   Navbar: {
     home: 'Home',
   },

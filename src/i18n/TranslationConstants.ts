@@ -15,6 +15,12 @@ enum Navbar {
   home = 'Navbar.home',
 }
 
-const TranslationConstants = { Posts, NotFound, Navbar };
+enum Error {
+  header = 'Error.header',
+  button = 'Error.button',
+  home = 'Error.home',
+}
+
+const TranslationConstants = { Posts, NotFound, Navbar, Error };
 
 export default TranslationConstants;

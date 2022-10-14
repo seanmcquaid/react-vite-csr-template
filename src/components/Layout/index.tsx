@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { Outlet, useNavigation } from 'react-router-dom';
 import LoadingOverlay from '../LoadingOverlay';
+import ErrorBoundary from '../../ErrorBoundary';
 import Navbar from './Navbar';
 
 const Layout: FC = () => {
@@ -13,7 +14,9 @@ const Layout: FC = () => {
       <Navbar />
       <StyledContentContainer>
         <LoadingOverlay isLoading={isNavigating} />
-        <Outlet />
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
       </StyledContentContainer>
     </StyledContainer>
   );

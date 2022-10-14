@@ -1,4 +1,5 @@
 import { Component, ReactNode } from 'react';
+import FullAppError from './pages/FullAppError';
 import AppError from './types/AppError';
 
 class ErrorBoundary extends Component<
@@ -20,9 +21,7 @@ class ErrorBoundary extends Component<
 
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
-      // eslint-disable-next-line i18next/no-literal-string
-      return <h1>Something went wrong.</h1>;
+      return <FullAppError />;
     }
 
     return this.props.children;
