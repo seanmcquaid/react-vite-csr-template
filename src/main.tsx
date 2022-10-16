@@ -1,14 +1,14 @@
-import React from 'react';
+import { lazy, StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './i18n';
 import 'reset-css';
 
-const App = React.lazy(() => import('./App'));
+const App = lazy(() => import('./App'));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <React.Suspense>
+  <StrictMode>
+    <Suspense>
       <App />
-    </React.Suspense>
-  </React.StrictMode>,
+    </Suspense>
+  </StrictMode>,
 );
