@@ -35,7 +35,7 @@ const PostsList: FC<PostsListProps> = ({ filterText }) => {
             onClick={() => handleOnClick(post)}
             data-testid="post-button"
           >
-            {post.title}
+            {post.title.substring(0, 5)}
           </StyledPlainTextButton>
         </StyledListItem>
       ))}
