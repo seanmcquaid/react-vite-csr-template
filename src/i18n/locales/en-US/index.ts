@@ -14,8 +14,8 @@ export default {
     title: 'Page Not Found',
   },
   Posts: {
-    clear: 'Clear search text',
-    textInputLabel: 'Search for specific posts below',
+    clear: 'Clear text',
+    textInputLabel: 'Search',
     textInputPlaceholder: 'Enter text here',
     title: 'Posts',
   },
