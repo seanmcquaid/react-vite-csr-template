@@ -1,7 +1,6 @@
 import { lazy, StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './i18n';
-import 'reset-css';
 import LoadingOverlay from './components/LoadingOverlay';
 
 const App = lazy(() => import('./App'));
