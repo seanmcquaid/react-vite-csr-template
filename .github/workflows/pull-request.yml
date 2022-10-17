@@ -38,4 +38,4 @@ jobs:
           send-summary-comment: true
           show-annotations: "warning"
           minimum-ratio: 0
-          barecheck-github-app-token: ${{ secrets.GITHUB_TOKEN }}
+          barecheck-github-app-token: ${{ secrets.BARECHECK_TOKEN }}
