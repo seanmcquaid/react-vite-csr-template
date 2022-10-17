@@ -1,4 +1,3 @@
-import { lazy, Suspense } from 'react';
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -7,9 +6,7 @@ import store from './store';
 import theme from './theme';
 import GlobalStyle from './theme/GlobalStyle';
 import ErrorBoundary from './ErrorBoundary';
-import LoadingOverlay from './components/LoadingOverlay';
-
-const AppRouter = lazy(() => import('./routes/AppRouter'));
+import AppRouter from './routes/AppRouter';
 
 const persistor = persistStore(store);
 
@@ -20,9 +17,7 @@ function App() {
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <GlobalStyle />
-            <Suspense fallback={<LoadingOverlay isLoading />}>
-              <AppRouter />
-            </Suspense>
+            <AppRouter />
           </PersistGate>
         </Provider>
       </ErrorBoundary>
