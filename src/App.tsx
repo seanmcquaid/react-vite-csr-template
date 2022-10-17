@@ -7,6 +7,7 @@ import store from './store';
 import theme from './theme';
 import GlobalStyle from './theme/GlobalStyle';
 import ErrorBoundary from './ErrorBoundary';
+import LoadingOverlay from './components/LoadingOverlay';
 
 const AppRouter = lazy(() => import('./routes/AppRouter'));
 
@@ -19,7 +20,7 @@ function App() {
         <Provider store={store}>
           <PersistGate persistor={persistor}>
             <GlobalStyle />
-            <Suspense fallback={null}>
+            <Suspense fallback={<LoadingOverlay isLoading />}>
               <AppRouter />
             </Suspense>
           </PersistGate>
