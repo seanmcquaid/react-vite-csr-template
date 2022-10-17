@@ -1,11 +1,15 @@
-import { StrictMode } from 'react';
+import { lazy, StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './i18n';
 import 'reset-css';
-import App from './App';
+import LoadingOverlay from './components/LoadingOverlay';
+
+const App = lazy(() => import('./App'));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <App />
+    <Suspense fallback={<LoadingOverlay isLoading />}>
+      <App />
+    </Suspense>
   </StrictMode>,
 );
