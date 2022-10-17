@@ -73,6 +73,6 @@ jobs:
           echo "Clearing bucket..."
           aws s3 rm s3://${{ secrets.AWS_S3_BUCKET_NAME }}-${{ env.ENVIRONMENT }} --recursive
           echo "Syncing app to bucket..."
-          aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}-${{ env.ENVIRONMENT }} --cache-control max-age=31536000 --recursive
+          aws s3 sync ./dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}-${{ env.ENVIRONMENT }} --recursive --cache-control max-age=31536000
       - name: Invalidate CloudFront Distribution Cache
         run: aws cloudfront create-invalidation --distribution-id ${{ steps.deploy-cfn.outputs.CFDistribution }} --paths "/*"
