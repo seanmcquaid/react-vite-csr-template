@@ -20,24 +20,22 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.16.0'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Setup Yarn Cache
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint:nowarn
       - name: Run Unit Tests
-        run: yarn test
+        run: yarn coverage
       - name: Build the app
         run: yarn build
       - name: Bundlesize Check
         run: yarn bundlesize
+      - name: Generate Code Coverage report
+        id: code-coverage
+        uses: barecheck/code-coverage-action@v1
+        with:
+          lcov-file: "./coverage/lcov.info"
+          send-summary-comment: true
+          show-annotations: "warning"
+          minimum-ratio: 0
+          barecheck-github-app-token: ${{ secrets.BARECHECK_TOKEN }}
