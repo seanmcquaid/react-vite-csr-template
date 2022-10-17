@@ -8,3 +8,13 @@ My personal React Template I use for all new personal projects for React.
 2. Opt to create a Route 53 Hosted Zone for this new Domain
 3. Create a ACM Certificate with DNS validation for that new domain following this pattern : \*.mcquaid-apps.com
 4. Add the certificate CNAME entry in the ACM console to the associated public hosting zone
+
+Don't forget to add secrets for GHA to the repo for the following: 
+
+1. AWS_ACCESS_KEY_ID
+2. AWS_CERTIFICATE_ARN
+3. AWS_CLOUDFORMATION_STACK_NAME
+4. AWS_HOSTED_ZONE_ID
+5. AWS_S3_BUCKET_NAME
+6. AWS_SECRET_ACCESS_KEY
+7. BARECHECK_TOKEN
