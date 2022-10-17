@@ -21,10 +21,7 @@ jobs:
         with:
           node-version: '16.16.0'
       - name: Install Dependencies
-        run: |
-          yarn install --frozen-lockfile
-        env:
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint:nowarn
       - name: Run Unit Tests
