@@ -17,4 +17,3 @@ Don't forget to add secrets for GHA to the repo for the following:
 4. AWS_HOSTED_ZONE_ID
 5. AWS_S3_BUCKET_NAME
 6. AWS_SECRET_ACCESS_KEY
-7. BARECHECK_TOKEN
