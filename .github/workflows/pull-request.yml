@@ -30,12 +30,9 @@ jobs:
         run: yarn build
       - name: Bundlesize Check
         run: yarn bundlesize
-      - name: Generate Code Coverage report
-        id: code-coverage
-        uses: barecheck/code-coverage-action@v1
+      - uses: devmasx/coverage-check-action@v1.2.0
         with:
-          lcov-file: "./coverage/lcov.info"
-          send-summary-comment: true
-          show-annotations: "warning"
-          minimum-ratio: 0
-          barecheck-github-app-token: ${{ secrets.BARECHECK_TOKEN }}
+          type: lcov
+          result_path: ./coverage/lcov.info
+          min_coverage: 90
+          token: ${{ github.token }}

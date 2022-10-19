@@ -9,8 +9,7 @@ import legacy from '@vitejs/plugin-legacy';
 import checker from 'vite-plugin-checker';
 
 // https://vitejs.dev/config/
-export default defineConfig(async () => {
-  const { default: SonarReporter } = await import('vitest-sonar-reporter');
+export default defineConfig(() => {
   return {
     plugins: [
       react(),
@@ -24,8 +23,6 @@ export default defineConfig(async () => {
       globals: true,
       environment: 'jsdom',
       setupFiles: ['./src/setupTests.ts'],
-      reporters: ['default', new SonarReporter()],
-      outputFile: 'sonar-report.xml',
       coverage: {
         reporter: ['lcov'],
       },
