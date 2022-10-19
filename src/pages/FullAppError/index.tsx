@@ -1,23 +1,30 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PageContainer from '../../components/PageContainer';
 import H1 from '../../components/Typography/H1';
 import TranslationConstants from '../../i18n/TranslationConstants';
 import RouteConstants from '../../routes/RouteConstants';
 
-const FullAppError: FC = () => {
+interface FullAppErrorProps {
+  clearError?: () => void;
+}
+
+const FullAppError: FC<FullAppErrorProps> = ({ clearError }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleOnClick = (): void => {
-    navigate(0);
+    if (clearError) {
+      clearError();
+    } else {
+      navigate(RouteConstants.HOME);
+    }
   };
 
   return (
     <PageContainer>
       <H1>{t(TranslationConstants.Error.header)}</H1>
-      <Link to={RouteConstants.HOME}>{t(TranslationConstants.Error.home)}</Link>
       <button onClick={handleOnClick}>
         {t(TranslationConstants.Error.button)}
       </button>

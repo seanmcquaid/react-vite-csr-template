@@ -19,9 +19,16 @@ class ErrorBoundary extends Component<
     console.log(error, errorInfo);
   }
 
+  clearError = () => {
+    this.setState({
+      ...this.state,
+      hasError: false,
+    });
+  };
+
   render() {
     if (this.state.hasError) {
-      return <FullAppError />;
+      return <FullAppError clearError={this.clearError} />;
     }
 
     return this.props.children;
