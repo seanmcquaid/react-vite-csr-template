@@ -1,15 +1,14 @@
 import { FC } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
-import Overlay from './Overlay';
 
 interface LoadingOverlayProps {
   isLoading: boolean;
 }
 
 const LoadingOverlay: FC<LoadingOverlayProps> = ({ isLoading }) => (
-  <Overlay isOpen={isLoading}>
+  <div className="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
     <ClipLoader loading={isLoading} />
-  </Overlay>
+  </div>
 );
 
 export default LoadingOverlay;

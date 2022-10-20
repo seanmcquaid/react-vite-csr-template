@@ -1,8 +1,6 @@
 import { FC } from 'react';
 import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import ClipLoader from 'react-spinners/ClipLoader';
-import PageContainer from '../../components/PageContainer';
 import { useGetPostByIdQuery } from '../../store/postsApi';
 import PostInfo from './PostInfo';
 
@@ -17,15 +15,11 @@ const PostDetails: FC = () => {
   });
 
   return (
-    <StyledPageContainer data-testid="post-details-container">
+    <div data-testid="post-details-container">
       <ClipLoader loading={isLoading} />
       <PostInfo post={data ?? null} />
-    </StyledPageContainer>
+    </div>
   );
 };
-
-const StyledPageContainer = styled(PageContainer)`
-  justify-content: flex-start;
-`;
 
 export default PostDetails;

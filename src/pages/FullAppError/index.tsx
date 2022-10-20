@@ -1,8 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import PageContainer from '../../components/PageContainer';
-import H1 from '../../components/Typography/H1';
 import TranslationConstants from '../../i18n/TranslationConstants';
 import RouteConstants from '../../routes/RouteConstants';
 
@@ -23,12 +21,12 @@ const FullAppError: FC<FullAppErrorProps> = ({ clearError }) => {
   };
 
   return (
-    <PageContainer>
-      <H1>{t(TranslationConstants.Error.header)}</H1>
+    <div>
+      <h1>{t(TranslationConstants.Error.header)}</h1>
       <button onClick={handleOnClick}>
         {t(TranslationConstants.Error.button)}
       </button>
-    </PageContainer>
+    </div>
   );
 };
 

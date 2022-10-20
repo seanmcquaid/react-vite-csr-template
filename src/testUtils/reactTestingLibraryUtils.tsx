@@ -6,9 +6,7 @@ import {
 import { Provider } from 'react-redux';
 import { MemoryRouter, Routes } from 'react-router-dom';
 import { ReactElement, FC, ReactNode } from 'react';
-import { ThemeProvider } from 'styled-components';
 import { RootState } from '../store';
-import theme from '../theme';
 import createTestStore from './createTestStore';
 
 interface RenderHookOptions {
@@ -21,9 +19,7 @@ const renderHook = <T,>(fn: () => T, args?: RenderHookOptions) => {
     children: ReactNode;
   }
   const Wrapper: FC<WrapperProps> = ({ children }) => (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>{children}</Provider>
-    </ThemeProvider>
+    <Provider store={store}>{children}</Provider>
   );
   return rtlRenderHook(fn, { wrapper: Wrapper });
 };
@@ -42,17 +38,15 @@ const render = (
     children: ReactNode;
   }
   const Wrapper: FC<WrapperProps> = ({ children }) => (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        {initialRoute ? (
-          <MemoryRouter initialEntries={[initialRoute]}>
-            <Routes>{children}</Routes>
-          </MemoryRouter>
-        ) : (
-          children
-        )}
-      </Provider>
-    </ThemeProvider>
+    <Provider store={store}>
+      {initialRoute ? (
+        <MemoryRouter initialEntries={[initialRoute]}>
+          <Routes>{children}</Routes>
+        </MemoryRouter>
+      ) : (
+        children
+      )}
+    </Provider>
   );
 
   return rtlRender(ui, { wrapper: Wrapper });

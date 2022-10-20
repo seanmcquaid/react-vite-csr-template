@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 
 export interface NavRoute {
   route: string;
@@ -12,19 +11,13 @@ interface NavLinkListProps {
 }
 
 const NavLinkList: FC<NavLinkListProps> = ({ navRoutes }) => (
-  <List>
+  <ul>
     {navRoutes.map(({ route, displayName }, i) => (
-      <ListItem key={i}>
-        <StyledNavLink to={route}>{displayName}</StyledNavLink>
-      </ListItem>
+      <li key={i}>
+        <NavLink to={route}>{displayName}</NavLink>
+      </li>
     ))}
-  </List>
+  </ul>
 );
-
-const List = styled.ul``;
-
-const ListItem = styled.li``;
-
-const StyledNavLink = styled(NavLink)``;
 
 export default NavLinkList;
