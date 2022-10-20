@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const useOnUnmount = (fn: () => void): void => {
+  const ref = useRef(fn);
   useEffect(() => {
+    const { current } = ref;
     return () => {
-      fn();
+      current();
     };
-  }, [fn]);
+  }, []);
 };
 
 export default useOnUnmount;
