@@ -16,3 +16,8 @@ export const selectIsGetPostsLoading = createSelector(
     postsReducerState.apiStatus.getPosts.state ===
     AppConstants.API_STATE.LOADING,
 );
+
+export const selectPostById = createSelector(
+  [selectPosts, (_, id: number) => id],
+  (posts, id) => posts.find(post => post.id === id),
+);
