@@ -1,5 +1,4 @@
 import { FC, useMemo, useTransition } from 'react';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import Post from '../../types/Post';
 import { useAppSelector } from '../../store/hooks';
@@ -28,34 +27,16 @@ const PostsList: FC<PostsListProps> = ({ filterText }) => {
   };
 
   return (
-    <StyledList>
+    <ul>
       {filteredPosts.map(post => (
-        <StyledListItem key={post.id} data-testid="post">
-          <StyledPlainTextButton
-            onClick={() => handleOnClick(post)}
-            data-testid="post-button"
-          >
+        <li key={post.id} data-testid="post">
+          <button onClick={() => handleOnClick(post)} data-testid="post-button">
             {post.title.substring(0, 5)}
-          </StyledPlainTextButton>
-        </StyledListItem>
+          </button>
+        </li>
       ))}
-    </StyledList>
+    </ul>
   );
 };
-
-const StyledList = styled.ul`
-  list-style: none;
-  margin: 32px 0;
-  padding: 0;
-  max-height: 600px;
-  overflow: auto;
-`;
-
-const StyledListItem = styled.li`
-  margin: 4px 0;
-  padding: 8px;
-`;
-
-const StyledPlainTextButton = styled.button``;
 
 export default PostsList;

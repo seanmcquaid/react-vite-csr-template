@@ -1,7 +1,4 @@
 import { FC, useDeferredValue } from 'react';
-import styled from 'styled-components';
-import H1 from '../../components/Typography/H1';
-import P from '../../components/Typography/P';
 import Post from '../../types/Post';
 
 interface PostInfoProps {
@@ -19,13 +16,11 @@ const PostInfo: FC<PostInfoProps> = ({ post }) => {
   }
 
   return (
-    <StyledPostInfo data-testid="post-info">
-      <H1>{post?.title}</H1>
-      <P>{post?.body}</P>
-    </StyledPostInfo>
+    <div data-testid="post-info">
+      <h1>{post?.title}</h1>
+      <p>{post?.body}</p>
+    </div>
   );
 };
-
-const StyledPostInfo = styled.div``;
 
 export default PostInfo;
