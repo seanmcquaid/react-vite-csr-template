@@ -4,9 +4,9 @@ import postsLoader from '../pages/Posts/postsLoader';
 import LoadingOverlay from '../components/LoadingOverlay';
 import postDetailsLoader from '../pages/PostDetails/postDetailsLoader';
 import FullAppError from '../pages/FullAppError';
+import Layout from '../components/Layout';
 import RouteConstants from './RouteConstants';
 
-const Layout = lazy(() => import('../components/Layout'));
 const Posts = lazy(() => import('../pages/Posts'));
 const PostDetails = lazy(() => import('../pages/PostDetails'));
 const NotFound = lazy(() => import('../pages/NotFound'));
@@ -14,11 +14,7 @@ const NotFound = lazy(() => import('../pages/NotFound'));
 const router = createBrowserRouter([
   {
     path: RouteConstants.HOME,
-    element: (
-      <Suspense fallback={<LoadingOverlay isLoading />}>
-        <Layout />
-      </Suspense>
-    ),
+    element: <Layout />,
     errorElement: <FullAppError />,
     children: [
       {
