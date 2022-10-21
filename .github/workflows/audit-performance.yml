@@ -1,24 +1,22 @@
-name: Audit Web Performance
+name: Audit Performance
 on: [pull_request]
 jobs:
-  perf:
+  lhci:
+    name: Lighthouse
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile
-      - name: Build app
-        run: yarn build
-      - name: Run app
-        run: yarn serve
-      - name: Generate Lighthouse Report
-        uses: justinribeiro/lighthouse-action@master
+      - uses: actions/checkout@v2
         with:
-          secret: ${{ secrets.GITHUB_TOKEN }}
-          url: http://localhost:3000
-          wptConnectionSpeed: threegfast
-      - name: Saving Lighthouse Audit Artifacts
-        uses: actions/upload-artifact@master
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          name: lighthouse-artifacts
-          path: './results'
+          node-version: '16.16.0'
+      - name: npm install, build
+        run: |
+          yarn
+          yarn build
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.8.x
+          lhci autorun
