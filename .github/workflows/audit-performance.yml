@@ -19,3 +19,4 @@ jobs:
         with:
           secret: ${{ secrets.GITHUB_TOKEN }}
           url: 'http://localhost:3000'
+          wptConnectionSpeed: threegfast
