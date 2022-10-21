@@ -12,10 +12,11 @@ jobs:
           node-version: '16.16.0'
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
-      - run: yarn dev
+      - run: yarn build
+      - run: yarn serve & npx wait-on http://localhost:3000
       - name: Generate Lighthouse Report
         uses: justinribeiro/lighthouse-action@master
         with:
           secret: ${{ secrets.GITHUB_TOKEN }}
-          url: 'http://127.0.0.1:5173/'
+          url: 'http://localhost:3000'
           wptConnectionSpeed: threegfast
