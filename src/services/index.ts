@@ -1,10 +1,6 @@
-import postsService, { PostsService } from './postsService';
+import postsService from './postsService';
 
-export interface Services {
-  postsService: PostsService;
-}
-
-const services: Services = {
+const services = {
   postsService,
 };
 
