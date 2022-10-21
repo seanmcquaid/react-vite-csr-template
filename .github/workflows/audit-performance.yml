@@ -1,0 +1,21 @@
+name: Audit Web Performance
+on: [pull_request]
+jobs:
+  perf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.16.0'
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - run: yarn dev
+      - name: Generate Lighthouse Report
+        uses: justinribeiro/lighthouse-action@master
+        with:
+          secret: ${{ secrets.GITHUB_TOKEN }}
+          url: 'http://127.0.0.1:5173/'
+          wptConnectionSpeed: threegfast
