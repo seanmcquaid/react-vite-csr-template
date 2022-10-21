@@ -20,14 +20,16 @@ const createApiClient = (baseURL: string): AxiosInstance => {
 
   axiosInstance.interceptors.response.use(
     response => {
-      const validationResults = response?.config?.validationSchema?.safeParse(
-        response.data,
-      );
-      if (!validationResults?.success) {
-        console.log(
-          'log this to error logging service',
-          validationResults?.error,
+      if (response?.config?.validationSchema) {
+        const validationResults = response?.config?.validationSchema?.safeParse(
+          response.data,
         );
+        if (!validationResults?.success) {
+          console.log(
+            'log this to error logging service',
+            validationResults?.error,
+          );
+        }
       }
       return response;
     },
