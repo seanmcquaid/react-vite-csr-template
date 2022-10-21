@@ -1,4 +1,4 @@
-import { FC, useMemo, useTransition } from 'react';
+import { FC, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Post from '../../types/Post';
 import { useAppSelector } from '../../store/hooks';
@@ -12,7 +12,6 @@ interface PostsListProps {
 }
 
 const PostsList: FC<PostsListProps> = ({ filterText }) => {
-  const [, startTransition] = useTransition();
   const navigate = useNavigate();
   const posts = useAppSelector(selectPosts);
   const filteredPosts: Post[] = useMemo(
@@ -21,9 +20,7 @@ const PostsList: FC<PostsListProps> = ({ filterText }) => {
   );
 
   const handleOnClick = (post: Post): void => {
-    startTransition(() => {
-      navigate(`post/${post.id}`);
-    });
+    navigate(`post/${post.id}`);
   };
 
   return (
