@@ -14,9 +14,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn serve & npx wait-on http://localhost:3000
-      - name: Generate Lighthouse Report
-        uses: justinribeiro/lighthouse-action@master
+      - name: Audit app
+        uses: jakejarvis/lighthouse-action@master
         with:
-          secret: ${{ secrets.GITHUB_TOKEN }}
           url: 'http://localhost:3000'
-          wptConnectionSpeed: threegfast
