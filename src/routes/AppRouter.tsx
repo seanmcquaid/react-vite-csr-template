@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import postsLoader from '../pages/Posts/postsLoader';
 import LoadingOverlay from '../components/LoadingOverlay';
 import postDetailsLoader from '../pages/PostDetails/postDetailsLoader';
-import FullAppError from '../pages/FullAppError';
 import Layout from '../components/Layout';
+import RouterErrorBoundary from './RouterErrorBoundary';
 import RouteConstants from './RouteConstants';
 
 const Posts = lazy(() => import('../pages/Posts'));
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   {
     path: RouteConstants.HOME,
     element: <Layout />,
-    errorElement: <FullAppError />,
+    errorElement: <RouterErrorBoundary />,
     children: [
       {
         path: RouteConstants.HOME,

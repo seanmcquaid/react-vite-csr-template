@@ -1,8 +1,8 @@
 import { Component, ReactNode } from 'react';
-import FullAppError from './pages/FullAppError';
+import FullAppError from './components/FullAppError';
 import AppError from './types/AppError';
 
-class ErrorBoundary extends Component<
+class AppErrorBoundary extends Component<
   { children: ReactNode },
   { hasError: boolean }
 > {
@@ -10,7 +10,7 @@ class ErrorBoundary extends Component<
     hasError: false,
   };
 
-  static getDerivedStateFromError(error: AppError) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -35,4 +35,4 @@ class ErrorBoundary extends Component<
   }
 }
 
-export default ErrorBoundary;
+export default AppErrorBoundary;
