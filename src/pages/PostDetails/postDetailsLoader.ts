@@ -13,10 +13,11 @@ const postDetailsLoader = ({ params }: LoaderFunctionArgs) => {
     throw new Error('An ID is required');
   }
   const { data } = postsApi.endpoints.getPostById.select(id)(store.getState());
+  const shouldDefer = !data;
   return defer({
-    postInfo:
-      data ??
-      store.dispatch(postsApi.endpoints.getPostById.initiate(id)).unwrap(),
+    postInfo: shouldDefer
+      ? store.dispatch(postsApi.endpoints.getPostById.initiate(id)).unwrap()
+      : data,
   });
 };
 
