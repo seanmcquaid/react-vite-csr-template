@@ -4,11 +4,11 @@ import {
   renderHook as rtlRenderHook,
 } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { RouterProvider } from 'react-router-dom';
 import { ReactElement, FC, ReactNode } from 'react';
+import { RouterInit } from '@remix-run/router';
 import { RootState } from '../store';
 import createTestStore from './createTestStore';
-import createTestRouter from './createTestRouter';
+import DataMemoryRouter from './DataMemoryRouter';
 
 interface RenderHookOptions {
   preloadedState?: RootState;
@@ -28,19 +28,31 @@ const renderHook = <T,>(fn: () => T, args?: RenderHookOptions) => {
 interface RenderOptions {
   preloadedState?: RootState;
   initialRoute?: string;
+  hydrationData?: RouterInit['hydrationData'];
 }
 
 const render = (
   ui: ReactElement,
-  { preloadedState, initialRoute = '/' }: RenderOptions = {},
+  { preloadedState, initialRoute = '/', hydrationData }: RenderOptions = {},
 ): RenderResult => {
-  window.history.pushState({}, 'test route', initialRoute);
   const store = createTestStore(preloadedState);
-  const router = createTestRouter();
 
-  const Wrapper: FC = () => (
+  interface WrapperProps {
+    children: ReactNode;
+  }
+
+  const Wrapper: FC<WrapperProps> = ({ children }) => (
     <Provider store={store}>
-      <RouterProvider router={router} />
+      {initialRoute ? (
+        <DataMemoryRouter
+          initialEntries={[initialRoute]}
+          hydrationData={hydrationData}
+        >
+          <>{children}</>
+        </DataMemoryRouter>
+      ) : (
+        children
+      )}
     </Provider>
   );
 

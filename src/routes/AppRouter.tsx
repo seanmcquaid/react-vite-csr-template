@@ -48,7 +48,12 @@ const router = createBrowserRouter([
 ]);
 
 const AppRouter: FC = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <RouterProvider
+      router={router}
+      fallbackElement={<LoadingOverlay isLoading />}
+    />
+  );
 };
 
 export default AppRouter;
