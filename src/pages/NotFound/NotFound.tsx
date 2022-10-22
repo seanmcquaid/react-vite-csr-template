@@ -1,4 +1,4 @@
-import { FC, useTransition } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import TranslationConstants from '../../i18n/TranslationConstants';
@@ -6,12 +6,9 @@ import TranslationConstants from '../../i18n/TranslationConstants';
 const NotFound: FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [, startTransition] = useTransition();
 
   const handleOnClick = () => {
-    startTransition(() => {
-      navigate('/');
-    });
+    navigate('/');
   };
 
   return (

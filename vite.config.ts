@@ -24,7 +24,20 @@ export default defineConfig(() => {
       environment: 'jsdom',
       setupFiles: ['./src/setupTests.ts'],
       coverage: {
+        provider: 'istanbul',
         reporter: ['lcov'],
+        all: true,
+        include: ['src/**/*.ts', 'src/**/*.tsx'],
+        exclude: [
+          'src/setupTests.ts',
+          'src/testUtils',
+          'src/routes/AppRouter.tsx',
+          'src/routes/RouteConstants.ts',
+          'src/Root.tsx',
+          'src/AppConstants.ts',
+          'src/i18n',
+          'src/main.tsx',
+        ],
       },
     },
   };

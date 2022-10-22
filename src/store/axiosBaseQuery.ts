@@ -4,9 +4,11 @@ import { ZodFirstPartySchemaTypes } from 'zod/lib/types';
 import createApiClient from '../services/createApiClient';
 
 const axiosBaseQuery =
-  (
-    { baseUrl }: { baseUrl: string } = { baseUrl: '' },
-  ): BaseQueryFn<{
+  ({
+    baseUrl,
+  }: {
+    baseUrl: string;
+  }): BaseQueryFn<{
     url: string;
     method: AxiosRequestConfig['method'];
     data?: AxiosRequestConfig['data'];

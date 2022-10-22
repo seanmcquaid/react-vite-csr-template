@@ -1,22 +1,17 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
 
 const createApiClient = (baseURL: string): AxiosInstance => {
   const axiosInstance = axios.create({
     baseURL,
   });
 
-  axiosInstance.interceptors.request.use(
-    async config => {
-      const token = localStorage.getItem('token') ?? 'token';
-      config.headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      return config;
-    },
-    error => {
-      return Promise.reject(error);
-    },
-  );
+  axiosInstance.interceptors.request.use(async config => {
+    const token = localStorage.getItem('token') ?? 'token';
+    config.headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    return config;
+  });
 
   axiosInstance.interceptors.response.use(
     response => {
@@ -33,21 +28,26 @@ const createApiClient = (baseURL: string): AxiosInstance => {
       }
       return response;
     },
-    async error => {
+    async (error: AxiosError) => {
       const originalRequest = error?.config;
-      if (error?.response?.status === 403 && !originalRequest?._retry) {
+      if (
+        error?.response?.status === 403 &&
+        !originalRequest?._retry &&
+        !!originalRequest
+      ) {
         originalRequest._retry = true;
-        try {
-          const token = localStorage.getItem('token') ?? 'token';
-          axiosInstance.defaults.headers.common[
-            'Authorization'
-          ] = `Bearer ${token};`;
-          return axiosInstance(originalRequest);
-        } catch (accessTokenError) {
-          return Promise.reject(accessTokenError);
-        }
+        const token = localStorage.getItem('token') ?? 'token';
+        axiosInstance.defaults.headers.common[
+          'Authorization'
+        ] = `Bearer ${token};`;
+        return axiosInstance(originalRequest);
       }
-      return Promise.reject(error);
+      console.log('log this to error logging service', error);
+      return Promise.reject({
+        data: error.response?.data,
+        statusCode: error.response?.status,
+        statusText: error.response?.statusText,
+      });
     },
   );
 

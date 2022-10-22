@@ -18,9 +18,8 @@ export const getPosts = createAsyncThunk<
   `${ReducerNames.POSTS}/${PostAsyncThunkNames.GET_POSTS}`,
   async (_, { rejectWithValue }) => {
     try {
-      return services.postsService.getPosts();
+      return await services.postsService.getPosts();
     } catch (e) {
-      console.log('log this to error logging service', e);
       return rejectWithValue(e);
     }
   },
