@@ -1,23 +1,16 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import TranslationConstants from '../../i18n/TranslationConstants';
-import RouteConstants from '../../routes/RouteConstants';
 
 interface FullAppErrorProps {
-  clearError?: () => void;
+  clearError: () => void;
 }
 
 const FullAppError: FC<FullAppErrorProps> = ({ clearError }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const handleOnClick = (): void => {
-    if (clearError) {
-      clearError();
-    } else {
-      navigate(RouteConstants.HOME);
-    }
+    clearError();
   };
 
   return (
