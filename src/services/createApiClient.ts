@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
 
 const createApiClient = (baseURL: string): AxiosInstance => {
   const axiosInstance = axios.create({
@@ -33,9 +33,13 @@ const createApiClient = (baseURL: string): AxiosInstance => {
       }
       return response;
     },
-    async error => {
+    async (error: AxiosError) => {
       const originalRequest = error?.config;
-      if (error?.response?.status === 403 && !originalRequest?._retry) {
+      if (
+        error?.response?.status === 403 &&
+        !originalRequest?._retry &&
+        !!originalRequest
+      ) {
         originalRequest._retry = true;
         try {
           const token = localStorage.getItem('token') ?? 'token';
@@ -44,9 +48,11 @@ const createApiClient = (baseURL: string): AxiosInstance => {
           ] = `Bearer ${token};`;
           return axiosInstance(originalRequest);
         } catch (accessTokenError) {
+          console.log('log this to error logging service', accessTokenError);
           return Promise.reject(accessTokenError);
         }
       }
+      console.log('log this to error logging service', error);
       return Promise.reject(error);
     },
   );
