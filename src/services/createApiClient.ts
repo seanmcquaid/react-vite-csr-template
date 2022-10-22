@@ -36,16 +36,11 @@ const createApiClient = (baseURL: string): AxiosInstance => {
         !!originalRequest
       ) {
         originalRequest._retry = true;
-        try {
-          const token = localStorage.getItem('token') ?? 'token';
-          axiosInstance.defaults.headers.common[
-            'Authorization'
-          ] = `Bearer ${token};`;
-          return axiosInstance(originalRequest);
-        } catch (accessTokenError) {
-          console.log('log this to error logging service', accessTokenError);
-          return Promise.reject(accessTokenError);
-        }
+        const token = localStorage.getItem('token') ?? 'token';
+        axiosInstance.defaults.headers.common[
+          'Authorization'
+        ] = `Bearer ${token};`;
+        return axiosInstance(originalRequest);
       }
       console.log('log this to error logging service', error);
       return Promise.reject({
