@@ -4,10 +4,11 @@ import {
   renderHook as rtlRenderHook,
 } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { MemoryRouter, Routes } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import { ReactElement, FC, ReactNode } from 'react';
 import { RootState } from '../store';
 import createTestStore from './createTestStore';
+import createTestRouter from './createTestRouter';
 
 interface RenderHookOptions {
   preloadedState?: RootState;
@@ -31,21 +32,15 @@ interface RenderOptions {
 
 const render = (
   ui: ReactElement,
-  { preloadedState, initialRoute }: RenderOptions = {},
+  { preloadedState, initialRoute = '/' }: RenderOptions = {},
 ): RenderResult => {
+  window.history.pushState({}, 'test route', initialRoute);
   const store = createTestStore(preloadedState);
-  interface WrapperProps {
-    children: ReactNode;
-  }
-  const Wrapper: FC<WrapperProps> = ({ children }) => (
+  const router = createTestRouter();
+
+  const Wrapper: FC = () => (
     <Provider store={store}>
-      {initialRoute ? (
-        <MemoryRouter initialEntries={[initialRoute]}>
-          <Routes>{children}</Routes>
-        </MemoryRouter>
-      ) : (
-        children
-      )}
+      <RouterProvider router={router} />
     </Provider>
   );
 
