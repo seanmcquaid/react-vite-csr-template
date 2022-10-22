@@ -5,18 +5,13 @@ const createApiClient = (baseURL: string): AxiosInstance => {
     baseURL,
   });
 
-  axiosInstance.interceptors.request.use(
-    async config => {
-      const token = localStorage.getItem('token') ?? 'token';
-      config.headers = {
-        Authorization: `Bearer ${token}`,
-      };
-      return config;
-    },
-    error => {
-      return Promise.reject(error);
-    },
-  );
+  axiosInstance.interceptors.request.use(async config => {
+    const token = localStorage.getItem('token') ?? 'token';
+    config.headers = {
+      Authorization: `Bearer ${token}`,
+    };
+    return config;
+  });
 
   axiosInstance.interceptors.response.use(
     response => {
