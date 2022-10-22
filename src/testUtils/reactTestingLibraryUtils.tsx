@@ -5,7 +5,6 @@ import {
 } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { ReactElement, FC, ReactNode } from 'react';
-import { RouterInit } from '@remix-run/router';
 import { RootState } from '../store';
 import createTestStore from './createTestStore';
 import DataMemoryRouter from './DataMemoryRouter';
@@ -28,12 +27,11 @@ const renderHook = <T,>(fn: () => T, args?: RenderHookOptions) => {
 interface RenderOptions {
   preloadedState?: RootState;
   initialRoute?: string;
-  hydrationData?: RouterInit['hydrationData'];
 }
 
 const render = (
   ui: ReactElement,
-  { preloadedState, initialRoute = '/', hydrationData }: RenderOptions = {},
+  { preloadedState, initialRoute = '/' }: RenderOptions = {},
 ): RenderResult => {
   const store = createTestStore(preloadedState);
 
@@ -44,10 +42,7 @@ const render = (
   const Wrapper: FC<WrapperProps> = ({ children }) => (
     <Provider store={store}>
       {initialRoute ? (
-        <DataMemoryRouter
-          initialEntries={[initialRoute]}
-          hydrationData={hydrationData}
-        >
+        <DataMemoryRouter initialEntries={[initialRoute]}>
           <>{children}</>
         </DataMemoryRouter>
       ) : (
