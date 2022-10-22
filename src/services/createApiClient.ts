@@ -53,7 +53,11 @@ const createApiClient = (baseURL: string): AxiosInstance => {
         }
       }
       console.log('log this to error logging service', error);
-      return Promise.reject(error);
+      return Promise.reject({
+        data: error.response?.data,
+        statusCode: error.response?.status,
+        statusText: error.response?.statusText,
+      });
     },
   );
 
