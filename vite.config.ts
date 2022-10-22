@@ -25,6 +25,20 @@ export default defineConfig(() => {
       setupFiles: ['./src/setupTests.ts'],
       coverage: {
         reporter: ['lcov'],
+        all: true,
+        include: ['src/*'],
+        exclude: [
+          'src/i18n',
+          'src/icons',
+          'src/types',
+          'src/testUtils',
+          'src/__tests__',
+          'src/**/__tests__',
+          'src/App.tsx',
+          'src/main.tsx',
+          'src/vite-env.d.ts',
+          'src/setupTests.ts',
+        ],
       },
     },
   };
