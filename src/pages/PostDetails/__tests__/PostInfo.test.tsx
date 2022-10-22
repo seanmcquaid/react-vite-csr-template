@@ -3,7 +3,7 @@ import { rest } from 'msw';
 import { screen, waitFor } from '@testing-library/react';
 import { Route } from 'react-router-dom';
 import { render } from '../../../testUtils/reactTestingLibraryUtils';
-import PostDetails from '../index';
+import PostDetails from '../PostDetails';
 import mswServer from '../../../testUtils/mswServer';
 import RouteConstants from '../../../routes/RouteConstants';
 import postDetailsLoader from '../postDetailsLoader';

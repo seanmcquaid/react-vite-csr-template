@@ -7,15 +7,9 @@ import Root from '../Root';
 import RootErrorBoundary from '../RootErrorBoundary';
 import RouteConstants from './RouteConstants';
 
-const Posts = lazy(
-  () => import(/* webpackChunkName: "Posts" */ '../pages/Posts'),
-);
-const PostDetails = lazy(
-  () => import(/* webpackChunkName: "PostsDetails" */ '../pages/PostDetails'),
-);
-const NotFound = lazy(
-  () => import(/* webpackChunkName: "NotFound" */ '../pages/NotFound'),
-);
+const Posts = lazy(() => import('../pages/Posts/Posts'));
+const PostDetails = lazy(() => import('../pages/PostDetails/PostDetails'));
+const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
 const router = createBrowserRouter([
   {

@@ -4,9 +4,7 @@ import './i18n';
 import './index.css';
 import LoadingOverlay from './components/LoadingOverlay';
 
-const AppRouter = lazy(
-  () => import(/* webpackChunkName: "AppRouter" */ './routes/AppRouter'),
-);
+const AppRouter = lazy(() => import('./routes/AppRouter'));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
