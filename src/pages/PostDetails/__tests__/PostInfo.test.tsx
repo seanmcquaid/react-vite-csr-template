@@ -6,6 +6,7 @@ import { render } from '../../../testUtils/reactTestingLibraryUtils';
 import PostDetails from '../index';
 import mswServer from '../../../testUtils/mswServer';
 import RouteConstants from '../../../routes/RouteConstants';
+import postDetailsLoader from '../postDetailsLoader';
 
 describe('PostDetails', () => {
   it('does not display post info if no data comes back from the API', async () => {
@@ -18,7 +19,11 @@ describe('PostDetails', () => {
       ),
     );
     render(
-      <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />,
+      <Route
+        path={RouteConstants.POST_DETAILS}
+        element={<PostDetails />}
+        loader={postDetailsLoader}
+      />,
       { initialRoute: '/post/1' },
     );
     await waitFor(() =>
@@ -27,7 +32,11 @@ describe('PostDetails', () => {
   });
   it('displays post info if it comes back from the API', async () => {
     render(
-      <Route path={RouteConstants.POST_DETAILS} element={<PostDetails />} />,
+      <Route
+        path={RouteConstants.POST_DETAILS}
+        element={<PostDetails />}
+        loader={postDetailsLoader}
+      />,
       { initialRoute: '/post/1' },
     );
     await waitFor(() =>
