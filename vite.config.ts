@@ -33,7 +33,7 @@ export default defineConfig(() => {
           'src/testUtils',
           'src/routes/AppRouter.tsx',
           'src/routes/RouteConstants.ts',
-          'src/App.tsx',
+          'src/Root.tsx',
           'src/AppConstants.ts',
           'src/i18n',
           'src/main.tsx',
