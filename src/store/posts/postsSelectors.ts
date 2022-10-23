@@ -7,7 +7,7 @@ const selectPostsReducerState = (state: RootState) => state.posts;
 
 export const selectPosts = createDeepEqualSelector(
   selectPostsReducerState,
-  postsReducerState => postsReducerState?.posts ?? [],
+  postsReducerState => postsReducerState.posts,
 );
 
 export const selectIsGetPostsLoading = createSelector(
