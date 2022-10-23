@@ -9,7 +9,7 @@
   <file path="src/hooks/__tests__/useOnUnmount.test.tsx">
     <testCase name="useOnUnmount - calls the passed in function when the component unmounts" duration="13" />
   </file>
-  <file path="src/pages/PostDetails/__tests__/PostInfo.test.tsx">
+  <file path="src/pages/PostDetails/__tests__/PostDetails.test.tsx">
     <testCase name="PostDetails - does not display post info if no data comes back from the API" duration="41" />
     <testCase name="PostDetails - displays post info if it comes back from the API" duration="18" />
   </file>
