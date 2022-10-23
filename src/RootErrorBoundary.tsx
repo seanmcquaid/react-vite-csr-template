@@ -4,8 +4,6 @@ import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
 const RouterErrorBoundary: FC = () => {
   const error = useRouteError();
 
-  console.log(isRouteErrorResponse(error));
-
   if (isRouteErrorResponse(error)) {
     if (error.status === 404) {
       // eslint-disable-next-line i18next/no-literal-string
