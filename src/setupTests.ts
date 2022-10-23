@@ -4,7 +4,6 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import 'isomorphic-fetch';
-import { vi, beforeEach, afterEach, afterAll } from 'vitest';
 import mswServer from './testUtils/mswServer';
 
 vi.mock('react-i18next', () => ({

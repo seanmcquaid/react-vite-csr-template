@@ -1,0 +1,32 @@
+<testExecutions version="1">
+  <file path="src/__tests__/circular.test.ts">
+    <testCase name="dependencies - has no circular dependencies" duration="166" />
+  </file>
+  <file path="src/components/__tests__/Overlay.test.tsx">
+    <testCase name="Overlay - Is displayed if open" duration="52" />
+    <testCase name="Overlay - Is not displayed if not open" duration="9" />
+  </file>
+  <file path="src/hooks/__tests__/useOnUnmount.test.tsx">
+    <testCase name="useOnUnmount - calls the passed in function when the component unmounts" duration="13" />
+  </file>
+  <file path="src/pages/PostDetails/__tests__/PostInfo.test.tsx">
+    <testCase name="PostDetails - does not display post info if no data comes back from the API" duration="41" />
+    <testCase name="PostDetails - displays post info if it comes back from the API" duration="18" />
+  </file>
+  <file path="src/store/__tests__/getIsApiLoading.test.ts">
+    <testCase name="getIsApiLoading - returns true if the api is loading" duration="3" />
+    <testCase name="getIsApiLoading - returns false if the api is not loading" duration="0" />
+  </file>
+  <file path="src/store/posts/__tests__/postsSelectors.test.ts">
+    <testCase name="postsSelectors - selectPosts returns an array of posts" duration="6" />
+    <testCase name="postsSelectors - selectIsGetPostsLoading returns false if not loading" duration="0" />
+  </file>
+  <file path="src/store/posts/__tests__/postsSlice.test.ts">
+    <testCase name="postsSlice - getPosts - should handle pending properly" duration="4" />
+    <testCase name="postsSlice - getPosts - should handle fulfilled properly" duration="1" />
+    <testCase name="postsSlice - getPosts - should handle rejected properly" duration="0" />
+  </file>
+  <file path="src/store/postsApi/__tests__/postsApiSelectors.test.ts">
+    <testCase name="postsApiSelectors - returns true if the posts api is loading" duration="2" />
+  </file>
+</testExecutions>

@@ -1,4 +1,3 @@
-import { describe, it } from 'vitest';
 import { rest } from 'msw';
 import { screen, waitFor } from '@testing-library/react';
 import { Route } from 'react-router-dom';

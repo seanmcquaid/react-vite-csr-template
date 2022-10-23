@@ -12,8 +12,8 @@ dist
 dist-ssr
 *.local
 coverage
-sonar-report.xml
 cypress/videos
+cypress/downloads
 
 # Editor directories and files
 .vscode/*

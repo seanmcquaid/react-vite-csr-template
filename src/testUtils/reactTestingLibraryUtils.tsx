@@ -31,7 +31,7 @@ interface RenderOptions {
 
 const render = (
   ui: ReactElement,
-  { preloadedState, initialRoute = '/' }: RenderOptions = {},
+  { preloadedState, initialRoute }: RenderOptions = {},
 ): RenderResult => {
   const store = createTestStore(preloadedState);
 
