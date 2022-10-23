@@ -78,5 +78,8 @@
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx}": "eslint --fix --max-warnings=0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
