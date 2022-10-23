@@ -76,9 +76,6 @@
     "vite-plugin-svgr": "^2.2.2",
     "vitest": "^0.24.3"
   },
-  "lint-staged": {
-    "*.{js,ts,jsx,tsx}": "eslint --fix --max-warnings=0"
-  },
   "engines": {
     "node": ">=16.0.0"
   }
