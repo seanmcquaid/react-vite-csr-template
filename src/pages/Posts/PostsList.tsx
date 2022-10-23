@@ -4,7 +4,7 @@ import Post from '../../types/Post';
 import { useAppSelector } from '../../store/hooks';
 import { selectPosts } from '../../store/posts/postsSelectors';
 
-const filterPostsByText = (text: string, posts: Post[]): Post[] =>
+export const filterPostsByText = (text: string, posts: Post[]): Post[] =>
   posts.filter(post => post.title.match(text));
 
 interface PostsListProps {
