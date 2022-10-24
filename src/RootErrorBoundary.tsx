@@ -5,12 +5,17 @@ const RouterErrorBoundary: FC = () => {
   const error = useRouteError();
 
   if (isRouteErrorResponse(error)) {
+    if (error.status === 404) {
+      // eslint-disable-next-line i18next/no-literal-string
+      return <div data-testid="not-found-error">Not found error</div>;
+    }
+
     // eslint-disable-next-line i18next/no-literal-string
-    return <div>Router error response</div>;
+    return <div data-testid="router-error">Router error response</div>;
   }
 
   // eslint-disable-next-line i18next/no-literal-string
-  return <div>Something went wrong</div>;
+  return <div data-testid="default-error">Something went wrong</div>;
 };
 
 export default RouterErrorBoundary;

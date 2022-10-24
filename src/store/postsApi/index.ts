@@ -1,5 +1,4 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { z } from 'zod';
 import Post, { PostSchema } from '../../types/Post';
 import ReducerNames from '../ReducerNames';
 import axiosBaseQuery from '../axiosBaseQuery';
@@ -12,13 +11,6 @@ const postsApi = createApi({
     baseUrl: 'https://jsonplaceholder.typicode.com',
   }),
   endpoints: builder => ({
-    getPosts: builder.query<Post[], void>({
-      query: () => ({
-        url: '/posts',
-        method: 'get',
-        validationSchema: z.array(PostSchema),
-      }),
-    }),
     getPostById: builder.query<Post, string>({
       query: id => ({
         url: `/posts/${id}`,
@@ -29,6 +21,6 @@ const postsApi = createApi({
   }),
 });
 
-export const { useGetPostsQuery, useGetPostByIdQuery, usePrefetch } = postsApi;
+export const { useGetPostByIdQuery } = postsApi;
 
 export default postsApi;

@@ -10,7 +10,9 @@ const postsService = {
   getPosts: () =>
     client
       .get<Post[]>('/posts', { validationSchema: z.array(PostSchema) })
-      .then(response => response.data),
+      .then(response => {
+        return response.data;
+      }),
 };
 
 export default postsService;

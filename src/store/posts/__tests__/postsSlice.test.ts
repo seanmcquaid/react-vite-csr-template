@@ -1,4 +1,3 @@
-import { describe, it } from 'vitest';
 import postsReducer, { initialState, getPosts } from '../postsSlice';
 import AppConstants from '../../../AppConstants';
 import Post from '../../../types/Post';
