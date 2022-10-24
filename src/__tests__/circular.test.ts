@@ -1,4 +1,3 @@
-import { it, describe, expect } from 'vitest';
 import madge from 'madge';
 
 describe('dependencies', () => {

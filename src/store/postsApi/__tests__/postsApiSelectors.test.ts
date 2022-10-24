@@ -1,6 +1,5 @@
 import { EndpointDefinitions, QueryStatus } from '@reduxjs/toolkit/query';
 import { QueryState } from '@reduxjs/toolkit/dist/query/core/apiState';
-import { describe, it } from 'vitest';
 import { RootState } from '../../index';
 import { selectIsPostsApiLoading } from '../postsApiSelectors';
 

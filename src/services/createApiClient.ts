@@ -47,6 +47,7 @@ const createApiClient = (baseURL: string): AxiosInstance => {
         data: error.response?.data,
         statusCode: error.response?.status,
         statusText: error.response?.statusText,
+        isRetry: error?.config?._retry ?? false,
       });
     },
   );

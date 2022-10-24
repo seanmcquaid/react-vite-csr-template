@@ -29,8 +29,9 @@ const Posts: FC = () => {
           id="text"
           name="example"
           placeholder={t(TranslationConstants.Posts.textInputPlaceholder)}
+          data-testid="text-input"
         />
-        <button onClick={handleOnClick}>
+        <button onClick={handleOnClick} data-testid="clear-button">
           {t(TranslationConstants.Posts.clear)}
         </button>
       </div>
