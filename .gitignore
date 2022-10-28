@@ -25,3 +25,4 @@ cypress/downloads
 *.njsproj
 *.sln
 *.sw?
+stats.html
