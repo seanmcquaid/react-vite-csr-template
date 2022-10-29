@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import {
   render,
   screen,
-  act,
   waitFor,
 } from '../../../testUtils/reactTestingLibraryUtils';
 import NotFound from '../NotFound';
@@ -18,11 +17,7 @@ describe('NotFound', () => {
       </>,
       { initialRoute: '/notFound' },
     );
-    await act(async () => {
-      await userEvent.click(
-        screen.getByText(TranslationConstants.NotFound.home),
-      );
-    });
+    await userEvent.click(screen.getByText(TranslationConstants.NotFound.home));
     await waitFor(() =>
       expect(screen.queryByTestId('home')).toBeInTheDocument(),
     );
