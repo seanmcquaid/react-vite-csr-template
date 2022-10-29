@@ -5,7 +5,6 @@ import {
   render,
   screen,
   waitFor,
-  act,
 } from '../../../testUtils/reactTestingLibraryUtils';
 import RouteConstants from '../../../routes/RouteConstants';
 import initialRootReducerState from '../../../testUtils/initialRootReducerState';
@@ -72,9 +71,7 @@ describe('PostsList', () => {
         },
       },
     );
-    await act(async () => {
-      await userEvent.click(screen.getByTestId('post-button'));
-    });
+    await userEvent.click(screen.getByTestId('post-button'));
     await waitFor(() =>
       expect(screen.queryByTestId('post-details')).toBeInTheDocument(),
     );

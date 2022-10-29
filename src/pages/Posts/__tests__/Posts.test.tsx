@@ -4,7 +4,6 @@ import {
   render,
   screen,
   waitFor,
-  act,
 } from '../../../testUtils/reactTestingLibraryUtils';
 import RouteConstants from '../../../routes/RouteConstants';
 import postsLoader from '../postsLoader';
@@ -25,22 +24,16 @@ describe('Posts', () => {
     await waitFor(() =>
       expect(screen.queryByTestId('text-input')).toBeInTheDocument(),
     );
-    await act(async () => {
-      await userEvent.type(screen.getByTestId('text-input'), 'test value');
-    });
+    await userEvent.type(screen.getByTestId('text-input'), 'test value');
     expect(screen.getByTestId('text-input')).toHaveValue('test value');
   });
   it('Clears search text if user clicks button', async () => {
     await waitFor(() =>
       expect(screen.queryByTestId('text-input')).toBeInTheDocument(),
     );
-    await act(async () => {
-      await userEvent.type(screen.getByTestId('text-input'), 'test value');
-    });
+    await userEvent.type(screen.getByTestId('text-input'), 'test value');
     expect(screen.getByTestId('text-input')).toHaveValue('test value');
-    await act(async () => {
-      await userEvent.click(screen.getByTestId('clear-button'));
-    });
+    await userEvent.click(screen.getByTestId('clear-button'));
     expect(screen.getByTestId('text-input')).toHaveValue('');
   });
 });

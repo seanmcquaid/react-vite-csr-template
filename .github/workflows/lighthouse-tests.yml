@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '16.16.0'
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - run: yarn build
       - run: yarn serve & npx wait-on http://localhost:3000
       - name: Generate Lighthouse Report
