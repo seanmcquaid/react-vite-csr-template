@@ -37,7 +37,7 @@ jobs:
         run: |
           echo "ENVIRONMENT=prod" >> $GITHUB_ENV
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Build the app
         run: yarn build
       - name: Set AWS credentials
