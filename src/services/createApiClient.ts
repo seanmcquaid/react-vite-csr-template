@@ -26,7 +26,7 @@ const createApiClient = (baseURL: string): AxiosInstance => {
           );
         }
       }
-      return response;
+      return response.data;
     },
     async (error: AxiosError) => {
       const originalRequest = error?.config;

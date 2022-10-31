@@ -25,7 +25,7 @@ const axiosBaseQuery =
         params,
         validationSchema,
       });
-      return { data: result.data };
+      return { data: result };
     } catch (err) {
       const axiosError = err as AxiosError;
       return {

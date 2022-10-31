@@ -8,11 +8,7 @@ const client = createApiClient(baseURL);
 
 const postsService = {
   getPosts: () =>
-    client
-      .get<Post[]>('/posts', { validationSchema: z.array(PostSchema) })
-      .then(response => {
-        return response.data;
-      }),
+    client.get<Post[]>('/posts', { validationSchema: z.array(PostSchema) }),
 };
 
 export default postsService;
