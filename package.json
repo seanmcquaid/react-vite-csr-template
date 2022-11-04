@@ -75,7 +75,7 @@
     "vite-plugin-checker": "^0.5.1",
     "vite-plugin-package-version": "^1.0.2",
     "vite-plugin-svgr": "^2.2.2",
-    "vitest": "^0.24.3"
+    "vitest": "^0.24.5"
   },
   "engines": {
     "node": ">=19.0.0"
