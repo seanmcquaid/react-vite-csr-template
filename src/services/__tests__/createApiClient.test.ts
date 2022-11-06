@@ -10,16 +10,6 @@ const mockConsole = { log: mockConsoleLog };
 vi.stubGlobal('console', mockConsole);
 
 describe('createApiClient', () => {
-  describe('Request interceptors', () => {
-    it('Adds the token to the request headers', async () => {
-      localStorage.setItem('token', 'Token in storage');
-      const apiClient = createApiClient(baseURL);
-      const response = await apiClient.get('/posts');
-      expect(response?.config?.headers?.Authorization).toEqual(
-        'Bearer Token in storage',
-      );
-    });
-  });
   describe('Response interceptors', () => {
     describe('onFulfilled', () => {
       it('console logs if the API response does not match the validation schema', async () => {
