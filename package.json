@@ -13,7 +13,9 @@
     "lint": "eslint cypress src",
     "postinstall": "husky install",
     "bundlesize": "bundlesize",
-    "serve": "node scripts/buildServer.js"
+    "serve": "node scripts/buildServer.js",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
@@ -78,7 +80,6 @@
     "vitest": "^0.24.3"
   },
   "engines": {
-    "node": ">=19.0.0"
-  },
-  "packageManager": "yarn@3.2.4"
+    "node": ">=16.0.0"
+  }
 }
