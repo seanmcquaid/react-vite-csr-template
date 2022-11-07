@@ -4,13 +4,15 @@
     "prettier",
     "plugin:jsx-a11y/strict",
     "plugin:@typescript-eslint/recommended",
-    "plugin:cypress/recommended"
+    "plugin:cypress/recommended",
+    "plugin:vitest-globals/recommended"
   ],
   "plugins": ["prettier", "i18next", "jsx-a11y"],
   "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "vitest-globals/env": true
   },
   "settings": {
     "react": {
