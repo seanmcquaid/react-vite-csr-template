@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import postsLoader from '../pages/Posts/postsLoader';
 import LoadingOverlay from '../components/LoadingOverlay';
 import postDetailsLoader from '../pages/PostDetails/postDetailsLoader';
-import Root from '../Root';
-import RootErrorBoundary from '../RootErrorBoundary';
+import RootErrorBoundary from './RootErrorBoundary';
+import Root from './Root';
 import RouteConstants from './RouteConstants';
 
 const Posts = lazy(() => import('../pages/Posts/Posts'));
