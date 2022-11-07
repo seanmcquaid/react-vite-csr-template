@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '19.0.0'
+          node-version: '16.16.0'
       - name: Set env to qa
         if: endsWith(github.ref, '/qa')
         run: |
