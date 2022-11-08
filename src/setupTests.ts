@@ -1,9 +1,9 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import 'isomorphic-fetch';
+import { vi } from 'vitest';
+import matchers, {
+  TestingLibraryMatchers,
+} from '@testing-library/jest-dom/matchers';
 import mswServer from './testUtils/mswServer';
 
 vi.mock('react-i18next', () => ({
@@ -15,3 +15,14 @@ vi.mock('react-i18next', () => ({
 beforeEach(() => mswServer.listen());
 afterEach(() => mswServer.resetHandlers());
 afterAll(() => mswServer.close());
+
+declare global {
+  namespace Vi {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    interface JestAssertion<T = any>
+      extends jest.Matchers<void, T>,
+        TestingLibraryMatchers<T, void> {}
+  }
+}
+
+expect.extend(matchers);

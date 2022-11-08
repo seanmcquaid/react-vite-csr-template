@@ -15,6 +15,7 @@ specifiers:
   '@types/react': ^18.0.23
   '@types/react-dom': ^18.0.8
   '@types/react-redux': ^7.1.24
+  '@types/testing-library__jest-dom': ^5.14.5
   '@vitejs/plugin-legacy': ^2.2.0
   '@vitejs/plugin-react': ^2.1.0
   '@vitest/coverage-istanbul': ^0.24.5
@@ -29,7 +30,6 @@ specifiers:
   eslint-plugin-i18next: ^6.0.0-4
   eslint-plugin-import: ^2.26.0
   eslint-plugin-jsx-a11y: ^6.6.1
-  eslint-plugin-mocha: ^10.1.0
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.31.10
   eslint-plugin-react-hooks: ^4.6.0
@@ -40,10 +40,12 @@ specifiers:
   isomorphic-fetch: ^3.0.0
   jsdom: ^20.0.2
   lint-staged: ^13.0.3
+  local-cypress: ^1.2.6
   lodash: ^4.17.21
   madge: ^5.0.1
   msw: ^0.47.4
   postcss: ^8.4.18
+  postinstall-postinstall: ^2.1.0
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -96,6 +98,7 @@ devDependencies:
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.8
   '@types/react-redux': 7.1.24
+  '@types/testing-library__jest-dom': 5.14.5
   '@vitejs/plugin-legacy': 2.3.1_terser@5.15.1+vite@3.2.3
   '@vitejs/plugin-react': 2.2.0_vite@3.2.3
   '@vitest/coverage-istanbul': 0.24.5_jsdom@20.0.2+terser@5.15.1
@@ -109,7 +112,6 @@ devDependencies:
   eslint-plugin-i18next: 6.0.0-4
   eslint-plugin-import: 2.26.0_eslint@8.27.0
   eslint-plugin-jsx-a11y: 6.6.1_eslint@8.27.0
-  eslint-plugin-mocha: 10.1.0_eslint@8.27.0
   eslint-plugin-prettier: 4.2.1_v7o5sx5x3wbs57ifz6wc4f76we
   eslint-plugin-react: 7.31.10_eslint@8.27.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.27.0
@@ -118,9 +120,11 @@ devDependencies:
   isomorphic-fetch: 3.0.0
   jsdom: 20.0.2
   lint-staged: 13.0.3
+  local-cypress: 1.2.6
   madge: 5.0.1
   msw: 0.47.4_typescript@4.8.4
   postcss: 8.4.18
+  postinstall-postinstall: 2.1.0
   prettier: 2.7.1
   rollup-plugin-visualizer: 5.8.3
   tailwindcss: 3.2.2_postcss@8.4.18
@@ -4246,17 +4250,6 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-mocha/10.1.0_eslint@8.27.0:
-    resolution: {integrity: sha512-xLqqWUF17llsogVOC+8C6/jvQ+4IoOREbN7ZCHuOHuD6cT5cDD4h7f2LgsZuzMAiwswWE21tO7ExaknHVDrSkw==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      eslint: '>=7.0.0'
-    dependencies:
-      eslint: 8.27.0
-      eslint-utils: 3.0.0_eslint@8.27.0
-      rambda: 7.3.0
-    dev: true
-
   /eslint-plugin-prettier/4.2.1_v7o5sx5x3wbs57ifz6wc4f76we:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
@@ -5838,6 +5831,15 @@ packages:
       wrap-ansi: 7.0.0
     dev: true
 
+  /local-cypress/1.2.6:
+    resolution: {integrity: sha512-F3d7eyZNkqOwEamtziRgzleCiKd05z3leIyVR/G9w6IMwnYn4wRtw68C/THx6C+PUFDsBgwNUVNuReRSKRj70A==}
+    requiresBuild: true
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /local-pkg/0.4.2:
     resolution: {integrity: sha512-mlERgSPrbxU3BP4qBqAvvwlgW4MTg78iwJdGGnv7kibKjWcJksrG3t6LB5lXI93wXRDvG4NpUgJFmTG4T6rdrg==}
     engines: {node: '>=14'}
@@ -6572,6 +6574,11 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /postinstall-postinstall/2.1.0:
+    resolution: {integrity: sha512-7hQX6ZlZXIoRiWNrbMQaLzUUfH+sSx39u8EJ9HYuDc1kLo9IXKWjM5RSquZN1ad5GnH8CGFM78fsAAQi3OKEEQ==}
+    requiresBuild: true
+    dev: true
+
   /precinct/8.3.1:
     resolution: {integrity: sha512-pVppfMWLp2wF68rwHqBIpPBYY8Kd12lDhk8LVQzOwqllifVR15qNFyod43YLyFpurKRZQKnE7E4pofAagDOm2Q==}
     engines: {node: ^10.13 || ^12 || >=14}
@@ -6714,10 +6721,6 @@ packages:
 
   /quote-unquote/1.0.0:
     resolution: {integrity: sha512-twwRO/ilhlG/FIgYeKGFqyHhoEhqgnKVkcmqMKi2r524gz3ZbDTcyFt38E9xjJI2vT+KbRNHVbnJ/e0I25Azwg==}
-    dev: true
-
-  /rambda/7.3.0:
-    resolution: {integrity: sha512-RFVofZYaG2TaVcxjnM0ejdVWf/59rFq1f57OGnjP3GT/bthzFw0GVr5rkP9PKbVlEuF/Y7bOVPLfiiYfxq/EWQ==}
     dev: true
 
   /range-parser/1.2.1:
