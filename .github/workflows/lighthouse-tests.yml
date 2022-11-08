@@ -14,11 +14,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '19.0.0'
+          node-version: '16.16.0'
+      - uses: pnpm/action-setup@v2
       - name: Install Dependencies
-        run: yarn install --immutable
-      - run: yarn build
-      - run: yarn serve & npx wait-on http://localhost:3000
+        run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm serve & npx wait-on http://localhost:3000
       - name: Generate Lighthouse Report
         uses: justinribeiro/lighthouse-action@master
         with:

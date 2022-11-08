@@ -19,17 +19,18 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '19.0.0'
+          node-version: '16.16.0'
+      - uses: pnpm/action-setup@v2
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
       - name: Lint
-        run: yarn lint:nowarn
+        run: pnpm lint:nowarn
       - name: Run Unit Tests
-        run: yarn coverage
+        run: pnpm coverage
       - name: Build the app
-        run: yarn build
+        run: pnpm build
       - name: Bundlesize Check
-        run: yarn bundlesize
+        run: pnpm bundlesize
       - uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           path: './coverage/lcov.info'
