@@ -32,7 +32,7 @@ jobs:
       - name: Bundlesize Check
         run: pnpm bundlesize
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
           start: pnpm serve
           wait-on: 'http://localhost:3000'
