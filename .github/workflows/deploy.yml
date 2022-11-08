@@ -37,9 +37,9 @@ jobs:
         run: |
           echo "ENVIRONMENT=prod" >> $GITHUB_ENV
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
       - name: Build the app
-        run: yarn build
+        run: pnpm build
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

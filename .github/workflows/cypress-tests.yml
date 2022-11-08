@@ -21,19 +21,19 @@ jobs:
         with:
           node-version: '16.16.0'
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
       - name: Lint
-        run: yarn lint:nowarn
+        run: pnpm lint:nowarn
       - name: Run Unit Tests
-        run: yarn test
+        run: pnpm test
       - name: Build the app
-        run: yarn build
+        run: pnpm build
       - name: Bundlesize Check
-        run: yarn bundlesize
+        run: pnpm bundlesize
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          start: yarn serve
+          start: pnpm serve
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 10
           config-file: 'cypress.config.ts'
