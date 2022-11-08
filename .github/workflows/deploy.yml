@@ -25,8 +25,6 @@ jobs:
         with:
           node-version: '16.16.0'
       - uses: pnpm/action-setup@v2
-        with:
-          version: 6.0.2
       - name: Set env to qa
         if: endsWith(github.ref, '/qa')
         run: |
