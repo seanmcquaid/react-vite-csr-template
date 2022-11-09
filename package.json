@@ -54,7 +54,7 @@
     "@vitest/coverage-istanbul": "^0.25.0",
     "autoprefixer": "^10.4.13",
     "bundlesize2": "^0.0.31",
-    "cypress": "^10.11.0",
+    "cypress": "^11.0.0",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
