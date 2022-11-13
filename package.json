@@ -51,10 +51,10 @@
     "@types/testing-library__jest-dom": "^5.14.5",
     "@vitejs/plugin-legacy": "^2.2.0",
     "@vitejs/plugin-react": "^2.1.0",
-    "@vitest/coverage-istanbul": "^0.24.5",
+    "@vitest/coverage-istanbul": "^0.25.0",
     "autoprefixer": "^10.4.13",
     "bundlesize2": "^0.0.31",
-    "cypress": "^10.11.0",
+    "cypress": "^11.0.0",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-react-app": "^7.0.1",
@@ -84,10 +84,10 @@
     "vite-plugin-checker": "^0.5.1",
     "vite-plugin-package-version": "^1.0.2",
     "vite-plugin-svgr": "^2.2.2",
-    "vitest": "^0.24.5"
+    "vitest": "^0.25.0"
   },
   "engines": {
     "node": "16.18.1"
   },
-  "packageManager": "pnpm@7.14.2"
+  "packageManager": "pnpm@7.15.0"
 }
