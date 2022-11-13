@@ -2,7 +2,6 @@ import { ChangeEvent, FC, useState, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Await, useLoaderData } from 'react-router-dom';
-import { PersistProvider } from 'context-persist';
 import TranslationConstants from '../../i18n/TranslationConstants';
 import PostsList from './PostsList';
 import { PostsLoaderData } from './postsLoader';
@@ -21,11 +20,7 @@ const Posts: FC = () => {
   };
 
   return (
-    <PersistProvider
-      defaultValue={'value'}
-      persistKey={'key'}
-      persistVersion={0}
-    >
+    <div>
       <div>
         <h1>{t(TranslationConstants.Posts.title)}</h1>
         <input
@@ -45,7 +40,7 @@ const Posts: FC = () => {
           <PostsList filterText={text} />
         </Await>
       </Suspense>
-    </PersistProvider>
+    </div>
   );
 };
 
