@@ -1,5 +1,6 @@
 import { FC, useMemo, useTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { usePersist } from 'context-persist';
 import Post from '../../types/Post';
 import { useAppSelector } from '../../store/hooks';
 import { selectPosts } from '../../store/posts/postsSelectors';
@@ -19,6 +20,8 @@ const PostsList: FC<PostsListProps> = ({ filterText }) => {
     () => filterPostsByText(filterText, posts),
     [filterText, posts],
   );
+  const { value } = usePersist();
+  console.log(value);
 
   const handleOnClick = (post: Post): void => {
     startTransition(() => {

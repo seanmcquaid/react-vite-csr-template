@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import postsLoader from '../pages/Posts/postsLoader';
 import LoadingOverlay from '../components/LoadingOverlay';
 import postDetailsLoader from '../pages/PostDetails/postDetailsLoader';
+import App from '../App';
 import RootErrorBoundary from './RootErrorBoundary';
-import Root from './Root';
 import RouteConstants from './RouteConstants';
 
 const Posts = lazy(() => import('../pages/Posts/Posts'));
@@ -14,7 +14,7 @@ const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 const router = createBrowserRouter([
   {
     path: RouteConstants.HOME,
-    element: <Root />,
+    element: <App />,
     errorElement: <RootErrorBoundary />,
     children: [
       {

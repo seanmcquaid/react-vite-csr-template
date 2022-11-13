@@ -22,6 +22,7 @@ specifiers:
   autoprefixer: ^10.4.13
   axios: ^1.1.3
   bundlesize2: ^0.0.31
+  context-persist: ^0.0.5
   cypress: ^10.11.0
   eslint: ^8.26.0
   eslint-config-prettier: ^8.5.0
@@ -70,6 +71,7 @@ specifiers:
 dependencies:
   '@reduxjs/toolkit': 1.9.0_k4ae6lp43ej6mezo3ztvx6pykq
   axios: 1.1.3
+  context-persist: 0.0.5_react@18.2.0
   i18next: 22.0.4
   i18next-browser-languagedetector: 7.0.1
   lodash: 4.17.21
@@ -3165,6 +3167,14 @@ packages:
     resolution: {integrity: sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==}
     engines: {node: '>= 0.6'}
     dev: true
+
+  /context-persist/0.0.5_react@18.2.0:
+    resolution: {integrity: sha512-ekySql0xzeFJciAgtJSHRrWxv8nG2qrKizmx5uAfWCVrcrg5UwJQ8JXwI3guCmv00WEwbdMxuXZpTCIAqZN4gQ==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /convert-source-map/1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
