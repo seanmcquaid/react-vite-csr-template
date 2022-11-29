@@ -1,3 +1,0 @@
-- React Router Data Fetching - loaders, Await + defer for slow requests - Can use RTK + RTK Queries in these loaders
-- RTK Query
-- useEffect + fetching - useState, RTK actions - least preferred
