@@ -4,7 +4,7 @@ import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
 import { NODE_ENV } from '../AppConstants';
 import locales from './locales';
 
-const debug = import.meta.env.MODE === NODE_ENV.DEVELOPMENT;
+const debug = import.meta.env.NODE_ENV === NODE_ENV.DEVELOPMENT;
 
 i18n
   .use(initReactI18next)
