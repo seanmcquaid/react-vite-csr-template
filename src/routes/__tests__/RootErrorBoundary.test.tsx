@@ -1,7 +1,7 @@
 import { Route } from 'react-router-dom';
 import { waitFor } from '@testing-library/react';
-import { render, screen } from '../testUtils/reactTestingLibraryUtils';
-import RootErrorBoundary from '../routes/RootErrorBoundary';
+import { render, screen } from '../../testUtils/reactTestingLibraryUtils';
+import RootErrorBoundary from '../RootErrorBoundary';
 
 describe('RootErrorBoundary', () => {
   describe('isRouteErrorResponse', () => {
