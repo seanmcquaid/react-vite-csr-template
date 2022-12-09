@@ -16,7 +16,7 @@ specifiers:
   '@types/react-dom': ^18.0.8
   '@types/react-redux': ^7.1.24
   '@types/testing-library__jest-dom': ^5.14.5
-  '@vitejs/plugin-legacy': ^2.2.0
+  '@vitejs/plugin-legacy': ^3.0.0
   '@vitejs/plugin-react': ^2.1.0
   '@vitest/coverage-istanbul': ^0.25.0
   autoprefixer: ^10.4.13
@@ -99,7 +99,7 @@ devDependencies:
   '@types/react-dom': 18.0.8
   '@types/react-redux': 7.1.24
   '@types/testing-library__jest-dom': 5.14.5
-  '@vitejs/plugin-legacy': 2.3.1_terser@5.15.1+vite@3.2.3
+  '@vitejs/plugin-legacy': 3.0.0_terser@5.15.1+vite@3.2.3
   '@vitejs/plugin-react': 2.2.0_vite@3.2.3
   '@vitest/coverage-istanbul': 0.25.1_jsdom@20.0.2+terser@5.15.1
   autoprefixer: 10.4.13_postcss@8.4.18
@@ -1455,17 +1455,17 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       core-js-pure: 3.26.0
-      regenerator-runtime: 0.13.10
+      regenerator-runtime: 0.13.11
     dev: true
 
   /@babel/runtime/7.20.1:
     resolution: {integrity: sha512-mrzLkl6U9YLF8qpqI7TB82PESyEGjm/0Ly91jG575eVxMMlb8fYfOXFZIJ8XfLrJZQbm7dlKry2bJmXBUEkdFg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      regenerator-runtime: 0.13.10
+      regenerator-runtime: 0.13.11
 
-  /@babel/standalone/7.20.3:
-    resolution: {integrity: sha512-u6VIhdacVpqVhBhSo21TRb1zcCdnPPyBsIC2LLnLnbmuJxlLsmGMAlLh+Xcsaqko4aGZrAtXIvTaMIQtUBkE8A==}
+  /@babel/standalone/7.20.6:
+    resolution: {integrity: sha512-u5at/CbBLETf7kx2LOY4XdhseD79Y099WZKAOMXeT8qvd9OSR515my2UNBBLY4qIht/Qi9KySeQHQwQwxJN4Sw==}
     engines: {node: '>=6.9.0'}
     dev: true
 
@@ -2318,17 +2318,17 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitejs/plugin-legacy/2.3.1_terser@5.15.1+vite@3.2.3:
-    resolution: {integrity: sha512-J5KaGBlSt2tEYPVjM/C8dA6DkRzkFkbPe+Xb4IX5G+XOV5OGbVAfkMjKywdrkO3gGynO8S98i71Lmsff4cWkCQ==}
+  /@vitejs/plugin-legacy/3.0.0_terser@5.15.1+vite@3.2.3:
+    resolution: {integrity: sha512-2lTDqpoHv6E+nPNopH56Jsna8HkQFNJwAlRSl+kLFl1YVn28rsonsMU020QITdLSWl7DrIXjO4xOezBbwMn1hw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       terser: ^5.4.0
       vite: ^3.0.0
     dependencies:
-      '@babel/standalone': 7.20.3
-      core-js: 3.26.0
-      magic-string: 0.26.7
-      regenerator-runtime: 0.13.10
+      '@babel/standalone': 7.20.6
+      core-js: 3.26.1
+      magic-string: 0.27.0
+      regenerator-runtime: 0.13.11
       systemjs: 6.13.0
       terser: 5.15.1
       vite: 3.2.3_terser@5.15.1
@@ -3195,8 +3195,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /core-js/3.26.0:
-    resolution: {integrity: sha512-+DkDrhoR4Y0PxDz6rurahuB+I45OsEUv8E1maPTB6OuHRohMMcznBq9TMpdpDMm/hUPob/mJJS3PqgbHpMTQgw==}
+  /core-js/3.26.1:
+    resolution: {integrity: sha512-21491RRQVzUn0GGM9Z1Jrpr6PNPxPi+Za8OM9q4tksTSnlbXXGKK1nXNg/QvwFYettXvSX6zWKCtHHfjN4puyA==}
     requiresBuild: true
     dev: true
 
@@ -5951,6 +5951,13 @@ packages:
       sourcemap-codec: 1.4.8
     dev: true
 
+  /magic-string/0.27.0:
+    resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.14
+    dev: true
+
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
@@ -6931,8 +6938,8 @@ packages:
     resolution: {integrity: sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==}
     dev: true
 
-  /regenerator-runtime/0.13.10:
-    resolution: {integrity: sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw==}
+  /regenerator-runtime/0.13.11:
+    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
 
   /regenerator-transform/0.15.0:
     resolution: {integrity: sha512-LsrGtPmbYg19bcPHwdtmXwbW+TqNvtY4riE3P83foeHRroMbH6/2ddFBfab3t7kbzc7v7p4wbkIecHImqt0QNg==}
