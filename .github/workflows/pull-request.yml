@@ -30,6 +30,9 @@ jobs:
       - name: Build the app
         run: pnpm build
       - run: ls -la
+      - run: |
+          cd dist
+          ls -la
       - name: Bundlesize Check
         run: pnpm bundlesize
       - uses: VeryGoodOpenSource/very_good_coverage@v2
