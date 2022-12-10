@@ -31,7 +31,7 @@ jobs:
         run: pnpm build
       - run: ls -la
       - run: |
-          cd dist
+          cd dist/assets
           ls -la
       - name: Bundlesize Check
         run: pnpm bundlesize
