@@ -1,6 +1,6 @@
 import postsReducer, { initialState, getPosts } from '../postsSlice';
 import AppConstants from '../../../AppConstants';
-import Post from '../../../types/Post';
+import Post from '../../../types/responses/Post';
 
 describe('postsSlice', () => {
   describe('getPosts', () => {

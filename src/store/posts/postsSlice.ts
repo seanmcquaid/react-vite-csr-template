@@ -3,7 +3,7 @@ import { AppDispatch, RootState } from '..';
 import AppConstants from '../../AppConstants';
 import services from '../../services';
 import ApiStatus from '../../types/ApiStatus';
-import Post from '../../types/Post';
+import Post from '../../types/responses/Post';
 import ReducerNames from '../ReducerNames';
 
 enum PostAsyncThunkNames {

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Post from '../../types/Post';
+import Post from '../../types/responses/Post';
 
 interface PostInfoProps {
   post: Post | null;

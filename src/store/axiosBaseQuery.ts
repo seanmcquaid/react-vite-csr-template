@@ -1,4 +1,4 @@
-import { AxiosError, AxiosRequestConfig } from 'axios';
+import { AxiosError, AxiosRequestConfig, Method } from 'axios';
 import { BaseQueryFn } from '@reduxjs/toolkit/query';
 import { ZodFirstPartySchemaTypes } from 'zod/lib/types';
 import createApiClient from '../services/createApiClient';
@@ -10,7 +10,7 @@ const axiosBaseQuery =
     baseUrl: string;
   }): BaseQueryFn<{
     url: string;
-    method: AxiosRequestConfig['method'];
+    method: Method;
     data?: AxiosRequestConfig['data'];
     params?: AxiosRequestConfig['params'];
     validationSchema?: ZodFirstPartySchemaTypes;

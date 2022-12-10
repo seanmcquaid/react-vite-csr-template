@@ -1,7 +1,7 @@
 import { defer } from 'react-router-dom';
 import store from '../../store';
 import { getPosts } from '../../store/posts/postsSlice';
-import Post from '../../types/Post';
+import Post from '../../types/responses/Post';
 
 export interface PostsLoaderData {
   posts: Promise<Post[]>;

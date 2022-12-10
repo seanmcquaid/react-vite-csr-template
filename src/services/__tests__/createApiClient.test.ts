@@ -1,6 +1,6 @@
 import { rest } from 'msw';
 import createApiClient from '../createApiClient';
-import { PostSchema } from '../../types/Post';
+import { postSchema } from '../../types/responses/Post';
 import mswServer from '../../testUtils/mswServer';
 
 const baseURL = 'https://jsonplaceholder.typicode.com';
@@ -15,7 +15,7 @@ describe('createApiClient', () => {
       it('console logs if the API response does not match the validation schema', async () => {
         const apiClient = createApiClient(baseURL);
         await apiClient.get('/posts', {
-          validationSchema: PostSchema,
+          validationSchema: postSchema,
         });
         expect(mockConsoleLog).toHaveBeenCalled();
       });

@@ -1,6 +1,6 @@
 import { FC, useMemo, useTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Post from '../../types/Post';
+import Post from '../../types/responses/Post';
 import { useAppSelector } from '../../store/hooks';
 import { selectPosts } from '../../store/posts/postsSelectors';
 

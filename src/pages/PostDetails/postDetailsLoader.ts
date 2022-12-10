@@ -1,7 +1,7 @@
 import { defer, LoaderFunctionArgs } from 'react-router-dom';
 import store from '../../store';
 import postsApi from '../../store/postsApi';
-import Post from '../../types/Post';
+import Post from '../../types/responses/Post';
 
 export interface PostDetailsLoaderData {
   postInfo: Post | Promise<Post>;

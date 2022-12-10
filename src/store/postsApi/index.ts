@@ -1,5 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import Post, { PostSchema } from '../../types/Post';
+import Post, { postSchema } from '../../types/responses/Post';
 import ReducerNames from '../ReducerNames';
 import axiosBaseQuery from '../axiosBaseQuery';
 
@@ -15,7 +15,7 @@ const postsApi = createApi({
       query: id => ({
         url: `/posts/${id}`,
         method: 'get',
-        validationSchema: PostSchema,
+        validationSchema: postSchema,
       }),
     }),
   }),
