@@ -27,9 +27,9 @@ jobs:
         run: pnpm lint:nowarn
       - name: Run Unit Tests
         run: pnpm coverage
-      - run: ls -la
       - name: Build the app
         run: pnpm build
+      - run: ls -la
       - name: Bundlesize Check
         run: pnpm bundlesize
       - uses: VeryGoodOpenSource/very_good_coverage@v2
