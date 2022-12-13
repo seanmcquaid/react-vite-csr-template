@@ -87,7 +87,7 @@
     "vitest": "^0.25.0"
   },
   "engines": {
-    "node": "16.16.0"
+    "node": "16.19.0"
   },
   "packageManager": "pnpm@7.18.2"
 }
