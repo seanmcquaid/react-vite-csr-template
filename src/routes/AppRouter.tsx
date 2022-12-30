@@ -1,4 +1,4 @@
-import { FC, lazy, Suspense } from 'react';
+import { FC, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import postsLoader from '../pages/Posts/postsLoader';
 import LoadingOverlay from '../components/LoadingOverlay';
@@ -19,29 +19,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: RouteConstants.HOME,
-        element: (
-          <Suspense fallback={<LoadingOverlay isLoading />}>
-            <Posts />
-          </Suspense>
-        ),
+        element: <Posts />,
         loader: postsLoader,
       },
       {
         path: RouteConstants.POST_DETAILS,
-        element: (
-          <Suspense fallback={<LoadingOverlay isLoading />}>
-            <PostDetails />
-          </Suspense>
-        ),
+        element: <PostDetails />,
         loader: postDetailsLoader,
       },
       {
         path: '*',
-        element: (
-          <Suspense fallback={<LoadingOverlay isLoading />}>
-            <NotFound />
-          </Suspense>
-        ),
+        element: <NotFound />,
       },
     ],
   },

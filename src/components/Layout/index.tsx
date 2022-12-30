@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 import { Outlet, useNavigation } from 'react-router-dom';
 import LoadingOverlay from '../LoadingOverlay';
 import Navbar from './Navbar';
@@ -13,7 +13,9 @@ const Layout: FC = () => {
       <Navbar />
       <div>
         <LoadingOverlay isLoading={isNavigating} />
-        <Outlet />
+        <Suspense fallback={<LoadingOverlay isLoading />}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );
