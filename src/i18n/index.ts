@@ -16,6 +16,7 @@ i18n
     keySeparator: '.',
     saveMissing: true,
     resources: locales,
+    returnNull: false,
     missingKeyHandler: (lng, ns, key, fallbackValue) => {
       console.warn('Missing Translation Key', lng, ns, key, fallbackValue);
     },
