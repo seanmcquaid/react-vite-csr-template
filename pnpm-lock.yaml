@@ -38,7 +38,7 @@ specifiers:
   i18next: ^22.4.6
   i18next-browser-languagedetector: ^7.0.1
   isomorphic-fetch: ^3.0.0
-  jsdom: ^20.0.3
+  jsdom: ^21.0.0
   lint-staged: ^13.1.0
   local-cypress: ^1.2.6
   lodash: ^4.17.21
@@ -101,7 +101,7 @@ devDependencies:
   '@types/testing-library__jest-dom': 5.14.5
   '@vitejs/plugin-legacy': 3.0.1_terser@5.16.1+vite@4.0.3
   '@vitejs/plugin-react': 3.0.0_vite@4.0.3
-  '@vitest/coverage-istanbul': 0.26.2_jsdom@20.0.3+terser@5.16.1
+  '@vitest/coverage-istanbul': 0.26.2_jsdom@21.0.0+terser@5.16.1
   autoprefixer: 10.4.13_postcss@8.4.20
   bundlesize2: 0.0.31
   cypress: 12.2.0
@@ -118,7 +118,7 @@ devDependencies:
   express: 4.18.2
   husky: 8.0.2
   isomorphic-fetch: 3.0.0
-  jsdom: 20.0.3
+  jsdom: 21.0.0
   lint-staged: 13.1.0
   local-cypress: 1.2.6
   madge: 5.0.1
@@ -134,7 +134,7 @@ devDependencies:
   vite-plugin-checker: 0.5.3_wx6yclj5u64swfvql3a4c3kz2u
   vite-plugin-package-version: 1.0.2_vite@4.0.3
   vite-plugin-svgr: 2.4.0_vite@4.0.3
-  vitest: 0.26.2_jsdom@20.0.3+terser@5.16.1
+  vitest: 0.26.2_jsdom@21.0.0+terser@5.16.1
 
 packages:
 
@@ -2533,7 +2533,7 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/coverage-istanbul/0.26.2_jsdom@20.0.3+terser@5.16.1:
+  /@vitest/coverage-istanbul/0.26.2_jsdom@21.0.0+terser@5.16.1:
     resolution: {integrity: sha512-3tU7vrgnPiGdIoX9VpIqR2geBuk5er4+2m0flO563R+1lV4guqO2bKbCNqEGpnIRcmnWJKQI1LeXndPexqIHtA==}
     dependencies:
       istanbul-lib-coverage: 3.2.0
@@ -2542,7 +2542,7 @@ packages:
       istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.5
       test-exclude: 6.0.0
-      vitest: 0.26.2_jsdom@20.0.3+terser@5.16.1
+      vitest: 0.26.2_jsdom@21.0.0+terser@5.16.1
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -5623,8 +5623,8 @@ packages:
     resolution: {integrity: sha512-UVU9dibq2JcFWxQPA6KCqj5O42VOmAY3zQUfEKxU0KpTGXwNoCjkX1e13eHNvw/xPynt6pU0rZ1htjWTNTSXsg==}
     dev: true
 
-  /jsdom/20.0.3:
-    resolution: {integrity: sha512-SYhBvTh89tTfCD/CRdSOm13mOBa42iTaTyfyEWBdKcGdPxPtLFBXuHR8XHb33YNYaP+lLbmSvBTsnoesCNJEsQ==}
+  /jsdom/21.0.0:
+    resolution: {integrity: sha512-AIw+3ZakSUtDYvhwPwWHiZsUi3zHugpMEKlNPaurviseYoBqo0zBd3zqoUi3LPCNtPFlEP8FiW9MqCZdjb2IYA==}
     engines: {node: '>=14'}
     peerDependencies:
       canvas: ^2.5.0
@@ -8082,7 +8082,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.26.2_jsdom@20.0.3+terser@5.16.1:
+  /vitest/0.26.2_jsdom@21.0.0+terser@5.16.1:
     resolution: {integrity: sha512-Jvqxh6SDy9SsuslkDjts0iDewDIdq4rveEt69YgDuAb1tVDGV0lDepVaeAFraoySWqneJmOt4TngFFNhlw7GfA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -8111,7 +8111,7 @@ packages:
       acorn-walk: 8.2.0
       chai: 4.3.7
       debug: 4.3.4
-      jsdom: 20.0.3
+      jsdom: 21.0.0
       local-pkg: 0.4.2
       source-map: 0.6.1
       strip-literal: 1.0.0
