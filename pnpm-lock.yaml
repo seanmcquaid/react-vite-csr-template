@@ -64,7 +64,7 @@ specifiers:
   vite-plugin-package-version: ^1.0.2
   vite-plugin-svgr: ^2.4.0
   vitest: ^0.27.0
-  zetch: ^0.0.7
+  zetch: ^0.0.8
   zod: ^3.20.2
 
 dependencies:
@@ -81,7 +81,7 @@ dependencies:
   redux: 4.2.0
   redux-persist: 6.0.0_react@18.2.0+redux@4.2.0
   reselect: 4.1.7
-  zetch: 0.0.7
+  zetch: 0.0.8
   zod: 3.20.2
 
 devDependencies:
@@ -8377,8 +8377,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zetch/0.0.7:
-    resolution: {integrity: sha512-eUM56pptSw78H9Fk7AQ4S8lrPx8ICabVp9zah/CW+3g5/Utz69wYVLLRrERf4jB5bB7hdArVg4zdDXmqafzJMg==}
+  /zetch/0.0.8:
+    resolution: {integrity: sha512-fBzoL/yTu0zcSJcTwsYRqJoaT/qNPct1O46M/sdGle1Gb+Sl3ORn3rlD+6kVQcvARe5vUeQtgzUND9WRJCfX0g==}
     dependencies:
       zod: 3.20.2
     dev: false

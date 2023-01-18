@@ -1,6 +1,6 @@
 import { BaseQueryFn } from '@reduxjs/toolkit/query';
 import { ZodFirstPartySchemaTypes } from 'zod/lib/types';
-import { createZetchClient, ZetchError } from 'zetch';
+import { createZetchClient, ZetchError, ZetchRequestConfig } from 'zetch';
 import createApiClient from '../services/createApiClient';
 
 const zetchBaseQuery =
@@ -11,7 +11,7 @@ const zetchBaseQuery =
   }): BaseQueryFn<{
     url: string;
     method: keyof ReturnType<typeof createZetchClient>;
-    body?: unknown;
+    body?: ZetchRequestConfig<ValidationSchema>['body'];
     validationSchema?: ValidationSchema;
   }> =>
   async ({ url, method, body, validationSchema }) => {

@@ -31,7 +31,7 @@
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
     "reselect": "^4.1.7",
-    "zetch": "^0.0.7",
+    "zetch": "^0.0.8",
     "zod": "^3.20.2"
   },
   "devDependencies": {
@@ -89,5 +89,5 @@
   "engines": {
     "node": "16.19.0"
   },
-  "packageManager": "pnpm@7.24.3"
+  "packageManager": "pnpm@7.25.0"
 }
