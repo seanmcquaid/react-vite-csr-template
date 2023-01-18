@@ -1,18 +1,14 @@
 import { z } from 'zod';
-import Post, { postSchema } from '../types/responses/Post';
+import { postSchema } from '../types/responses/Post';
 import createApiClient from './createApiClient';
 
-const baseURL = 'https://jsonplaceholder.typicode.com';
+const baseUrl = 'https://jsonplaceholder.typicode.com';
 
-const client = createApiClient(baseURL);
+const client = createApiClient(baseUrl);
 
-interface PostsService {
-  getPosts: () => Promise<Post[]>;
-}
-
-const postsService: PostsService = {
+const postsService = {
   getPosts: () =>
     client.get('/posts', { validationSchema: z.array(postSchema) }),
-};
+} as const;
 
 export default postsService;

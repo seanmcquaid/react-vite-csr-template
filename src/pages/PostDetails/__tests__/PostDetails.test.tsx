@@ -8,6 +8,19 @@ import RouteConstants from '../../../routes/RouteConstants';
 import postDetailsLoader from '../postDetailsLoader';
 
 describe('PostDetails', () => {
+  it('displays post info if it comes back from the API', async () => {
+    render(
+      <Route
+        path={RouteConstants.POST_DETAILS}
+        element={<PostDetails />}
+        loader={postDetailsLoader}
+      />,
+      { initialRoute: '/post/1' },
+    );
+    await waitFor(() =>
+      expect(screen.queryByTestId('post-info')).toBeInTheDocument(),
+    );
+  });
   it('does not display post info if no data comes back from the API', async () => {
     mswServer.use(
       rest.get(
@@ -27,19 +40,6 @@ describe('PostDetails', () => {
     );
     await waitFor(() =>
       expect(screen.queryByTestId('post-info')).not.toBeInTheDocument(),
-    );
-  });
-  it('displays post info if it comes back from the API', async () => {
-    render(
-      <Route
-        path={RouteConstants.POST_DETAILS}
-        element={<PostDetails />}
-        loader={postDetailsLoader}
-      />,
-      { initialRoute: '/post/1' },
-    );
-    await waitFor(() =>
-      expect(screen.queryByTestId('post-info')).toBeInTheDocument(),
     );
   });
 });
