@@ -24,7 +24,7 @@ const zetchBaseQuery =
       return { data: result };
     } catch (err) {
       const zetchError = err as ZetchError;
-      return zetchError.toObject();
+      return { error: zetchError.toObject() };
     }
   };
 
