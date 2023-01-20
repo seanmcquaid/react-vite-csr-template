@@ -18,6 +18,26 @@ describe('PostsList', () => {
       );
     });
   });
+  it('Displays filtered posts', async () => {
+    render(
+      <>
+        <Route
+          path={RouteConstants.HOME}
+          element={<PostsList filterText={'example'} />}
+        />
+        <Route
+          path={RouteConstants.POST_DETAILS}
+          element={<div data-testid="post-details" />}
+        />
+      </>,
+      {
+        initialRoute: '/',
+      },
+    );
+    await waitFor(() =>
+      expect(screen.queryAllByTestId('post').length).toEqual(1),
+    );
+  });
 
   it('Takes the user to the post details page if they click on the post', async () => {
     render(
