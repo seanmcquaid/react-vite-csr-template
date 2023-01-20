@@ -8,8 +8,8 @@ import queryClient from './services/queryClient';
 const AppRouter = lazy(() => import('./routes/AppRouter'));
 
 if (
-  import.meta.env.NODE_ENV === 'development' &&
-  import.meta.env.VITE_APP_MSW_ENABLED
+  import.meta.env.MODE === 'development' &&
+  Boolean(import.meta.env.VITE_APP_MSW_ENABLED)
 ) {
   import('./mocks/worker').then(worker => worker.default.start());
 }

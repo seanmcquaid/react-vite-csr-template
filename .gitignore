@@ -26,11 +26,4 @@ cypress/downloads
 *.sln
 *.sw?
 stats.html
-
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+.env
