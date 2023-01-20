@@ -1,7 +1,7 @@
 import { defer, LoaderFunctionArgs } from 'react-router-dom';
 import Post from '../../types/responses/Post';
 import postsService from '../../services/postsService';
-import { queryClient } from '../../main';
+import queryClient from '../../services/queryClient';
 
 export interface PostDetailsLoaderData {
   postInfo: Promise<Post>;
@@ -12,7 +12,7 @@ export const getPostQuery = (id: string) => ({
   queryFn: async () => postsService.getPost(id),
 });
 
-const postDetailsLoader = async ({ params }: LoaderFunctionArgs) => {
+const postDetailsLoader = ({ params }: LoaderFunctionArgs) => {
   const { id } = params;
   if (!id) {
     throw new Error('An ID is required');
@@ -21,8 +21,7 @@ const postDetailsLoader = async ({ params }: LoaderFunctionArgs) => {
 
   return defer({
     postInfo:
-      queryClient.getQueryData(query.queryKey) ??
-      (await queryClient.fetchQuery(query)),
+      queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query),
   });
 };
 

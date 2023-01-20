@@ -3,7 +3,7 @@ import { screen, waitFor } from '@testing-library/react';
 import { Route } from 'react-router-dom';
 import { render } from '../../../testUtils/reactTestingLibraryUtils';
 import PostDetails from '../PostDetails';
-import mswServer from '../../../testUtils/mswServer';
+import server from '../../../mocks/server';
 import RouteConstants from '../../../routes/RouteConstants';
 import postDetailsLoader from '../postDetailsLoader';
 
@@ -22,7 +22,7 @@ describe('PostDetails', () => {
     );
   });
   it('does not display post info if no data comes back from the API', async () => {
-    mswServer.use(
+    server.use(
       rest.get(
         'https://jsonplaceholder.typicode.com/posts/1',
         (req, res, context) => {
