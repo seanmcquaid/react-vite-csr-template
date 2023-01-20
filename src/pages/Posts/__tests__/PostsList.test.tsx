@@ -7,7 +7,6 @@ import {
   waitFor,
 } from '../../../testUtils/reactTestingLibraryUtils';
 import RouteConstants from '../../../routes/RouteConstants';
-import initialRootReducerState from '../../../testUtils/initialRootReducerState';
 
 describe('PostsList', () => {
   describe('filterPostsByText', () => {
@@ -33,16 +32,6 @@ describe('PostsList', () => {
       </>,
       {
         initialRoute: '/',
-        preloadedState: {
-          ...initialRootReducerState,
-          posts: {
-            ...initialRootReducerState.posts,
-            posts: [
-              { title: 'I am here', id: 1, body: 'Body', userId: 1 },
-              { title: 'Not a match', id: 2, body: 'Body', userId: 2 },
-            ],
-          },
-        },
       },
     );
     expect(screen.queryAllByTestId('post').length).toEqual(1);
@@ -62,13 +51,6 @@ describe('PostsList', () => {
       </>,
       {
         initialRoute: '/',
-        preloadedState: {
-          ...initialRootReducerState,
-          posts: {
-            ...initialRootReducerState.posts,
-            posts: [{ title: 'I am here', id: 1, body: 'Body', userId: 1 }],
-          },
-        },
       },
     );
     await userEvent.click(screen.getByTestId('post-button'));

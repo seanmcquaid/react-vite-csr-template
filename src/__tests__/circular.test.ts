@@ -1,8 +1,8 @@
-import madge from 'madge';
-
+import { parseDependencyTree, parseCircular } from 'dpdm';
 describe('dependencies', () => {
   it('has no circular dependencies', async () => {
-    const paths = await madge('./src/main.tsx');
-    expect(paths.circular()).toHaveLength(0);
+    const tree = await parseDependencyTree('../main.tsx', {});
+    const circulars = parseCircular(tree);
+    expect(circulars).toHaveLength(0);
   });
 });

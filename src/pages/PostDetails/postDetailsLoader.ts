@@ -1,23 +1,28 @@
 import { defer, LoaderFunctionArgs } from 'react-router-dom';
-import store from '../../store';
-import postsApi from '../../store/postsApi';
 import Post from '../../types/responses/Post';
+import postsService from '../../services/postsService';
+import { queryClient } from '../../main';
 
 export interface PostDetailsLoaderData {
-  postInfo: Post | Promise<Post>;
+  postInfo: Promise<Post>;
 }
 
-const postDetailsLoader = ({ params }: LoaderFunctionArgs) => {
+export const getPostQuery = (id: string) => ({
+  queryKey: ['getPost', id],
+  queryFn: async () => postsService.getPost(id),
+});
+
+const postDetailsLoader = async ({ params }: LoaderFunctionArgs) => {
   const { id } = params;
   if (!id) {
     throw new Error('An ID is required');
   }
-  const { data } = postsApi.endpoints.getPostById.select(id)(store.getState());
-  const shouldDefer = !data;
+  const query = getPostQuery(id);
+
   return defer({
-    postInfo: shouldDefer
-      ? store.dispatch(postsApi.endpoints.getPostById.initiate(id)).unwrap()
-      : data,
+    postInfo:
+      queryClient.getQueryData(query.queryKey) ??
+      (await queryClient.fetchQuery(query)),
   });
 };
 

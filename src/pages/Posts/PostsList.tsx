@@ -1,8 +1,8 @@
 import { FC, useMemo, useTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
 import Post from '../../types/responses/Post';
-import { useAppSelector } from '../../store/hooks';
-import { selectPosts } from '../../store/posts/postsSelectors';
+import { getPostsQuery } from './postsLoader';
 
 export const filterPostsByText = (text: string, posts: Post[]): Post[] =>
   posts.filter(post => post.title.match(text));
@@ -12,11 +12,11 @@ interface PostsListProps {
 }
 
 const PostsList: FC<PostsListProps> = ({ filterText }) => {
+  const { data: posts } = useQuery(getPostsQuery());
   const [, startTransition] = useTransition();
   const navigate = useNavigate();
-  const posts = useAppSelector(selectPosts);
   const filteredPosts: Post[] = useMemo(
-    () => filterPostsByText(filterText, posts),
+    () => filterPostsByText(filterText, posts ?? []),
     [filterText, posts],
   );
 

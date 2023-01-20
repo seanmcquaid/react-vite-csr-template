@@ -1,46 +1,31 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   render as rtlRender,
   RenderResult,
   renderHook as rtlRenderHook,
 } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { ReactElement, FC, ReactNode } from 'react';
-import { RootState } from '../store';
-import createTestStore from './createTestStore';
+import { ReactElement, FC, PropsWithChildren } from 'react';
 import DataMemoryRouter from './DataMemoryRouter';
 
-interface RenderHookOptions {
-  preloadedState?: RootState;
-}
+const queryClient = new QueryClient();
 
-const renderHook = <T,>(fn: () => T, args?: RenderHookOptions) => {
-  const store = createTestStore(args?.preloadedState);
-  interface WrapperProps {
-    children: ReactNode;
-  }
-  const Wrapper: FC<WrapperProps> = ({ children }) => (
-    <Provider store={store}>{children}</Provider>
+const renderHook = <T,>(fn: () => T) => {
+  const Wrapper: FC<PropsWithChildren> = ({ children }) => (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
   return rtlRenderHook(fn, { wrapper: Wrapper });
 };
 
 interface RenderOptions {
-  preloadedState?: RootState;
   initialRoute?: string;
 }
 
 const render = (
   ui: ReactElement,
-  { preloadedState, initialRoute }: RenderOptions = {},
+  { initialRoute }: RenderOptions = {},
 ): RenderResult => {
-  const store = createTestStore(preloadedState);
-
-  interface WrapperProps {
-    children: ReactNode;
-  }
-
-  const Wrapper: FC<WrapperProps> = ({ children }) => (
-    <Provider store={store}>
+  const Wrapper: FC<PropsWithChildren> = ({ children }) => (
+    <QueryClientProvider client={queryClient}>
       {initialRoute ? (
         <DataMemoryRouter initialEntries={[initialRoute]}>
           <>{children}</>
@@ -48,7 +33,7 @@ const render = (
       ) : (
         children
       )}
-    </Provider>
+    </QueryClientProvider>
   );
 
   return rtlRender(ui, { wrapper: Wrapper });
