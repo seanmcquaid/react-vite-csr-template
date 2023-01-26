@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import 'isomorphic-fetch';
+import 'cross-fetch/polyfill';
 import matchers from '@testing-library/jest-dom/matchers';
 import server from './mocks/server';
 

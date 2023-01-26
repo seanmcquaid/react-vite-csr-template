@@ -18,6 +18,7 @@ specifiers:
   '@vitest/coverage-istanbul': ^0.28.0
   autoprefixer: ^10.4.13
   bundlesize2: ^0.0.31
+  cross-fetch: ^3.1.5
   cypress: ^12.2.0
   dpdm: ^3.11.0
   eslint: ^8.30.0
@@ -31,7 +32,6 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   express: ^4.18.2
   husky: ^8.0.2
-  isomorphic-fetch: ^3.0.0
   jsdom: ^21.0.0
   lint-staged: ^13.1.0
   local-cypress: ^1.2.6
@@ -81,6 +81,7 @@ devDependencies:
   '@vitest/coverage-istanbul': 0.28.2_jsdom@21.0.0+terser@5.16.1
   autoprefixer: 10.4.13_postcss@8.4.20
   bundlesize2: 0.0.31
+  cross-fetch: 3.1.5
   cypress: 12.2.0
   dpdm: 3.11.0
   eslint: 8.30.0
@@ -94,7 +95,6 @@ devDependencies:
   eslint-plugin-react-hooks: 4.6.0_eslint@8.30.0
   express: 4.18.2
   husky: 8.0.2
-  isomorphic-fetch: 3.0.0
   jsdom: 21.0.0
   lint-staged: 13.1.0
   local-cypress: 1.2.6
@@ -3375,6 +3375,14 @@ packages:
       yaml: 1.10.2
     dev: true
 
+  /cross-fetch/3.1.5:
+    resolution: {integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==}
+    dependencies:
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
+    dev: true
+
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -5234,15 +5242,6 @@ packages:
 
   /isexe/2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
-    dev: true
-
-  /isomorphic-fetch/3.0.0:
-    resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
-    dependencies:
-      node-fetch: 2.6.7
-      whatwg-fetch: 3.6.2
-    transitivePeerDependencies:
-      - encoding
     dev: true
 
   /isstream/0.1.2:
@@ -7692,10 +7691,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       iconv-lite: 0.6.3
-    dev: true
-
-  /whatwg-fetch/3.6.2:
-    resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==}
     dev: true
 
   /whatwg-mimetype/3.0.0:
