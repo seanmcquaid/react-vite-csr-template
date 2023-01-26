@@ -52,7 +52,7 @@ specifiers:
   vite-plugin-package-version: ^1.0.2
   vite-plugin-svgr: ^2.4.0
   vitest: ^0.27.0
-  zetch: ^0.0.8
+  zetch: ^0.0.11
   zod: ^3.20.2
 
 dependencies:
@@ -61,7 +61,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
   react-spinners: 0.13.7_biqbaboplfbrettd7655fr4n2y
-  zetch: 0.0.8
+  zetch: 0.0.11
   zod: 3.20.2
 
 devDependencies:
@@ -7801,8 +7801,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zetch/0.0.8:
-    resolution: {integrity: sha512-fBzoL/yTu0zcSJcTwsYRqJoaT/qNPct1O46M/sdGle1Gb+Sl3ORn3rlD+6kVQcvARe5vUeQtgzUND9WRJCfX0g==}
+  /zetch/0.0.11:
+    resolution: {integrity: sha512-p/Mt9S2ubbLs+EueD9c/qcLu6/4zgHsJz6FNSeQi2KMThmU+lNJHSp+1OlnnVRl782D9pBV61Tpi8bGhRHvkzA==}
     dependencies:
       zod: 3.20.2
     dev: false
