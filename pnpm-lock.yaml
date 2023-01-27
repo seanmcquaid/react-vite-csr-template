@@ -41,7 +41,7 @@ specifiers:
   prettier: ^2.8.1
   react: ^18.2.0
   react-dom: ^18.2.0
-  react-router-dom: ^6.6.1
+  react-router-dom: ^6.8.0
   react-spinners: ^0.13.7
   rollup-plugin-visualizer: ^5.8.3
   tailwindcss: ^3.2.4
@@ -52,16 +52,16 @@ specifiers:
   vite-plugin-package-version: ^1.0.2
   vite-plugin-svgr: ^2.4.0
   vitest: ^0.28.0
-  zetch: ^0.0.11
+  zetch: ^1.0.1
   zod: ^3.20.2
 
 dependencies:
   '@tanstack/react-query': 4.22.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
+  react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
   react-spinners: 0.13.7_biqbaboplfbrettd7655fr4n2y
-  zetch: 0.0.11
+  zetch: 1.0.1
   zod: 3.20.2
 
 devDependencies:
@@ -1891,8 +1891,8 @@ packages:
     resolution: {integrity: sha512-Aq58f5HiWdyDlFffbbSjAlv596h/cOnt2DO1w3DOC7OJ5EHs0hd/nycJfiu9RJbT6Yk6F1knnRRXNSpxoIVZ9Q==}
     dev: true
 
-  /@remix-run/router/1.2.1:
-    resolution: {integrity: sha512-XiY0IsyHR+DXYS5vBxpoBe/8veTeoRpMHP+vDosLZxL5bnpetzI0igkxkLZS235ldLzyfkxF+2divEwWHP3vMQ==}
+  /@remix-run/router/1.3.1:
+    resolution: {integrity: sha512-+eun1Wtf72RNRSqgU7qM2AMX/oHp+dnx7BHk1qhK5ZHzdHTUU4LA1mGG1vT+jMc8sbhG3orvsfOmryjzx2PzQw==}
     engines: {node: '>=14'}
     dev: false
 
@@ -6445,26 +6445,26 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-router-dom/6.6.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-u+8BKUtelStKbZD5UcY0NY90WOzktrkJJhyhNg7L0APn9t1qJNLowzrM9CHdpB6+rcPt6qQrlkIXsTvhuXP68g==}
+  /react-router-dom/6.8.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-hQouduSTywGJndE86CXJ2h7YEy4HYC6C/uh19etM+79FfQ6cFFFHnHyDlzO4Pq0eBUI96E4qVE5yUjA00yJZGQ==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.2.1
+      '@remix-run/router': 1.3.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-router: 6.6.1_react@18.2.0
+      react-router: 6.8.0_react@18.2.0
     dev: false
 
-  /react-router/6.6.1_react@18.2.0:
-    resolution: {integrity: sha512-YkvlYRusnI/IN0kDtosUCgxqHeulN5je+ew8W+iA1VvFhf86kA+JEI/X/8NqYcr11hCDDp906S+SGMpBheNeYQ==}
+  /react-router/6.8.0_react@18.2.0:
+    resolution: {integrity: sha512-760bk7y3QwabduExtudhWbd88IBbuD1YfwzpuDUAlJUJ7laIIcqhMvdhSVh1Fur1PE8cGl84L0dxhR3/gvHF7A==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.2.1
+      '@remix-run/router': 1.3.1
       react: 18.2.0
     dev: false
 
@@ -7873,8 +7873,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zetch/0.0.11:
-    resolution: {integrity: sha512-p/Mt9S2ubbLs+EueD9c/qcLu6/4zgHsJz6FNSeQi2KMThmU+lNJHSp+1OlnnVRl782D9pBV61Tpi8bGhRHvkzA==}
+  /zetch/1.0.1:
+    resolution: {integrity: sha512-U2sfB2Gs0scmWk2ey4JFx7hIfS4wlvrqB/FYVNy/CHQiDKBLGJw4HUIgP9uhb5WFb8R4+F0xCIn+noY+uKaWvg==}
     dependencies:
       zod: 3.20.2
     dev: false

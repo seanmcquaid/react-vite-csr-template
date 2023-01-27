@@ -1,7 +1,7 @@
-import { createZetchClient } from 'zetch';
+import { zetch } from 'zetch';
 
 const createApiClient = (baseUrl: string) => {
-  return createZetchClient({
+  return zetch.create({
     baseUrl,
   });
 };
