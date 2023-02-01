@@ -75,7 +75,7 @@
     "vite-plugin-svgr": "^2.4.0",
     "vitest": "^0.28.0"
   },
-  "packageManager": "pnpm@7.26.2",
+  "packageManager": "pnpm@7.26.3",
   "msw": {
     "workerDirectory": "public"
   }
