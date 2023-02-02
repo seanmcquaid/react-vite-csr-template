@@ -1,39 +1,62 @@
-import { ChangeEvent, FC, useState, Suspense } from 'react';
+import { FC, Suspense } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { Await, useLoaderData } from 'react-router-dom';
+import { Await, useFetcher, useLoaderData } from 'react-router-dom';
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import PostsList from './PostsList';
 import { PostsLoaderData } from './postsLoader';
 
+export const formSchema = z.object({
+  postId: z
+    .string()
+    .min(3, 'Text must contain at least 3 characters')
+    .max(10, 'Text must contain at most 10 characters'),
+});
+
 const Posts: FC = () => {
-  const [text, setText] = useState('');
+  const {
+    register,
+    formState: { errors },
+    watch,
+  } = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      postId: '',
+    },
+    mode: 'all',
+  });
+  const fetcher = useFetcher();
   const { posts } = useLoaderData() as PostsLoaderData;
-
-  const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setText(event.currentTarget.value);
-  };
-
-  const handleOnClick = () => {
-    setText('');
-  };
-
+  const textErrors = errors?.postId;
   return (
     <div>
-      <div>
-        <h1>Posts</h1>
-        <input
-          value={text}
-          onChange={handleOnChange}
-          id="text"
-          name="example"
-          data-testid="text-input"
-        />
-        <button onClick={handleOnClick} data-testid="clear-button">
-          Clear
+      <h1>Posts</h1>
+      {/*<Form method="post">*/}
+      {/*  <div>*/}
+      {/*    <input data-testid="text-input" {...register('text')} />*/}
+      {/*    {textErrors?.message && <p>{textErrors?.message}</p>}*/}
+      {/*  </div>*/}
+      {/*  <button data-testid="clear-button" disabled={!!textErrors}>*/}
+      {/*    Submit*/}
+      {/*  </button>*/}
+      {/*</Form>*/}
+      <fetcher.Form method="post">
+        <div>
+          <input
+            data-testid="text-input"
+            {...register('postId')}
+            disabled={fetcher.state !== 'idle'}
+          />
+          {textErrors?.message && <p>{textErrors?.message}</p>}
+        </div>
+        <button disabled={fetcher.state !== 'idle'}>
+          {fetcher.state !== 'idle' ? 'LOADING' : 'Search'}
         </button>
-      </div>
+      </fetcher.Form>
       <Suspense fallback={<ClipLoader loading />}>
         <Await resolve={posts} errorElement={'ERROR'}>
-          <PostsList filterText={text} />
+          <PostsList filterText={watch('postId')} />
         </Await>
       </Suspense>
     </div>

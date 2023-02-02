@@ -4,6 +4,7 @@ import postsLoader from '../pages/Posts/postsLoader';
 import LoadingOverlay from '../components/LoadingOverlay';
 import postDetailsLoader from '../pages/PostDetails/postDetailsLoader';
 import Layout from '../components/Layout';
+import postsAction from '../pages/Posts/postsAction';
 import RootErrorBoundary from './RootErrorBoundary';
 import RouteConstants from './RouteConstants';
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
         path: RouteConstants.HOME,
         element: <Posts />,
         loader: postsLoader,
+        action: postsAction,
       },
       {
         path: RouteConstants.POST_DETAILS,
