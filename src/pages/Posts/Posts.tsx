@@ -3,7 +3,13 @@ import { Await, useFetcher, useLoaderData } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Spinner } from '@chakra-ui/react';
+import {
+  Button,
+  FormControl,
+  FormErrorMessage,
+  Input,
+  Spinner,
+} from '@chakra-ui/react';
 import PostsList from './PostsList';
 import { PostsLoaderData } from './postsLoader';
 
@@ -32,27 +38,18 @@ const Posts: FC = () => {
   return (
     <div>
       <h1>Posts</h1>
-      {/*<Form method="post">*/}
-      {/*  <div>*/}
-      {/*    <input data-testid="text-input" {...register('text')} />*/}
-      {/*    {textErrors?.message && <p>{textErrors?.message}</p>}*/}
-      {/*  </div>*/}
-      {/*  <button data-testid="clear-button" disabled={!!textErrors}>*/}
-      {/*    Submit*/}
-      {/*  </button>*/}
-      {/*</Form>*/}
       <fetcher.Form method="post">
-        <div>
-          <input
+        <FormControl isInvalid={!!textErrors}>
+          <Input
             data-testid="text-input"
             {...register('postId')}
             disabled={fetcher.state !== 'idle'}
           />
-          {textErrors?.message && <p>{textErrors?.message}</p>}
-        </div>
-        <button disabled={fetcher.state !== 'idle'}>
+          <FormErrorMessage>{textErrors?.message}</FormErrorMessage>
+        </FormControl>
+        <Button isLoading={fetcher.state !== 'idle'} type="submit">
           {fetcher.state !== 'idle' ? 'LOADING' : 'Search'}
-        </button>
+        </Button>
       </fetcher.Form>
       <Suspense fallback={<Spinner />}>
         <Await resolve={posts} errorElement={'ERROR'}>
