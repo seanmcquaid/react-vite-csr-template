@@ -2,9 +2,10 @@ import { lazy, StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { Toaster } from 'react-hot-toast';
+import { ChakraProvider } from '@chakra-ui/react';
 import LoadingOverlay from './components/LoadingOverlay';
 import queryClient from './services/queryClient';
+import { Toast } from './components/Toast';
 
 const AppRouter = lazy(() => import('./routes/AppRouter'));
 
@@ -17,11 +18,13 @@ if (
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Toaster position="bottom-center" />
-      <Suspense fallback={<LoadingOverlay isLoading />}>
-        <AppRouter />
-      </Suspense>
-    </QueryClientProvider>
+    <ChakraProvider>
+      <QueryClientProvider client={queryClient}>
+        <Toast />
+        <Suspense fallback={<LoadingOverlay isLoading />}>
+          <AppRouter />
+        </Suspense>
+      </QueryClientProvider>
+    </ChakraProvider>
   </StrictMode>,
 );

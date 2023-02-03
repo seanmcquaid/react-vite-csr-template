@@ -1,7 +1,8 @@
-import toast from 'react-hot-toast';
 import { ActionFunctionArgs, redirect } from 'react-router-dom';
+import { ZetchError } from 'zetch';
 import queryClient from '../../services/queryClient';
 import { getPostQuery } from '../PostDetails/postDetailsLoader';
+import { toast } from '../../components/Toast';
 import { formSchema } from './Posts';
 
 const postsAction = async ({ request }: ActionFunctionArgs) => {
@@ -9,13 +10,21 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
     const formData = await request.formData();
     const postId = formData.get('postId');
     if (!postId) {
-      toast.error('An ID is required');
+      toast({
+        title: 'Something went wrong',
+        description: 'Post ID is missing',
+        status: 'error',
+      });
       return null;
     }
     const validatedForm = formSchema.safeParse({ postId });
 
     if (!validatedForm.success) {
-      toast.error(validatedForm.error.message);
+      toast({
+        title: 'Something went wrong',
+        description: validatedForm.error.message,
+        status: 'error',
+      });
       return null;
     }
 
@@ -24,10 +33,19 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
       queryKey: ['getPost', validatedForm.data.postId],
     });
     await queryClient.fetchQuery(getPostQuery(validatedForm.data.postId));
-    toast.success('Changed post');
+    toast({
+      title: 'Post updated',
+      description: 'Post has been updated successfully',
+      status: 'success',
+    });
     return redirect(`/post/${validatedForm.data.postId}`);
   } catch (e) {
-    toast.error('Something went wrong');
+    const err = e as ZetchError;
+    toast({
+      title: 'Something went wrong',
+      description: err.message,
+      status: 'error',
+    });
     return null;
   }
 };

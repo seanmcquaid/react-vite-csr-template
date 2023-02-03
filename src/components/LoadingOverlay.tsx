@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import ClipLoader from 'react-spinners/ClipLoader';
+import { Spinner } from '@chakra-ui/react';
 
 interface LoadingOverlayProps {
   isLoading: boolean;
@@ -14,7 +14,7 @@ const LoadingOverlay: FC<LoadingOverlayProps> = ({ isLoading }) => (
     }
     data-testid="loading-overlay"
   >
-    <ClipLoader loading={isLoading} />
+    <Spinner />
   </div>
 );
 

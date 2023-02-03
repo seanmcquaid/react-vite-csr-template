@@ -18,15 +18,17 @@
     "cy:run": "cypress run"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@hookform/resolvers": "^2.9.10",
     "@tanstack/react-query": "^4.22.0",
     "csstype": "^3.1.1",
+    "framer-motion": "^9.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
-    "react-hot-toast": "^2.4.0",
     "react-router-dom": "^6.8.0",
-    "react-spinners": "^0.13.7",
     "zetch": "^1.0.4",
     "zod": "^3.20.2"
   },

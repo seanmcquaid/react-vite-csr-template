@@ -1,9 +1,9 @@
 import { FC, Suspense } from 'react';
-import ClipLoader from 'react-spinners/ClipLoader';
 import { Await, useFetcher, useLoaderData } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Spinner } from '@chakra-ui/react';
 import PostsList from './PostsList';
 import { PostsLoaderData } from './postsLoader';
 
@@ -54,7 +54,7 @@ const Posts: FC = () => {
           {fetcher.state !== 'idle' ? 'LOADING' : 'Search'}
         </button>
       </fetcher.Form>
-      <Suspense fallback={<ClipLoader loading />}>
+      <Suspense fallback={<Spinner />}>
         <Await resolve={posts} errorElement={'ERROR'}>
           <PostsList filterText={watch('postId')} />
         </Await>

@@ -1,7 +1,7 @@
 import { FC, Suspense } from 'react';
 import { Await, useLoaderData, useParams } from 'react-router-dom';
-import ClipLoader from 'react-spinners/ClipLoader';
 import { useQuery } from '@tanstack/react-query';
+import { Spinner } from '@chakra-ui/react';
 import PostInfo from './PostInfo';
 import { getPostQuery, PostDetailsLoaderData } from './postDetailsLoader';
 
@@ -16,7 +16,7 @@ const PostDetails: FC = () => {
 
   return (
     <div data-testid="post-details-container">
-      <Suspense fallback={<ClipLoader loading />}>
+      <Suspense fallback={<Spinner />}>
         <Await resolve={postInfo} errorElement={'ERROR'}>
           <PostInfo post={data ?? null} />
         </Await>
