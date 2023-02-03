@@ -20,6 +20,7 @@ specifiers:
   autoprefixer: ^10.4.13
   bundlesize2: ^0.0.31
   cross-fetch: ^3.1.5
+  csstype: ^3.1.1
   cypress: ^12.2.0
   dpdm: ^3.11.0
   eslint: ^8.30.0
@@ -43,6 +44,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-hook-form: ^7.42.1
+  react-hot-toast: ^2.4.0
   react-router-dom: ^6.8.0
   react-spinners: ^0.13.7
   rollup-plugin-visualizer: ^5.8.3
@@ -54,18 +56,20 @@ specifiers:
   vite-plugin-package-version: ^1.0.2
   vite-plugin-svgr: ^2.4.0
   vitest: ^0.28.0
-  zetch: ^1.0.2
+  zetch: ^1.0.4
   zod: ^3.20.2
 
 dependencies:
   '@hookform/resolvers': 2.9.10_react-hook-form@7.42.1
   '@tanstack/react-query': 4.22.0_biqbaboplfbrettd7655fr4n2y
+  csstype: 3.1.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.42.1_react@18.2.0
+  react-hot-toast: 2.4.0_owo25xnefcwdq3zjgtohz6dbju
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
   react-spinners: 0.13.7_biqbaboplfbrettd7655fr4n2y
-  zetch: 1.0.2
+  zetch: 1.0.4
   zod: 3.20.2
 
 devDependencies:
@@ -3431,7 +3435,6 @@ packages:
 
   /csstype/3.1.1:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
-    dev: true
 
   /cypress/12.2.0:
     resolution: {integrity: sha512-kvl95ri95KK8mAy++tEU/wUgzAOMiIciZSL97LQvnOinb532m7dGvwN0mDSIGbOd71RREtmT9o4h088RjK5pKw==}
@@ -4773,6 +4776,14 @@ packages:
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
+
+  /goober/2.1.11_csstype@3.1.1:
+    resolution: {integrity: sha512-5SS2lmxbhqH0u9ABEWq7WPU69a4i2pYcHeCxqaNq6Cw3mnrF0ghWNM4tEGid4dKy8XNIAUbuThuozDHHKJVh3A==}
+    peerDependencies:
+      csstype: ^3.0.10
+    dependencies:
+      csstype: 3.1.1
+    dev: false
 
   /gopd/1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
@@ -6449,6 +6460,20 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-hot-toast/2.4.0_owo25xnefcwdq3zjgtohz6dbju:
+    resolution: {integrity: sha512-qnnVbXropKuwUpriVVosgo8QrB+IaPJCpL8oBI6Ov84uvHZ5QQcTp2qg6ku2wNfgJl6rlQXJIQU5q+5lmPOutA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      goober: 2.1.11_csstype@3.1.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - csstype
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
@@ -7894,8 +7919,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zetch/1.0.2:
-    resolution: {integrity: sha512-l9PwLt+JblSfXNbLsinST5+XwHS6Wn3bI6qeLSrOBiu5d+0j8yHQqanH2lfEojL10YKqsSlFFoB/kd574JhsdA==}
+  /zetch/1.0.4:
+    resolution: {integrity: sha512-HFjBOV7T14mRnOzi2C9LFlJ7uznbbXuUEf4IjO7taqIehoqNeJUQDjvQ3E95KEYjw5NU6Hzcohhl5PMVzmnElA==}
     dependencies:
       zod: 3.20.2
     dev: false
