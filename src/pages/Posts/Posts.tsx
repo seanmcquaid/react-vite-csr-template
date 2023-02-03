@@ -7,6 +7,7 @@ import {
   Button,
   FormControl,
   FormErrorMessage,
+  Heading,
   Input,
   Spinner,
 } from '@chakra-ui/react';
@@ -37,7 +38,7 @@ const Posts: FC = () => {
   const textErrors = errors?.postId;
   return (
     <div>
-      <h1>Posts</h1>
+      <Heading>Posts</Heading>
       <fetcher.Form method="post">
         <FormControl isInvalid={!!textErrors}>
           <Input

@@ -1,6 +1,7 @@
 import { FC, useMemo, useTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { Button } from '@chakra-ui/react';
 import Post from '../../types/responses/Post';
 import { getPostsQuery } from './postsLoader';
 
@@ -30,9 +31,13 @@ const PostsList: FC<PostsListProps> = ({ filterText }) => {
     <ul>
       {filteredPosts.map(post => (
         <li key={post.id} data-testid="post">
-          <button onClick={() => handleOnClick(post)} data-testid="post-button">
+          <Button
+            onClick={() => handleOnClick(post)}
+            data-testid="post-button"
+            variant="ghost"
+          >
             {post.title.substring(0, 5)}
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

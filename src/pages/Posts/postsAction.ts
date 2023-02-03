@@ -2,7 +2,7 @@ import { ActionFunctionArgs, redirect } from 'react-router-dom';
 import { ZetchError } from 'zetch';
 import queryClient from '../../services/queryClient';
 import { getPostQuery } from '../PostDetails/postDetailsLoader';
-import { toast } from '../../components/Toast';
+import { createToast } from '../../components/Toast';
 import { formSchema } from './Posts';
 
 const postsAction = async ({ request }: ActionFunctionArgs) => {
@@ -10,7 +10,7 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
     const formData = await request.formData();
     const postId = formData.get('postId');
     if (!postId) {
-      toast({
+      createToast({
         title: 'Something went wrong',
         description: 'Post ID is missing',
         status: 'error',
@@ -20,7 +20,7 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
     const validatedForm = formSchema.safeParse({ postId });
 
     if (!validatedForm.success) {
-      toast({
+      createToast({
         title: 'Something went wrong',
         description: validatedForm.error.message,
         status: 'error',
@@ -33,7 +33,7 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
       queryKey: ['getPost', validatedForm.data.postId],
     });
     await queryClient.fetchQuery(getPostQuery(validatedForm.data.postId));
-    toast({
+    createToast({
       title: 'Post updated',
       description: 'Post has been updated successfully',
       status: 'success',
@@ -41,7 +41,7 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
     return redirect(`/post/${validatedForm.data.postId}`);
   } catch (e) {
     const err = e as ZetchError;
-    toast({
+    createToast({
       title: 'Something went wrong',
       description: err.message,
       status: 'error',

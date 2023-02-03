@@ -5,7 +5,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { ChakraProvider } from '@chakra-ui/react';
 import LoadingOverlay from './components/LoadingOverlay';
 import queryClient from './services/queryClient';
-import { Toast } from './components/Toast';
+import Toast from './components/Toast';
 
 const AppRouter = lazy(() => import('./routes/AppRouter'));
 
