@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ChakraProvider } from '@chakra-ui/react';
-import LoadingOverlay from './components/LoadingOverlay';
 import queryClient from './services/queryClient';
 import Toast from './components/Toast';
 
@@ -21,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <ChakraProvider>
       <QueryClientProvider client={queryClient}>
         <Toast />
-        <Suspense fallback={<LoadingOverlay isLoading />}>
+        <Suspense>
           <AppRouter />
         </Suspense>
       </QueryClientProvider>

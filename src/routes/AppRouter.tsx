@@ -1,7 +1,6 @@
 import { FC, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import postsLoader from '../pages/Posts/postsLoader';
-import LoadingOverlay from '../components/LoadingOverlay';
 import postDetailsLoader from '../pages/PostDetails/postDetailsLoader';
 import Layout from '../components/Layout';
 import postsAction from '../pages/Posts/postsAction';
@@ -38,12 +37,7 @@ const router = createBrowserRouter([
 ]);
 
 const AppRouter: FC = () => {
-  return (
-    <RouterProvider
-      router={router}
-      fallbackElement={<LoadingOverlay isLoading />}
-    />
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default AppRouter;

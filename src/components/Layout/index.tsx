@@ -1,19 +1,14 @@
 import { FC, Suspense } from 'react';
-import { Outlet, useNavigation } from 'react-router-dom';
-import LoadingOverlay from '../LoadingOverlay';
+import { Outlet } from 'react-router-dom';
+import { Spinner } from '@chakra-ui/react';
 import Navbar from './Navbar';
 
 const Layout: FC = () => {
-  const navigation = useNavigation();
-  const isNavigating =
-    navigation.state === 'loading' || navigation.state === 'submitting';
-
   return (
     <div>
       <Navbar />
       <div>
-        <LoadingOverlay isLoading={isNavigating} />
-        <Suspense fallback={<LoadingOverlay isLoading />}>
+        <Suspense fallback={<Spinner />}>
           <Outlet />
         </Suspense>
       </div>
