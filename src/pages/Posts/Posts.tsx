@@ -1,4 +1,4 @@
-import { FC, Suspense } from 'react';
+import { FC, Suspense, useEffect } from 'react';
 import { Await, useFetcher, useLoaderData } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -26,6 +26,7 @@ const Posts: FC = () => {
     register,
     formState: { errors },
     watch,
+    reset,
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,6 +37,13 @@ const Posts: FC = () => {
   const fetcher = useFetcher();
   const { posts } = useLoaderData() as PostsLoaderData;
   const textErrors = errors?.postId;
+
+  useEffect(() => {
+    if (fetcher.state === 'submitting') {
+      reset();
+    }
+  }, [fetcher.state, reset]);
+
   return (
     <div>
       <Heading>Posts</Heading>
@@ -48,7 +56,11 @@ const Posts: FC = () => {
           />
           <FormErrorMessage>{textErrors?.message}</FormErrorMessage>
         </FormControl>
-        <Button isLoading={fetcher.state !== 'idle'} type="submit">
+        <Button
+          isLoading={fetcher.state !== 'idle'}
+          type="submit"
+          data-testid="search-button"
+        >
           {fetcher.state !== 'idle' ? 'LOADING' : 'Search'}
         </Button>
       </fetcher.Form>

@@ -8,6 +8,7 @@ import {
 import RouteConstants from '../../../routes/RouteConstants';
 import postsLoader from '../postsLoader';
 import Posts from '../Posts';
+import postsAction from '../postsAction';
 
 describe('Posts', () => {
   beforeEach(() => {
@@ -16,6 +17,7 @@ describe('Posts', () => {
         path={RouteConstants.HOME}
         element={<Posts />}
         loader={postsLoader}
+        action={postsAction}
       />,
       { initialRoute: RouteConstants.HOME },
     );
@@ -33,7 +35,7 @@ describe('Posts', () => {
     );
     await userEvent.type(screen.getByTestId('text-input'), 'test value');
     expect(screen.getByTestId('text-input')).toHaveValue('test value');
-    await userEvent.click(screen.getByTestId('clear-button'));
+    await userEvent.click(screen.getByTestId('search-button'));
     expect(screen.getByTestId('text-input')).toHaveValue('');
   });
 });
