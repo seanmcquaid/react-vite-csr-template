@@ -1,9 +1,9 @@
 import { FC, useMemo, useTransition } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAsyncValue, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@chakra-ui/react';
 import Post from '../../types/responses/Post';
-import { getPostsQuery } from './postsLoader';
+import { getPostsQuery, PostsLoaderData } from './postsLoader';
 
 export const filterPostsByText = (text: string, posts: Post[]): Post[] =>
   posts.filter(post => post.title.match(text));
@@ -13,7 +13,11 @@ interface PostsListProps {
 }
 
 const PostsList: FC<PostsListProps> = ({ filterText }) => {
-  const { data: posts } = useQuery(getPostsQuery());
+  const initialPosts = useAsyncValue() as Awaited<PostsLoaderData['posts']>;
+  const { data: posts } = useQuery({
+    ...getPostsQuery(),
+    initialData: initialPosts,
+  });
   const [, startTransition] = useTransition();
   const navigate = useNavigate();
   const filteredPosts: Post[] = useMemo(
