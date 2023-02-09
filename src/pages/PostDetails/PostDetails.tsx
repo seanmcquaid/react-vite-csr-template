@@ -1,5 +1,10 @@
 import { FC, Suspense } from 'react';
-import { Await, useLoaderData, useParams } from 'react-router-dom';
+import {
+  Await,
+  useAsyncValue,
+  useLoaderData,
+  useParams,
+} from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { Spinner } from '@chakra-ui/react';
 import PostInfo from './PostInfo';
@@ -11,14 +16,20 @@ type PostDetailsParams = {
 
 const PostDetails: FC = () => {
   const { id } = useParams<PostDetailsParams>();
+  const initialPostInfo = useAsyncValue() as Awaited<
+    PostDetailsLoaderData['postInfo']
+  >;
   const { postInfo } = useLoaderData() as PostDetailsLoaderData;
-  const { data } = useQuery(getPostQuery(id ?? ''));
+  const { data } = useQuery({
+    ...getPostQuery(id ?? ''),
+    initialData: initialPostInfo,
+  });
 
   return (
     <div data-testid="post-details-container">
       <Suspense fallback={<Spinner />}>
         <Await resolve={postInfo} errorElement={'ERROR'}>
-          <PostInfo post={data ?? null} />
+          <PostInfo post={data} />
         </Await>
       </Suspense>
     </div>
