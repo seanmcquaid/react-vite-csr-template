@@ -41,7 +41,6 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
     return redirect(`/post/${validatedForm.data.postId}`);
   } catch (e) {
     const err = e as ZetchError;
-    console.log(err.toObject());
     createToast({
       title: 'Something went wrong',
       description: err.message,
