@@ -60,7 +60,7 @@ specifiers:
   vite-plugin-package-version: ^1.0.2
   vite-plugin-svgr: ^2.4.0
   vitest: ^0.28.0
-  zetch: ^1.0.5
+  zetch: ^1.0.6
   zod: ^3.20.2
 
 dependencies:
@@ -77,7 +77,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.42.1_react@18.2.0
   react-router-dom: 6.8.0_biqbaboplfbrettd7655fr4n2y
-  zetch: 1.0.5
+  zetch: 1.0.6
   zod: 3.20.2
 
 devDependencies:
@@ -9439,8 +9439,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zetch/1.0.5:
-    resolution: {integrity: sha512-V1lNPu4RjH69btvz3A5UOaar3LLQmEBJtenqYPMzrCu9caq+wDmoSbVaUwkne1Kj3HJTXO22qdhd9MUB1Ol44g==}
+  /zetch/1.0.6:
+    resolution: {integrity: sha512-eGO74fv/Floznnct2tqAkbzLKuhwnNTwc8EsF5TAEoBFlPfCeWAhzVrFcpTN6NKsNC2GIJGfc3CpoR8gJN1WBA==}
     dependencies:
       zod: 3.20.2
     dev: false
