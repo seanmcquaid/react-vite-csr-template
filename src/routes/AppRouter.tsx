@@ -4,6 +4,7 @@ import postsLoader from '../pages/Posts/postsLoader';
 import postDetailsLoader from '../pages/PostDetails/postDetailsLoader';
 import Layout from '../components/Layout';
 import postsAction from '../pages/Posts/postsAction';
+import PageError from '../components/PageError';
 import RootErrorBoundary from './RootErrorBoundary';
 import RouteConstants from './RouteConstants';
 
@@ -22,11 +23,13 @@ const router = createBrowserRouter([
         element: <Posts />,
         loader: postsLoader,
         action: postsAction,
+        errorElement: <PageError errorText={'Error loading posts'} />,
       },
       {
         path: RouteConstants.POST_DETAILS,
         element: <PostDetails />,
         loader: postDetailsLoader,
+        errorElement: <PageError errorText={'Error loading post'} />,
       },
       {
         path: '*',
