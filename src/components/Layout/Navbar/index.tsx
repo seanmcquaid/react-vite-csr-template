@@ -1,45 +1,23 @@
-import { FC, useMemo } from 'react';
-import RouteConstants from '../../../routes/RouteConstants';
-import NavLinkList, { NavRoute } from './NavLinkList';
-
-import { ReactNode } from 'react';
 import {
   Box,
   Flex,
   Avatar,
-  Link,
   Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   MenuDivider,
-  useDisclosure,
   useColorModeValue,
   Stack,
   useColorMode,
   Center,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { FC } from 'react';
 
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={'md'}
-    _hover={{
-      textDecoration: 'none',
-      bg: useColorModeValue('gray.200', 'gray.700'),
-    }}
-    href={'#'}
-  >
-    {children}
-  </Link>
-);
-
-export default function Nav() {
+const Navbar: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -90,4 +68,6 @@ export default function Nav() {
       </Box>
     </>
   );
-}
+};
+
+export default Navbar;
