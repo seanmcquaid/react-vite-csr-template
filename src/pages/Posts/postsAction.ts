@@ -9,6 +9,7 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
   try {
     const formData = await request.formData();
     const postId = formData.get('postId');
+    console.log(postId);
     if (!postId) {
       createToast({
         title: 'Something went wrong',
@@ -18,6 +19,8 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
       return null;
     }
     const validatedForm = formSchema.safeParse({ postId });
+
+    console.log(validatedForm);
 
     if (!validatedForm.success) {
       createToast({

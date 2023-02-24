@@ -17,8 +17,8 @@ import { PostsLoaderData } from './postsLoader';
 export const formSchema = z.object({
   postId: z
     .string()
-    .min(3, 'Text must contain at least 3 characters')
-    .max(10, 'Text must contain at most 10 characters'),
+    .min(1, 'Text must contain at least 1 characters')
+    .max(3, 'Text must contain at most 3 characters'),
 });
 
 const Posts: FC = () => {

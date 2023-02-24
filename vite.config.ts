@@ -39,6 +39,7 @@ export default defineConfig(() => {
           'src/AppConstants.ts',
           'src/i18n',
           'src/main.tsx',
+          'src/mocks',
         ],
       },
     },
