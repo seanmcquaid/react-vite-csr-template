@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { useAsyncValue, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getPostQuery, PostDetailsLoaderData } from './postDetailsLoader';
+import PostDetailsLoaderData from './PostDetailsLoaderData';
+import getPostQuery from './getPostQuery';
 
 type PostDetailsParams = {
   id: string;

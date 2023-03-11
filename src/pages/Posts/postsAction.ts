@@ -1,15 +1,14 @@
 import { ActionFunctionArgs, redirect } from 'react-router-dom';
 import { ZetchError } from 'zetch';
 import queryClient from '../../services/queryClient';
-import { getPostQuery } from '../PostDetails/postDetailsLoader';
 import { createToast } from '../../components/Toast';
 import { formSchema } from './Posts';
+import getPostQuery from '../PostDetails/getPostQuery';
 
 const postsAction = async ({ request }: ActionFunctionArgs) => {
   try {
     const formData = await request.formData();
     const postId = formData.get('postId');
-    console.log(postId);
     if (!postId) {
       createToast({
         title: 'Something went wrong',
@@ -19,8 +18,6 @@ const postsAction = async ({ request }: ActionFunctionArgs) => {
       return null;
     }
     const validatedForm = formSchema.safeParse({ postId });
-
-    console.log(validatedForm);
 
     if (!validatedForm.success) {
       createToast({
