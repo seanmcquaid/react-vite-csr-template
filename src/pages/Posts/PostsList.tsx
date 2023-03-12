@@ -3,8 +3,8 @@ import { useAsyncValue, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from '@chakra-ui/react';
 import Post from '../../types/responses/Post';
-import { getPostsQuery, PostsLoaderData } from './postsLoader';
-
+import getPostsQuery from '../../queries/getPostsQuery';
+import PostsLoaderData from './types/PostsLoaderData';
 export const filterPostsByText = (text: string, posts: Post[]): Post[] =>
   posts.filter(post => post.title.match(text));
 

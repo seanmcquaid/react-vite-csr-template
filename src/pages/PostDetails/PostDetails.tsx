@@ -2,10 +2,10 @@ import { FC, Suspense } from 'react';
 import { Await, defer, LoaderFunction, useLoaderData } from 'react-router-dom';
 import { Spinner } from '@chakra-ui/react';
 import queryClient from '../../services/queryClient';
-import PostInfo from './PostInfo';
-import getPostQuery from './getPostQuery';
-import PostDetailsLoaderData from './PostDetailsLoaderData';
+import getPostQuery from '../../queries/getPostQuery';
 import PageError from '../../components/PageError';
+import PostInfo from './PostInfo';
+import PostDetailsLoaderData from './types/PostDetailsLoaderData';
 
 export const loader: LoaderFunction = ({ params }) => {
   const { id } = params;
@@ -35,5 +35,5 @@ export const Component: FC = () => {
 };
 
 export const ErrorBoundary: FC = () => {
-  return <PageError errorText={'Error loading post'} />;
+  return <PageError errorText={'Error loading posts'} />;
 };

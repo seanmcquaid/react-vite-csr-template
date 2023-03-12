@@ -1,5 +1,13 @@
 import { FC, Suspense, useEffect } from 'react';
-import { Await, useFetcher, useLoaderData } from 'react-router-dom';
+import {
+  ActionFunction,
+  Await,
+  defer,
+  LoaderFunction,
+  redirect,
+  useFetcher,
+  useLoaderData,
+} from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,17 +19,76 @@ import {
   Input,
   Spinner,
 } from '@chakra-ui/react';
+import { ZetchError } from 'zetch';
+import { createToast } from '../../components/Toast';
+import queryClient from '../../services/queryClient';
+import getPostQuery from '../../queries/getPostQuery';
+import getPostsQuery from '../../queries/getPostsQuery';
+import PageError from '../../components/PageError';
 import PostsList from './PostsList';
-import { PostsLoaderData } from './postsLoader';
+import PostsLoaderData from './types/PostsLoaderData';
 
-export const formSchema = z.object({
+const formSchema = z.object({
   postId: z
     .string()
     .min(1, 'Text must contain at least 1 characters')
     .max(3, 'Text must contain at most 3 characters'),
 });
 
-const Posts: FC = () => {
+export const action: ActionFunction = async ({ request }) => {
+  try {
+    const formData = await request.formData();
+    const postId = formData.get('postId');
+    if (!postId) {
+      createToast({
+        title: 'Something went wrong',
+        description: 'Post ID is missing',
+        status: 'error',
+      });
+      return null;
+    }
+    const validatedForm = formSchema.safeParse({ postId });
+
+    if (!validatedForm.success) {
+      createToast({
+        title: 'Something went wrong',
+        description: validatedForm.error.message,
+        status: 'error',
+      });
+      return null;
+    }
+
+    // Make request to backend directly here instead of using React Query's mutation directly
+    await queryClient.invalidateQueries({
+      queryKey: ['getPost', validatedForm.data.postId],
+    });
+    await queryClient.fetchQuery(getPostQuery(validatedForm.data.postId));
+    createToast({
+      title: 'Post updated',
+      description: 'Post has been updated successfully',
+      status: 'success',
+    });
+    return redirect(`/post/${validatedForm.data.postId}`);
+  } catch (e) {
+    const err = e as ZetchError;
+    createToast({
+      title: 'Something went wrong',
+      description: err.message,
+      status: 'error',
+    });
+    return null;
+  }
+};
+
+export const loader: LoaderFunction = () => {
+  const query = getPostsQuery();
+  return defer({
+    posts:
+      queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query),
+  });
+};
+
+export const Component: FC = () => {
   const {
     register,
     formState: { errors },
@@ -73,4 +140,6 @@ const Posts: FC = () => {
   );
 };
 
-export default Posts;
+export const ErrorBoundary: FC = () => {
+  return <PageError errorText={'Error loading post'} />;
+};
