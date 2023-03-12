@@ -25,7 +25,7 @@ import queryClient from '../../services/queryClient';
 import getPostQuery from '../../queries/getPostQuery';
 import getPostsQuery from '../../queries/getPostsQuery';
 import PageError from '../../components/PageError';
-import PostsList from './PostsList';
+import PostsList from './components/PostsList';
 import PostsLoaderData from './types/PostsLoaderData';
 
 const formSchema = z.object({

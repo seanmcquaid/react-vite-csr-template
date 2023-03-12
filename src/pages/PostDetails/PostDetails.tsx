@@ -4,7 +4,7 @@ import { Spinner } from '@chakra-ui/react';
 import queryClient from '../../services/queryClient';
 import getPostQuery from '../../queries/getPostQuery';
 import PageError from '../../components/PageError';
-import PostInfo from './PostInfo';
+import PostInfo from './components/PostInfo';
 import PostDetailsLoaderData from './types/PostDetailsLoaderData';
 
 export const loader: LoaderFunction = ({ params }) => {
