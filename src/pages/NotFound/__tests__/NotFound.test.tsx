@@ -5,7 +5,7 @@ import {
   screen,
   waitFor,
 } from '../../../testUtils/reactTestingLibraryUtils';
-import NotFound from '../NotFound';
+import { Component as NotFound } from '../NotFound';
 
 describe('NotFound', () => {
   it('Navigates the user back to home when the button is clicked', async () => {

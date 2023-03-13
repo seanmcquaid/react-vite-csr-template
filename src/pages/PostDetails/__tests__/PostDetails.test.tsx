@@ -2,10 +2,9 @@ import { rest } from 'msw';
 import { screen, waitFor } from '@testing-library/react';
 import { Route } from 'react-router-dom';
 import { render } from '../../../testUtils/reactTestingLibraryUtils';
-import PostDetails from '../PostDetails';
+import { Component as PostDetails, loader } from '../PostDetails';
 import server from '../../../mocks/server';
 import RouteConstants from '../../../routes/RouteConstants';
-import postDetailsLoader from '../postDetailsLoader';
 
 describe('PostDetails', () => {
   it('displays post info if it comes back from the API', async () => {
@@ -13,7 +12,7 @@ describe('PostDetails', () => {
       <Route
         path={RouteConstants.POST_DETAILS}
         element={<PostDetails />}
-        loader={postDetailsLoader}
+        loader={loader}
       />,
       { initialRoute: '/post/1' },
     );
@@ -34,7 +33,7 @@ describe('PostDetails', () => {
       <Route
         path={RouteConstants.POST_DETAILS}
         element={<PostDetails />}
-        loader={postDetailsLoader}
+        loader={loader}
       />,
       { initialRoute: '/post/1' },
     );

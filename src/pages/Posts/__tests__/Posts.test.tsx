@@ -6,9 +6,11 @@ import {
   waitFor,
 } from '../../../testUtils/reactTestingLibraryUtils';
 import RouteConstants from '../../../routes/RouteConstants';
-import postsLoader from '../postsLoader';
-import Posts from '../Posts';
-import postsAction from '../postsAction';
+import {
+  Component as Posts,
+  loader as postsLoader,
+  action as postsAction,
+} from '../Posts';
 
 describe('Posts', () => {
   beforeEach(() => {
