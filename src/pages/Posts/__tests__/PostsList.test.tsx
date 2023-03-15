@@ -1,6 +1,6 @@
 import { Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import PostsList, { filterPostsByText } from '../PostsList';
+import PostsList, { filterPostsByText } from '../components/PostsList';
 import {
   render,
   screen,

@@ -1,10 +1,26 @@
 import { FC, Suspense } from 'react';
-import { Await, useLoaderData } from 'react-router-dom';
+import { Await, defer, LoaderFunction, useLoaderData } from 'react-router-dom';
 import { Spinner } from '@chakra-ui/react';
-import PostInfo from './PostInfo';
-import { PostDetailsLoaderData } from './postDetailsLoader';
+import queryClient from '../../services/queryClient';
+import getPostQuery from '../../queries/getPostQuery';
+import PageError from '../../components/PageError';
+import PostInfo from './components/PostInfo';
+import PostDetailsLoaderData from './types/PostDetailsLoaderData';
 
-const PostDetails: FC = () => {
+export const loader: LoaderFunction = ({ params }) => {
+  const { id } = params;
+  if (!id) {
+    throw new Error('An ID is required');
+  }
+  const query = getPostQuery(id);
+
+  return defer({
+    postInfo:
+      queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query),
+  });
+};
+
+export const Component: FC = () => {
   const { postInfo } = useLoaderData() as PostDetailsLoaderData;
 
   return (
@@ -18,4 +34,6 @@ const PostDetails: FC = () => {
   );
 };
 
-export default PostDetails;
+export const ErrorBoundary: FC = () => {
+  return <PageError errorText={'Error loading posts'} />;
+};
