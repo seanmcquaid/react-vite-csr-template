@@ -9,10 +9,10 @@ interface ImportMetaEnv {
     | 'prod-pilot'
     | 'prod'
     | 'cypress';
-  readonly NODE_ENV: 'development' | 'test' | 'production';
+  readonly MODE: 'development' | 'test' | 'production';
   readonly PACKAGE_VERSION: string;
 
-  readonly VITE_APP_MSW_ENABLED: boolean;
+  readonly VITE_APP_MSW_ENABLED: string;
 }
 
 interface ImportMeta {
