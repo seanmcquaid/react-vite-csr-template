@@ -3,12 +3,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string;
-  readonly VITE_APP_ENVIRONMENT:
-    | 'dev'
-    | 'qa'
-    | 'prod-pilot'
-    | 'prod'
-    | 'cypress';
+  readonly VITE_APP_ENVIRONMENT: 'dev' | 'qa' | 'staging' | 'prod' | 'cypress';
   readonly MODE: 'development' | 'test' | 'production';
   readonly PACKAGE_VERSION: string;
 
