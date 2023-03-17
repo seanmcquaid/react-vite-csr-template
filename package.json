@@ -85,5 +85,8 @@
   "packageManager": "pnpm@7.29.3",
   "msw": {
     "workerDirectory": "public"
+  },
+  "engines": {
+    "node": ">=16.18.1"
   }
 }
