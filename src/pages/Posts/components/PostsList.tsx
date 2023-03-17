@@ -1,7 +1,6 @@
 import { FC, useMemo, useTransition } from 'react';
 import { useAsyncValue, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { Button } from '@chakra-ui/react';
 import Post from '../../../types/responses/Post';
 import getPostsQuery from '../../../queries/getPostsQuery';
 import PostsLoaderData from '../types/PostsLoaderData';
@@ -35,13 +34,9 @@ const PostsList: FC<PostsListProps> = ({ filterText }) => {
     <ul>
       {filteredPosts.map(post => (
         <li key={post.id} data-testid="post">
-          <Button
-            onClick={() => handleOnClick(post)}
-            data-testid="post-button"
-            variant="ghost"
-          >
+          <button onClick={() => handleOnClick(post)} data-testid="post-button">
             {post.title.substring(0, 5)}
-          </Button>
+          </button>
         </li>
       ))}
     </ul>

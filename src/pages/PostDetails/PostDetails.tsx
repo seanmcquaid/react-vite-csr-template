@@ -1,6 +1,5 @@
 import { FC, Suspense } from 'react';
 import { Await, defer, LoaderFunction, useLoaderData } from 'react-router-dom';
-import { Spinner } from '@chakra-ui/react';
 import queryClient from '../../services/queryClient';
 import getPostQuery from '../../queries/getPostQuery';
 import PageError from '../../components/PageError';
@@ -25,7 +24,7 @@ export const Component: FC = () => {
 
   return (
     <div data-testid="post-details-container">
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={'loading'}>
         <Await resolve={postInfo} errorElement={'ERROR'}>
           <PostInfo />
         </Await>
