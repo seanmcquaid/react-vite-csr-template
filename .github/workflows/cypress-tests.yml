@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: '16.16.0'
       - uses: pnpm/action-setup@v2
+      - name: Set env to cypress
+        run: |
+          touch .env
+          echo "VITE_APP_ENVIRONMENT=cypress" >> .env
       - name: Install Dependencies
         run: pnpm install
       - name: Lint
