@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Spinner } from '@chakra-ui/react';
 
 interface LoadingOverlayProps {
   isLoading: boolean;
@@ -14,7 +13,7 @@ const LoadingOverlay: FC<LoadingOverlayProps> = ({ isLoading }) => (
     }
     data-testid="loading-overlay"
   >
-    <Spinner />
+    Loading...
   </div>
 );
 

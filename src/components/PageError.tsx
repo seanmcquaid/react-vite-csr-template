@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Heading, Text } from '@chakra-ui/react';
 
 interface PageErrorProps {
   errorText: string;
@@ -14,9 +13,9 @@ const PageError: FC<PageErrorProps> = ({ errorText }) => {
 
   return (
     <div>
-      <Heading>ERROR</Heading>
-      <Text>{errorText}</Text>
-      <Button onClick={handleGoBack}>Go Back</Button>
+      <h1>ERROR</h1>
+      <p>{errorText}</p>
+      <button onClick={handleGoBack}>Go Back</button>
     </div>
   );
 };

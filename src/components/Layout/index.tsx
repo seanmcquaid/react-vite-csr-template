@@ -1,16 +1,13 @@
 import { FC, Suspense } from 'react';
 import { isRouteErrorResponse, Outlet, useRouteError } from 'react-router-dom';
-import { Spinner } from '@chakra-ui/react';
-import Toast from '../Toast';
 import Navbar from './Navbar';
 
 export const Component: FC = () => {
   return (
     <div>
       <Navbar />
-      <Toast />
       <div>
-        <Suspense fallback={<Spinner />}>
+        <Suspense>
           <Outlet />
         </Suspense>
       </div>
