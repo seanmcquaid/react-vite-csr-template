@@ -3,7 +3,6 @@
 
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import react from '@vitejs/plugin-react';
-import loadVersion from 'vite-plugin-package-version';
 import svgr from 'vite-plugin-svgr';
 import legacy from '@vitejs/plugin-legacy';
 import checker from 'vite-plugin-checker';
@@ -14,7 +13,6 @@ export default defineConfig(() => {
   return {
     plugins: [
       react(),
-      loadVersion(),
       svgr(),
       legacy(),
       checker({ typescript: true }),

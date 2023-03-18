@@ -59,7 +59,6 @@ specifiers:
   typescript: ^5.0.0
   vite: ^4.0.3
   vite-plugin-checker: ^0.5.3
-  vite-plugin-package-version: ^1.0.2
   vite-plugin-svgr: ^2.4.0
   vitest: ^0.29.0
   zetch: ^1.0.6
@@ -128,7 +127,6 @@ devDependencies:
   typescript: 5.0.2
   vite: 4.0.3_terser@5.16.1
   vite-plugin-checker: 0.5.3_e5u3qnmasc2isxdgfvkibqcifm
-  vite-plugin-package-version: 1.0.2_vite@4.0.3
   vite-plugin-svgr: 2.4.0_vite@4.0.3
   vitest: 0.29.1_jsdom@21.0.0+terser@5.16.1
 
@@ -4342,7 +4340,7 @@ packages:
   /axios/0.21.3:
     resolution: {integrity: sha512-JtoZ3Ndke/+Iwt5n+BgSli/3idTvpt5OjKyoCmz4LX5+lPiY5l7C1colYezhlxThjNa/NhngCUWZSZFypIFuaA==}
     dependencies:
-      follow-redirects: 1.15.2_debug@4.3.4
+      follow-redirects: 1.15.2
     transitivePeerDependencies:
       - debug
     dev: true
@@ -4350,7 +4348,7 @@ packages:
   /axios/0.21.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
-      follow-redirects: 1.15.2_debug@4.3.4
+      follow-redirects: 1.15.2
     transitivePeerDependencies:
       - debug
     dev: true
@@ -6451,6 +6449,16 @@ packages:
     dependencies:
       tslib: 2.4.1
     dev: false
+
+  /follow-redirects/1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: true
 
   /follow-redirects/1.15.2_debug@4.3.4:
     resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
@@ -10169,14 +10177,6 @@ packages:
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.8
       vscode-uri: 3.0.7
-    dev: true
-
-  /vite-plugin-package-version/1.0.2_vite@4.0.3:
-    resolution: {integrity: sha512-xCJMR0KD4rqSUwINyHJlLizio2VzYzaMrRkqC9xWaVGXgw1lIrzdD+wBUf1XDM8EhL1JoQ7aykLOfKrlZd1SoQ==}
-    peerDependencies:
-      vite: '>=2.0.0-beta.69'
-    dependencies:
-      vite: 4.0.3_terser@5.16.1
     dev: true
 
   /vite-plugin-svgr/2.4.0_vite@4.0.3:
