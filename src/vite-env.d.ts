@@ -5,8 +5,7 @@ interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string;
   readonly VITE_APP_ENVIRONMENT: 'dev' | 'qa' | 'staging' | 'prod' | 'cypress';
   readonly MODE: 'development' | 'test' | 'production';
-  readonly PACKAGE_VERSION: string;
-
+  readonly VITE_APP_VERSION: string;
   readonly VITE_APP_MSW_ENABLED: string;
 }
 

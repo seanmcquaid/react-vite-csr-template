@@ -20,6 +20,7 @@ jobs:
         run: |
           touch .env
           echo "VITE_APP_ENVIRONMENT=dev" >> .env
+          echo "VITE_APP_VERSION=$npm_package_version" >> .env
       - name: Install Dependencies
         run: pnpm install
       - run: pnpm build
