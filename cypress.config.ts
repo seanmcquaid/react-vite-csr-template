@@ -1,9 +1,12 @@
 import { defineConfig } from 'cypress';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { cloudPlugin } from '@cypress/cloud-plugin';
 
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      return cloudPlugin(on, config);
     },
   },
 });
