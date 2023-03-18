@@ -6,7 +6,7 @@ import cypressSplit from 'cypress-split';
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      cypressSplit(on, config);
+      cypressSplit.default(on, config);
       // IMPORTANT: return the config object
       return config;
     },
