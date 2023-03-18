@@ -19,7 +19,7 @@ jobs:
       - name: Set env to cypress
         run: |
           touch .env
-          echo "VITE_APP_ENVIRONMENT=develop" >> .env
+          echo "VITE_APP_ENVIRONMENT=dev" >> .env
       - name: Install Dependencies
         run: pnpm install
       - run: pnpm build
