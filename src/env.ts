@@ -17,7 +17,7 @@ const envSchema = z.object({
     z.literal('test'),
     z.literal('production'),
   ]),
-  PACKAGE_VERSION: z.string().min(1),
+  VITE_APP_VERSION: z.string(),
 });
 
 const env = envSchema.parse(import.meta.env);

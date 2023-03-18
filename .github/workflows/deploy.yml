@@ -24,7 +24,9 @@ jobs:
           node-version: '16.18.1'
       - uses: pnpm/action-setup@v2
       - name: Create .env file
-        run: touch .env
+        run: | 
+          touch .env
+          echo "VITE_APP_VERSION=$npm_package_version" >> .env
       - name: Set env to dev
         if: endsWith(github.ref, '/develop')
         run: |
