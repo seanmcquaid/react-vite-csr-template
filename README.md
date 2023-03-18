@@ -1,6 +1,6 @@
-# React Template
+# React SPA Template
 
-My personal React Template I use for all new personal projects for React.
+My personal React SPA Template I use for all new personal web projects that I just want to use a SPA for.
 
 ## To Set Up In AWS
 
