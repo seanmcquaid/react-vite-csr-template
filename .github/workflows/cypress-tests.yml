@@ -12,18 +12,14 @@ concurrency:
 jobs:
   prepare:
     runs-on: ubuntu-20.04
-    # explicitly set the output of this job
-    # so that other jobs can use it
     outputs:
       matrix: ${{ steps.prepare.outputs.matrix }}
     steps:
-      # generate the list using a bash script
-      - name: Create matrix ⊹
+      - name: Create matrix
         id: prepare
-        # for reusable workflow, must use the full action reference
         uses: bahmutov/gh-build-matrix@main
         with:
-          n: 4 # number of containers to output
+          n: 4
 
   cypress-tests:
     name: Cypress Tests
@@ -57,6 +53,8 @@ jobs:
         run: pnpm bundlesize
       - name: Run split Cypress tests
         uses: cypress-io/github-action@v5
+        with:
+          start: pnpm serve
         env:
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
