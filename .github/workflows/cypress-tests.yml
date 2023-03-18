@@ -36,10 +36,4 @@ jobs:
       - name: Bundlesize Check
         run: pnpm bundlesize
       - run: docker run -p 1234:1234 agoldis/sorry-cypress-director
-      - name: Cypress run
-        uses: cypress-io/github-action@v4
-        with:
-          start: pnpm serve
-          wait-on: 'http://localhost:3000'
-          wait-on-timeout: 10
-          config-file: 'cypress.config.ts'
+      - run: npx cypress-cloud run --parallel --record --key somekey --ci-build-id hello-cypress
