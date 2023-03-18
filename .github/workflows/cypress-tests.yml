@@ -10,9 +10,28 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  prepare:
+    runs-on: ubuntu-20.04
+    # explicitly set the output of this job
+    # so that other jobs can use it
+    outputs:
+      matrix: ${{ steps.prepare.outputs.matrix }}
+    steps:
+      # generate the list using a bash script
+      - name: Create matrix ⊹
+        id: prepare
+        # for reusable workflow, must use the full action reference
+        uses: bahmutov/gh-build-matrix@main
+        with:
+          n: 4 # number of containers to output
+
   cypress-tests:
     name: Cypress Tests
+    needs: prepare
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     steps:
       - name: Checkout latest
         uses: actions/checkout@v3
@@ -35,5 +54,11 @@ jobs:
         run: pnpm build
       - name: Bundlesize Check
         run: pnpm bundlesize
-      - run: docker run -p 1234:1234 agoldis/sorry-cypress-director
-      - run: npx cypress-cloud run --parallel --record --key somekey --ci-build-id hello-cypress
+      - name: Run split Cypress tests 🧪
+        uses: cypress-io/github-action@v5
+        env:
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
+          DEBUG: cypress-split
+
+
