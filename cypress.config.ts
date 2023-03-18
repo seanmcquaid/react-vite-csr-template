@@ -1,10 +1,14 @@
+// cypress.config.ts
 import { defineConfig } from 'cypress';
-import { cloudPlugin } from 'cypress-cloud/plugin';
+// https://github.com/bahmutov/cypress-split
+import cypressSplit from 'cypress-split';
 
 export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      return cloudPlugin(on, config);
+      cypressSplit(on, config);
+      // IMPORTANT: return the config object
+      return config;
     },
   },
 });
