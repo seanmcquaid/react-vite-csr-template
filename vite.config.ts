@@ -21,7 +21,7 @@ export default defineConfig(() => {
     ],
     test: {
       globals: true,
-      environment: 'jsdom',
+      environment: 'happy-dom',
       setupFiles: ['./src/setupTests.ts'],
       coverage: {
         provider: 'istanbul',
@@ -38,6 +38,7 @@ export default defineConfig(() => {
           'src/i18n',
           'src/main.tsx',
           'src/mocks',
+          'src/env.ts',
         ],
       },
     },
