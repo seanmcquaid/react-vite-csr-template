@@ -38,6 +38,7 @@ export default defineConfig(() => {
           'src/i18n',
           'src/main.tsx',
           'src/mocks',
+          'src/env.ts',
         ],
       },
     },
