@@ -1,18 +1,26 @@
-import { lazy, StrictMode, Suspense } from 'react';
-import ReactDOM from 'react-dom/client';
+import { lazy, startTransition, StrictMode, Suspense } from 'react';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import env from './env';
 
 const App = lazy(() => import('./App'));
 
-if (env.MODE === 'development' && env.VITE_APP_MSW_ENABLED) {
-  import('./mocks/worker').then(worker => worker.default.start());
-}
+const prepare = async () => {
+  if (env.MODE === 'development') {
+    const worker = await import('./mocks/worker');
+    return worker.default.start({ onUnhandledRequest: 'bypass' });
+  }
+  return Promise.resolve();
+};
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <StrictMode>
-    <Suspense>
-      <App />
-    </Suspense>
-  </StrictMode>,
+prepare().then(() =>
+  startTransition(() => {
+    createRoot(document.getElementById('root') as HTMLElement).render(
+      <StrictMode>
+        <Suspense>
+          <App />
+        </Suspense>
+      </StrictMode>,
+    );
+  }),
 );
