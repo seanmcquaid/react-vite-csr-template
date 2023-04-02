@@ -4,7 +4,7 @@ import RouteConstants from './RouteConstants';
 const router = createBrowserRouter([
   {
     path: RouteConstants.HOME,
-    lazy: () => import('../components/Root'),
+    lazy: () => import('./Root'),
     children: [
       {
         path: RouteConstants.HOME,
