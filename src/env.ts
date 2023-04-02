@@ -10,7 +10,7 @@ const envSchema = z.object({
   ]),
   VITE_APP_MSW_ENABLED: z
     .string()
-    .transform(val => Boolean(val))
+    .transform(val => Boolean(JSON.parse(val)))
     .optional(),
   MODE: z.union([
     z.literal('development'),
