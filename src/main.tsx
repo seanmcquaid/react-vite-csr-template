@@ -1,11 +1,9 @@
 import { lazy, StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { QueryClientProvider } from '@tanstack/react-query';
-import queryClient from './services/queryClient';
 import env from './env';
 
-const AppRouter = lazy(() => import('./routes/AppRouter'));
+const App = lazy(() => import('./App'));
 
 if (env.MODE === 'development' && env.VITE_APP_MSW_ENABLED) {
   import('./mocks/worker').then(worker => worker.default.start());
@@ -13,10 +11,8 @@ if (env.MODE === 'development' && env.VITE_APP_MSW_ENABLED) {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Suspense>
-        <AppRouter />
-      </Suspense>
-    </QueryClientProvider>
+    <Suspense>
+      <App />
+    </Suspense>
   </StrictMode>,
 );
