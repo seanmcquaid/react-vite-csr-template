@@ -6,9 +6,9 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "NODE_OPTIONS='--no-experimental-fetch' vitest run",
-    "coverage": "NODE_OPTIONS='--no-experimental-fetch' vitest run --coverage",
-    "test:watch": "NODE_OPTIONS='--no-experimental-fetch' vitest",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "test:watch": "vitest",
     "lint:nowarn": "eslint cypress src --max-warnings=0",
     "lint": "eslint cypress src",
     "postinstall": "husky install",
@@ -81,6 +81,6 @@
     "workerDirectory": "public"
   },
   "engines": {
-    "node": ">=16.18.1"
+    "node": ">=16.16.0"
   }
 }
