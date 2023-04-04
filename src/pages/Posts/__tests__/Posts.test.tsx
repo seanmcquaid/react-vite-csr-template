@@ -34,8 +34,7 @@ describe('Posts', () => {
     await userEvent.type(screen.getByTestId('text-input'), 'test value');
     expect(screen.getByTestId('text-input')).toHaveValue('test value');
   });
-  it.skip('Clears search text if user clicks button', async () => {
-    // skipping until we have a solid way to test a component using useFetcher
+  it('Clears search text if user clicks button', async () => {
     await waitFor(() =>
       expect(screen.queryAllByTestId('post').length).toEqual(1),
     );
