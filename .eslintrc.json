@@ -1,20 +1,25 @@
 {
   "extends": [
-    "react-app",
-    "prettier",
-    "plugin:jsx-a11y/strict",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:cypress/recommended"
+    "eslint-config-prettier"
   ],
-  "plugins": ["prettier", "jsx-a11y"],
-  "parser": "@typescript-eslint/parser",
-  "env": {
-    "browser": true,
-    "es6": true
-  },
+  "plugins": [
+    "eslint-plugin-prettier"
+  ],
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   },
   "ignorePatterns": ["node_modules/"],
