@@ -21,8 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18.15.0'
-      - uses: pnpm/action-setup@v2
+          node-version: '18.16.0'
       - name: Create .env file
         run: | 
           touch .env
@@ -48,9 +47,9 @@ jobs:
           echo "ENVIRONMENT=prod" >> $GITHUB_ENV
           echo "VITE_APP_ENVIRONMENT=prod" >> .env
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: yarn install --frozen-lockfile
       - name: Build the app
-        run: pnpm build
+        run: yarn build
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
