@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import { defineConfig, splitVendorChunkPlugin } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import legacy from '@vitejs/plugin-legacy';
@@ -16,7 +16,6 @@ export default defineConfig(() => {
       svgr(),
       legacy(),
       checker({ typescript: true }),
-      splitVendorChunkPlugin(),
       visualizer(),
     ],
     preview: {
