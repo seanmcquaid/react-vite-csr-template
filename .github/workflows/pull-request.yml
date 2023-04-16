@@ -10,8 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  unit-test:
-    name: Unit Tests, Linting, Bundle Size Checks
+  unit-tests-coverage:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest
@@ -33,11 +32,49 @@ jobs:
         run: yarn lint:nowarn
       - name: Run Unit Tests
         run: yarn coverage
-      - name: Build the app
-        run: yarn build
-      - name: Bundlesize Check
-        run: yarn bundlesize
       - uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           path: './coverage/lcov.info'
           min_coverage: 80
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.0'
+      - name: Set env to dev
+        run: |
+          touch .env
+          echo "VITE_APP_ENVIRONMENT=dev" >> .env
+          echo "VITE_APP_VERSION=$npm_package_version" >> .env
+      - name: Restore Yarn cache
+        uses: c-hive/gha-yarn-cache@v2
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: Lint
+        run: yarn lint:nowarn
+  bundle-size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.0'
+      - name: Set env to dev
+        run: |
+          touch .env
+          echo "VITE_APP_ENVIRONMENT=dev" >> .env
+          echo "VITE_APP_VERSION=$npm_package_version" >> .env
+      - name: Restore Yarn cache
+        uses: c-hive/gha-yarn-cache@v2
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: Build the app
+        run: yarn build
+      - name: Bundlesize Check
+        run: yarn bundlesize
