@@ -13,7 +13,6 @@
     "lint": "eslint cypress src",
     "postinstall": "husky install",
     "bundlesize": "bundlesize",
-    "serve": "node scripts/buildServer.js",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },

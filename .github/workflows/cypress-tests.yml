@@ -54,7 +54,7 @@ jobs:
       - name: Run split Cypress tests
         uses: cypress-io/github-action@v5
         with:
-          start: pnpm serve
+          start: pnpm preview
         env:
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
