@@ -22,10 +22,14 @@ export default defineConfig(() => {
     preview: {
       port: 3000,
     },
+    server: {
+      port: 3000,
+    },
     test: {
       globals: true,
       environment: 'jsdom',
       setupFiles: ['./src/setupTests.ts'],
+      exclude: ['e2e', 'node_modules'],
       coverage: {
         provider: 'istanbul',
         reporter: ['lcov'],

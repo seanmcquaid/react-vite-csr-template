@@ -5,7 +5,8 @@
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:cypress/recommended",
+    "plugin:playwright/playwright-test",
+    "plugin:vitest/recommended",
     "eslint-config-prettier"
   ],
   "plugins": [
@@ -15,7 +16,8 @@
   "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
   "settings": {
     "react": {
@@ -40,6 +42,7 @@
     "react/jsx-key": "warn",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-namespace": "off",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "playwright/missing-playwright-await": "off"
   }
 }
