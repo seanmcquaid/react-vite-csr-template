@@ -27,3 +27,11 @@ cypress/downloads
 *.sw?
 stats.html
 .env
+
+.yarn/*
+.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

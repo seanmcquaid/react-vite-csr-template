@@ -14,17 +14,16 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18.15.0'
-      - uses: pnpm/action-setup@v2
+          node-version: '18.16.0'
       - name: Set env to cypress
         run: |
           touch .env
           echo "VITE_APP_ENVIRONMENT=dev" >> .env
           echo "VITE_APP_VERSION=$npm_package_version" >> .env
       - name: Install Dependencies
-        run: pnpm install
-      - run: pnpm build
-      - run: pnpm preview & npx wait-on http://localhost:3000
+        run: yarn install
+      - run: yarn build
+      - run: yarn preview & npx wait-on http://localhost:3000
       - name: Generate Lighthouse Report
         uses: justinribeiro/lighthouse-action@master
         with:
