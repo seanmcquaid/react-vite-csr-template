@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
       - run: pnpm build
-      - run: pnpm serve & npx wait-on http://localhost:3000
+      - run: pnpm preview & npx wait-on http://localhost:3000
       - name: Generate Lighthouse Report
         uses: justinribeiro/lighthouse-action@master
         with:

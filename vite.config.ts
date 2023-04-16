@@ -19,6 +19,9 @@ export default defineConfig(() => {
       splitVendorChunkPlugin(),
       visualizer(),
     ],
+    preview: {
+      port: 3000,
+    },
     test: {
       globals: true,
       environment: 'jsdom',
