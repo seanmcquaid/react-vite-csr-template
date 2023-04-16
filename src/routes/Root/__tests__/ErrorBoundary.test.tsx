@@ -1,6 +1,6 @@
-import { MockedFunction } from 'vitest';
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom';
 import { screen } from '@testing-library/react';
+import { MockedFunction } from 'vitest';
 import { render } from '../../../testUtils/reactTestingLibraryUtils';
 import { ErrorBoundary } from '../index';
 
