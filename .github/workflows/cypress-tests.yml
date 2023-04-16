@@ -40,8 +40,10 @@ jobs:
           touch .env
           echo "VITE_APP_ENVIRONMENT=cypress" >> .env
           echo "VITE_APP_VERSION=$npm_package_version" >> .env
+      - name: Restore Yarn cache
+        uses: c-hive/gha-yarn-cache@v2
       - name: Install Dependencies
-        run: yarn install
+        run: yarn install --immutable
       - name: Lint
         run: yarn lint:nowarn
       - name: Run Unit Tests
