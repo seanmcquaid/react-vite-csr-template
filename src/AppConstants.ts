@@ -1,9 +1,3 @@
-export enum NODE_ENV {
-  DEVELOPMENT = 'development',
-  TEST = 'test',
-  PRODUCTION = 'production',
-}
-
 enum API_STATE {
   IDLE = 'idle', // No API call or error
   LOADING = 'loading', // Currently requesting
@@ -12,7 +6,6 @@ enum API_STATE {
 
 const AppConstants = {
   API_STATE,
-  REDUX_STORE_VERSION: 0,
-};
+} as const;
 
 export default AppConstants;
