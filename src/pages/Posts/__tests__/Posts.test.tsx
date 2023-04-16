@@ -25,9 +25,7 @@ describe('Posts', () => {
     );
   });
   it('Updates search text if user types', async () => {
-    await waitFor(() =>
-      expect(screen.queryAllByTestId('post').length).toEqual(1),
-    );
+    await waitFor(() => expect(screen.queryAllByTestId('post').length).toBe(1));
     await waitFor(() =>
       expect(screen.queryByTestId('text-input')).toBeInTheDocument(),
     );
@@ -35,9 +33,7 @@ describe('Posts', () => {
     expect(screen.getByTestId('text-input')).toHaveValue('test value');
   });
   it('Clears search text if user clicks button', async () => {
-    await waitFor(() =>
-      expect(screen.queryAllByTestId('post').length).toEqual(1),
-    );
+    await waitFor(() => expect(screen.queryAllByTestId('post').length).toBe(1));
     await waitFor(() =>
       expect(screen.queryByTestId('text-input')).toBeInTheDocument(),
     );

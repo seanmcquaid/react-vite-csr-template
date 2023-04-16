@@ -1,5 +1,9 @@
 name: Lighthouse Tests
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - develop
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

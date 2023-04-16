@@ -15,7 +15,7 @@ describe('PostsList', () => {
         filterPostsByText('no match', [
           { title: 'I am here', id: 1, body: 'Body', userId: 1 },
         ]),
-      );
+      ).toHaveLength(0);
     });
   });
   it('Displays filtered posts', async () => {
@@ -34,9 +34,7 @@ describe('PostsList', () => {
         initialRoute: '/',
       },
     );
-    await waitFor(() =>
-      expect(screen.queryAllByTestId('post').length).toEqual(1),
-    );
+    await waitFor(() => expect(screen.queryAllByTestId('post').length).toBe(1));
   });
 
   it('Takes the user to the post details page if they click on the post', async () => {
