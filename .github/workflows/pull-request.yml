@@ -28,7 +28,7 @@ jobs:
       - name: Restore Yarn cache
         uses: c-hive/gha-yarn-cache@v2
       - name: Install Dependencies
-        run: yarn install
+        run: yarn install --immutable
       - name: Lint
         run: yarn lint:nowarn
       - name: Run Unit Tests

@@ -49,7 +49,7 @@ jobs:
       - name: Restore Yarn cache
         uses: c-hive/gha-yarn-cache@v2
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Build the app
         run: yarn build
       - name: Set AWS credentials
