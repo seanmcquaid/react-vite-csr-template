@@ -46,6 +46,8 @@ jobs:
         run: |
           echo "ENVIRONMENT=prod" >> $GITHUB_ENV
           echo "VITE_APP_ENVIRONMENT=prod" >> .env
+      - name: Restore Yarn cache
+        uses: c-hive/gha-yarn-cache@v2
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
       - name: Build the app
