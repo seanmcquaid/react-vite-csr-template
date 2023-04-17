@@ -5899,6 +5899,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ky@npm:^0.33.3":
+  version: 0.33.3
+  resolution: "ky@npm:0.33.3"
+  checksum: d1869e1f33c0165355f621b6726fcc1a9de20a31f4a826ca0cfd5753d83b9cba8723402d554a00194e0ee3959e0dda0638f4b99d54a3a7de928b55ff870b0bcc
+  languageName: node
+  linkType: hard
+
 "language-subtag-registry@npm:~0.3.2":
   version: 0.3.22
   resolution: "language-subtag-registry@npm:0.3.22"
@@ -7436,6 +7443,7 @@ __metadata:
     eslint-plugin-vitest: ^0.1.4
     husky: ^8.0.2
     jsdom: ^21.1.1
+    ky: ^0.33.3
     lint-staged: ^13.1.0
     msw: ^1.0.0
     postcss: ^8.4.20
@@ -7452,7 +7460,6 @@ __metadata:
     vite-plugin-checker: ^0.5.3
     vite-plugin-svgr: ^2.4.0
     vitest: ^0.30.0
-    zetch: ^1.0.7
     zod: ^3.20.2
   languageName: unknown
   linkType: soft
@@ -9375,15 +9382,6 @@ __metadata:
   version: 1.0.0
   resolution: "yocto-queue@npm:1.0.0"
   checksum: 2cac84540f65c64ccc1683c267edce396b26b1e931aa429660aefac8fbe0188167b7aee815a3c22fa59a28a58d898d1a2b1825048f834d8d629f4c2a5d443801
-  languageName: node
-  linkType: hard
-
-"zetch@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "zetch@npm:1.0.7"
-  dependencies:
-    zod: ^3.20.2
-  checksum: ec49579895573d5da7d86062b80d4e5b803a38d28ef3f85db056c22d6f4db862c058db02a3656e77675ae7f28ed961852c09d0168de37576df358b3b4361ff12
   languageName: node
   linkType: hard
 

@@ -12,7 +12,6 @@ import {
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ZetchError } from 'zetch';
 import queryClient from '../../services/queryClient';
 import getPostQuery from '../../queries/getPostQuery';
 import getPostsQuery from '../../queries/getPostsQuery';
@@ -46,8 +45,7 @@ export const action: ActionFunction = async ({ request }) => {
     });
     await queryClient.fetchQuery(getPostQuery(validatedForm.data.postId));
     return redirect(`/post/${validatedForm.data.postId}`);
-  } catch (e) {
-    const err = e as ZetchError;
+  } catch (err) {
     return json({ err });
   }
 };

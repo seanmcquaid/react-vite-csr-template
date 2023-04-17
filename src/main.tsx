@@ -6,7 +6,7 @@ import env from './env';
 const App = lazy(() => import('./App'));
 
 const prepare = async () => {
-  if (env.MODE === 'development') {
+  if (env.MODE === 'development' && env.VITE_APP_MSW_ENABLED) {
     const worker = await import('./mocks/worker');
     return worker.default.start({ onUnhandledRequest: 'bypass' });
   }

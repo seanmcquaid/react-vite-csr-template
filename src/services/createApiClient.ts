@@ -1,8 +1,8 @@
-import { zetch } from 'zetch';
+import ky from 'ky';
 
 const createApiClient = (baseUrl: string) => {
-  return zetch.create({
-    baseUrl,
+  return ky.create({
+    prefixUrl: baseUrl,
   });
 };
 
