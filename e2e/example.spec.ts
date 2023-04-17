@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './index';
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
@@ -15,4 +15,10 @@ test('get started link', async ({ page }) => {
 
   // Expects the URL to contain intro.
   await expect(page).toHaveURL(/.*intro/);
+});
+
+test('Mocks API', async ({ page }) => {
+  await page.goto('http://127.0.0.1:3000');
+  const post = page.getByText('examp');
+  await expect(post).toBeVisible();
 });
