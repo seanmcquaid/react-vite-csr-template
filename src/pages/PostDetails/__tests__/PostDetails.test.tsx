@@ -3,7 +3,7 @@ import { screen, waitFor } from '@testing-library/react';
 import { Route } from 'react-router-dom';
 import { render } from '../../../testUtils/reactTestingLibraryUtils';
 import { Component as PostDetails, loader } from '../PostDetails';
-import server from '../../../mocks/server';
+import server from '../../../../mocks/server';
 import RouteConstants from '../../../routes/RouteConstants';
 
 describe('PostDetails', () => {

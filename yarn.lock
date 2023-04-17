@@ -7068,6 +7068,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright-msw@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "playwright-msw@npm:2.2.1"
+  dependencies:
+    "@mswjs/cookies": ^0.2.2
+    strict-event-emitter: ^0.4.4
+  peerDependencies:
+    "@playwright/test": ">=1.20.0"
+    msw: ">=0.47.3"
+  checksum: f180ebada706e6829947e8a24c1369333fa4bafc77c9a6330b5c67fe139be99e8d389253601196c11ea6bb35da42503da28415738a2f6ceb9e55431aaf36a7ef
+  languageName: node
+  linkType: hard
+
 "postcss-import@npm:^14.1.0":
   version: 14.1.0
   resolution: "postcss-import@npm:14.1.0"
@@ -7446,6 +7459,7 @@ __metadata:
     ky: ^0.33.3
     lint-staged: ^13.1.0
     msw: ^1.0.0
+    playwright-msw: ^2.2.1
     postcss: ^8.4.20
     prettier: ^2.8.1
     react: ^18.2.0
@@ -8089,7 +8103,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strict-event-emitter@npm:^0.4.3":
+"strict-event-emitter@npm:^0.4.3, strict-event-emitter@npm:^0.4.4":
   version: 0.4.6
   resolution: "strict-event-emitter@npm:0.4.6"
   checksum: 4f4f2909613e7811de789991c06bfb770d6d6987e2ec5c66fa7485d0f07cc4e7e32eba0dcf26cee6d86af6c92946d7f4acdfaff57d0c4114df2cfa1bf0e3c091
