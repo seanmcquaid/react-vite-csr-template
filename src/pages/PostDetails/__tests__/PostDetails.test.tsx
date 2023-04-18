@@ -24,7 +24,7 @@ describe('PostDetails', () => {
     server.use(
       rest.get(
         'https://jsonplaceholder.typicode.com/posts/1',
-        (req, res, context) => {
+        (_, res, context) => {
           return res(context.status(500));
         },
       ),
