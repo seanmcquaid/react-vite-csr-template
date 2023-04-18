@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Checkout latest
         uses: actions/checkout@v3
-      - uses: ./.github/workflows/setup-pull-request-job.yml
+      - uses: .github/workflows/setup-pull-request-job.yml
       - name: Lint
         run: yarn lint:nowarn
       - name: Run Unit Tests
