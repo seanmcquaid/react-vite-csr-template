@@ -25,6 +25,5 @@
     "src",
     "node_modules/vitest/globals.d.ts",
   ],
-  "exclude": ["mocks"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

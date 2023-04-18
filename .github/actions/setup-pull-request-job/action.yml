@@ -7,14 +7,13 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: '18.16.0'
+        cache: 'yarn'
     - name: Set env to dev
       shell: bash
       run: |
         touch .env
         echo "VITE_APP_ENVIRONMENT=dev" >> .env
         echo "VITE_APP_VERSION=$npm_package_version" >> .env
-    - name: Restore Yarn cache
-      uses: c-hive/gha-yarn-cache@v2
     - name: Install Dependencies
       shell: bash
       run: yarn install --immutable
