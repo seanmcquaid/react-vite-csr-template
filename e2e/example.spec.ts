@@ -1,4 +1,4 @@
-import { test, expect } from './index';
+import { test, expect } from './extensions';
 
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
