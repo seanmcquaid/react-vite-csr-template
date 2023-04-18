@@ -12,10 +12,10 @@ concurrency:
 jobs:
   unit-tests-coverage:
     runs-on: ubuntu-latest
+    uses: seanmcquaid/react-template/.github/workflows/setup-pull-request-job.yml@develop
     steps:
       - name: Checkout latest
         uses: actions/checkout@v3
-      - uses: seanmcquaid/react-template/.github/workflows/setup-pull-request-job.yml@develop
       - name: Lint
         run: yarn lint:nowarn
       - name: Run Unit Tests
