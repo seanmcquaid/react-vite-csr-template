@@ -1,8 +1,7 @@
 name: Pull Request
-on:
-  workflow_call:
 
 jobs:
+  using: "composite"
   setup-pull-request-job:
     runs-on: ubuntu-latest
     steps:
