@@ -10,6 +10,7 @@ runs:
       with:
         node-version: '18.16.0'
     - name: Set env to dev
+      shell: bash
       run: |
         touch .env
         echo "VITE_APP_ENVIRONMENT=dev" >> .env
