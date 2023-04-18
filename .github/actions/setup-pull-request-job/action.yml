@@ -18,4 +18,5 @@ runs:
     - name: Restore Yarn cache
       uses: c-hive/gha-yarn-cache@v2
     - name: Install Dependencies
+      shell: bash
       run: yarn install --immutable
