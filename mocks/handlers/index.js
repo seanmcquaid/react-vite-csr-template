@@ -1,4 +1,4 @@
-import * as postsHandlers from './postsHandlers';
+import * as postsHandlers from './postsHandlers.js';
 
 const handlers = [...Object.values(postsHandlers)];
 
