@@ -3,8 +3,6 @@ version: 2
 updates:
   - package-ecosystem: npm
     directory: '/'
-    registries:
-      - artifactory
     schedule:
       interval: weekly
       day: tuesday
