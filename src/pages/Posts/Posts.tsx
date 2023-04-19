@@ -2,9 +2,7 @@ import { FC, Suspense, useEffect } from 'react';
 import {
   ActionFunction,
   Await,
-  defer,
   json,
-  LoaderFunction,
   redirect,
   useFetcher,
   useLoaderData,
@@ -14,7 +12,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import queryClient from '../../services/queryClient';
 import getPostQuery from '../../queries/getPostQuery';
-import getPostsQuery from '../../queries/getPostsQuery';
 import PageError from '../../components/PageError';
 import PostsList from './components/PostsList';
 import PostsLoaderData from './types/PostsLoaderData';
@@ -48,14 +45,6 @@ export const action: ActionFunction = async ({ request }) => {
   } catch (err) {
     return json({ err });
   }
-};
-
-export const loader: LoaderFunction = () => {
-  const query = getPostsQuery();
-  return defer({
-    posts:
-      queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query),
-  });
 };
 
 export const Component: FC = () => {

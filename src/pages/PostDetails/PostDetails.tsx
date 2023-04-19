@@ -1,23 +1,8 @@
 import { FC, Suspense } from 'react';
-import { Await, defer, LoaderFunction, useLoaderData } from 'react-router-dom';
-import queryClient from '../../services/queryClient';
-import getPostQuery from '../../queries/getPostQuery';
+import { Await, useLoaderData } from 'react-router-dom';
 import PageError from '../../components/PageError';
 import PostInfo from './components/PostInfo';
 import PostDetailsLoaderData from './types/PostDetailsLoaderData';
-
-export const loader: LoaderFunction = ({ params }) => {
-  const { id } = params;
-  if (!id) {
-    throw new Error('An ID is required');
-  }
-  const query = getPostQuery(id);
-
-  return defer({
-    postInfo:
-      queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query),
-  });
-};
 
 export const Component: FC = () => {
   const { postInfo } = useLoaderData() as PostDetailsLoaderData;
