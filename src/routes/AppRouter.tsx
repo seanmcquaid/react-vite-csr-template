@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import postsDetailsLoader from '../pages/PostDetails/postDetailsLoader.ts';
+import postsLoader from '../pages/Posts/postsLoader.ts';
 import RouteConstants from './RouteConstants';
 
 const router = createBrowserRouter([
@@ -8,10 +10,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: RouteConstants.HOME,
+        loader: postsLoader,
         lazy: () => import('../pages/Posts/Posts'),
       },
       {
         path: RouteConstants.POST_DETAILS,
+        loader: postsDetailsLoader,
         lazy: () => import('../pages/PostDetails/PostDetails'),
       },
       {
