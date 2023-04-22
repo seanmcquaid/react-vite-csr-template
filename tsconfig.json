@@ -19,11 +19,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals"]
   },
-  "include": [
-    "src",
-    "node_modules/vitest/globals.d.ts",
-  ],
+  "include": ["src", "node_modules/vitest/globals.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

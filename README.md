@@ -9,7 +9,7 @@ My personal React SPA Template I use for all new personal web projects that I ju
 3. Create a ACM Certificate with DNS validation for that new domain following this pattern : \*.mcquaid-apps.com
 4. Add the certificate CNAME entry in the ACM console to the associated public hosting zone
 
-Don't forget to add secrets for GHA to the repo for the following: 
+Don't forget to add secrets for GHA to the repo for the following:
 
 1. AWS_ACCESS_KEY_ID
 2. AWS_CERTIFICATE_ARN

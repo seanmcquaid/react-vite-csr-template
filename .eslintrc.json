@@ -9,10 +9,7 @@
     "plugin:vitest/recommended",
     "eslint-config-prettier"
   ],
-  "plugins": [
-    "import",
-    "eslint-plugin-prettier"
-  ],
+  "plugins": ["import", "eslint-plugin-prettier"],
   "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
