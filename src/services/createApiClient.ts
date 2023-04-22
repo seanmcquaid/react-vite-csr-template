@@ -1,12 +1,11 @@
-import ky from 'ky';
+import ky, { HTTPError } from 'ky';
 
 const createApiClient = (baseUrl: string) => {
   return ky.create({
     prefixUrl: baseUrl,
     retry: {
       limit: 2,
-      methods: ['get', 'put', 'head', 'delete', 'options', 'trace'],
-      statusCodes: [408, 413, 429, 500, 502, 503, 504, 401, 403],
+      statusCodes: [401, 403, 500, 504],
     },
     hooks: {
       beforeRequest: [
@@ -16,12 +15,16 @@ const createApiClient = (baseUrl: string) => {
       ],
       beforeRetry: [
         async ({ request }) => {
-          const token = await ky.get('https://example.com/refresh-token');
+          const token = 'refreshed-token';
           request.headers.set('Authorization', `token ${token}`);
         },
       ],
       afterResponse: [
-        async (_, options, response) => {
+        async (request, options, response) => {
+          if (!response.ok) {
+            throw new HTTPError(response, request, options);
+          }
+
           if (!options.validationSchema) {
             return response;
           }
