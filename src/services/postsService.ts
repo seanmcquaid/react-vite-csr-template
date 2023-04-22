@@ -1,7 +1,6 @@
 import { z } from 'zod';
-import { postSchema } from '../types/responses/Post';
+import Post, { postSchema } from '../types/responses/Post';
 import createApiClient from './createApiClient';
-import validateResponse from './validateResponse';
 
 const baseUrl = 'https://jsonplaceholder.typicode.com';
 
@@ -9,15 +8,11 @@ const client = createApiClient(baseUrl);
 
 const postsService = {
   getPosts: () =>
-    validateResponse({
-      response: client.get('posts'),
-      validationSchema: z.array(postSchema),
-    }),
+    client
+      .get('posts', { validationSchema: z.array(postSchema) })
+      .json<Post[]>(),
   getPost: (id: string) =>
-    validateResponse({
-      response: client.get(`posts/${id}`),
-      validationSchema: postSchema,
-    }),
+    client.get(`posts/${id}`, { validationSchema: postSchema }).json<Post>(),
 } as const;
 
 export default postsService;
