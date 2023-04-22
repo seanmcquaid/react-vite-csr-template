@@ -8,10 +8,7 @@ const envSchema = z.object({
     z.literal('prod'),
     z.literal('cypress'),
   ]),
-  VITE_APP_MSW_ENABLED: z
-    .string()
-    .transform(val => Boolean(JSON.parse(val)))
-    .optional(),
+  VITE_APP_MSW_ENABLED: z.coerce.boolean().optional(),
   MODE: z.union([
     z.literal('development'),
     z.literal('test'),
