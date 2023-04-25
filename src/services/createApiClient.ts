@@ -1,4 +1,4 @@
-import ky, { HTTPError } from 'ky';
+import ky from 'ky';
 
 const createApiClient = (baseUrl: string) => {
   return ky.create({
@@ -21,22 +21,24 @@ const createApiClient = (baseUrl: string) => {
       ],
       afterResponse: [
         async (request, options, response) => {
-          if (!response.ok) {
-            throw new HTTPError(response, request, options);
-          }
-
-          if (!options.validationSchema) {
+          if (!response.ok || !options.validationSchema) {
             return response;
           }
 
-          const data = await response.json();
-          return new Response(
-            JSON.stringify(options.validationSchema.parse(data)),
-          );
+          try {
+            const data = await response.json();
+            return new Response(
+              JSON.stringify(options.validationSchema.parse(data)),
+            );
+          } catch (e) {
+            console.log(request, e);
+            throw e;
+          }
         },
       ],
       beforeError: [
         error => {
+          console.log(error);
           return error;
         },
       ],
