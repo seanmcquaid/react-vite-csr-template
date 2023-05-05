@@ -22,14 +22,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@axe-core/playwright@npm:^4.6.1":
-  version: 4.6.1
-  resolution: "@axe-core/playwright@npm:4.6.1"
+"@axe-core/playwright@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "@axe-core/playwright@npm:4.7.0"
   dependencies:
-    axe-core: ^4.6.3
+    axe-core: ^4.7.0
   peerDependencies:
     playwright: ">= 1.0.0"
-  checksum: 5609c49cbfea423a5b7fcd7af995a550cffb7f5807a5f9b4e9ab6be54224b850c05dc7d65808719ce19e9d5cdef295b8d4cebb7880c1973ab7423fe020d55370
+  checksum: c76058ed85e00ef02090175e4e2dff4a4aab08874d39ab10507c7c6e7202873af91dc9fe34b6e40e513323ef6737a5684edb042339ab8358fdb49687d89607e3
   languageName: node
   linkType: hard
 
@@ -2197,10 +2197,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:4.6.3, axe-core@npm:^4.6.2, axe-core@npm:^4.6.3":
+"axe-core@npm:4.6.3, axe-core@npm:^4.6.2":
   version: 4.6.3
   resolution: "axe-core@npm:4.6.3"
   checksum: d0c46be92b9707c48b88a53cd5f471b155a2bfc8bf6beffb514ecd14e30b4863e340b5fc4f496d82a3c562048088c1f3ff5b93b9b3b026cb9c3bfacfd535da10
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "axe-core@npm:4.7.0"
+  checksum: f086bcab42be1761ba2b0b127dec350087f4c3a853bba8dd58f69d898cefaac31a1561da23146f6f3c07954c76171d1f2ce460e555e052d2b02cd79af628fa4a
   languageName: node
   linkType: hard
 
@@ -7043,7 +7050,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-template@workspace:."
   dependencies:
-    "@axe-core/playwright": ^4.6.1
+    "@axe-core/playwright": ^4.7.0
     "@babel/core": ^7.21.8
     "@babel/plugin-syntax-flow": ^7.18.6
     "@babel/plugin-transform-react-jsx": ^7.20.7
