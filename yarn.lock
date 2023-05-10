@@ -6632,15 +6632,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.32.3":
-  version: 1.32.3
-  resolution: "playwright-core@npm:1.32.3"
-  bin:
-    playwright: cli.js
-  checksum: 7ea091c41a7d1bb97b445bc541a85b123ffcf167bcc00fb7e13e9079f06c92f59fd27caf9d1c1d7e0054f2b5765d1a16d198833c2be7266cebb9dbb916cd90f4
-  languageName: node
-  linkType: hard
-
 "playwright-core@npm:1.33.0":
   version: 1.33.0
   resolution: "playwright-core@npm:1.33.0"
@@ -6670,17 +6661,6 @@ __metadata:
     "@playwright/test": ">=1.20.0"
     msw: ">=0.47.3"
   checksum: f180ebada706e6829947e8a24c1369333fa4bafc77c9a6330b5c67fe139be99e8d389253601196c11ea6bb35da42503da28415738a2f6ceb9e55431aaf36a7ef
-  languageName: node
-  linkType: hard
-
-"playwright@npm:^1.32.3":
-  version: 1.32.3
-  resolution: "playwright@npm:1.32.3"
-  dependencies:
-    playwright-core: 1.32.3
-  bin:
-    playwright: cli.js
-  checksum: 9627771a131ab96a26d702757e89dcf09a228f0038c43a14f982cc59a2eca672cb27c9d92c324ddc2c44457b82d77c30b3562b386601969e0456b52dba5df176
   languageName: node
   linkType: hard
 
@@ -7111,7 +7091,6 @@ __metadata:
     lighthouse: ^10.1.1
     lint-staged: ^13.2.2
     msw: ^1.0.0
-    playwright: ^1.32.3
     playwright-lighthouse: ^3.1.0
     playwright-msw: ^2.2.1
     postcss: ^8.4.23
