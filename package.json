@@ -63,7 +63,7 @@
     "lighthouse": "^10.1.1",
     "lint-staged": "^13.2.2",
     "msw": "^1.0.0",
-    "playwright": "^1.32.3",
+    "playwright": "^1.33.0",
     "playwright-lighthouse": "^3.1.0",
     "playwright-msw": "^2.2.1",
     "postcss": "^8.4.23",
