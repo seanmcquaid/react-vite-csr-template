@@ -11,7 +11,7 @@ const PostInfo: FC = () => {
     PostDetailsLoaderData['postInfo']
   >;
   const { data } = useQuery({
-    ...getPostQuery(id ?? ''),
+    ...getPostQuery(id),
     initialData: initialPostInfo,
   });
 
