@@ -4,7 +4,7 @@ import PageError from '../../../components/PageError';
 import getPostQuery from '../../../queries/getPostQuery';
 import queryClient from '../../../services/queryClient';
 import PostInfo from './_components/PostInfo';
-import PostDetailsLoaderData from './PostDetailsLoaderData';
+import PostDetailsLoaderData from './types/PostDetailsLoaderData';
 
 export const Loader: LoaderFunction = ({ params }) => {
   const { id } = params;
@@ -19,11 +19,11 @@ export const Loader: LoaderFunction = ({ params }) => {
   });
 };
 
-export const ErrorBoundary: FC = () => {
+export const Catch: FC = () => {
   return <PageError errorText={'Error loading posts'} />;
 };
 
-const Page: FC = () => {
+const PostDetailsPage: FC = () => {
   const { postInfo } = useLoaderData() as PostDetailsLoaderData;
 
   return (
@@ -37,4 +37,4 @@ const Page: FC = () => {
   );
 };
 
-export default Page;
+export default PostDetailsPage;

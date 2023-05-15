@@ -3,7 +3,7 @@ import { useAsyncValue } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import getPostQuery from '../../../../queries/getPostQuery';
 import { useParams } from '../../../../router';
-import PostDetailsLoaderData from '../PostDetailsLoaderData';
+import PostDetailsLoaderData from '../types/PostDetailsLoaderData';
 
 const PostInfo: FC = () => {
   const { id } = useParams('/post/:id');

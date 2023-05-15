@@ -40,6 +40,8 @@ export default defineConfig(() => {
           'src/i18n',
           'src/main.tsx',
           'src/env.ts',
+          'src/types',
+          'src/router.ts',
         ],
       },
     },

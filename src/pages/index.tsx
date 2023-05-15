@@ -62,7 +62,11 @@ export const Loader: LoaderFunction = () => {
   });
 };
 
-const Page: FC = () => {
+export const Catch: FC = () => {
+  return <PageError errorText={'Error loading posts'} />;
+};
+
+const HomePage: FC = () => {
   const { register, watch, reset } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -105,8 +109,4 @@ const Page: FC = () => {
   );
 };
 
-export const ErrorBoundary: FC = () => {
-  return <PageError errorText={'Error loading post'} />;
-};
-
-export default Page;
+export default HomePage;
