@@ -554,6 +554,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@generouted/react-router@npm:^1.12.7":
+  version: 1.12.7
+  resolution: "@generouted/react-router@npm:1.12.7"
+  dependencies:
+    fast-glob: ^3.2.12
+    generouted: ^1.12.7
+  peerDependencies:
+    react: ">=18"
+    react-router-dom: ">=6"
+    vite: ">=4"
+  checksum: d3de5b370008ccf039447fb1dc36723eecc3cc69cc26175a0c190fd6fa62982890629ddbc581fd766650549428b75d665ad703d2e6d3af9e4dd5be51e2deb351
+  languageName: node
+  linkType: hard
+
 "@hookform/resolvers@npm:^3.0.0":
   version: 3.1.0
   resolution: "@hookform/resolvers@npm:3.1.0"
@@ -3888,6 +3902,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"generouted@npm:^1.12.7":
+  version: 1.12.7
+  resolution: "generouted@npm:1.12.7"
+  peerDependencies:
+    vite: ">=3"
+  checksum: 3898e97624d8df58afd5b685c8c22c8b0af26ce15b086441c9acc53c6c9d093815e675b89ccf7634ea6406385413c93e7d1c49e624b85680fc226819d72881f6
+  languageName: node
+  linkType: hard
+
 "gensync@npm:^1.0.0-beta.2":
   version: 1.0.0-beta.2
   resolution: "gensync@npm:1.0.0-beta.2"
@@ -6760,6 +6783,7 @@ __metadata:
     "@babel/core": ^7.21.8
     "@babel/plugin-syntax-flow": ^7.18.6
     "@babel/plugin-transform-react-jsx": ^7.21.5
+    "@generouted/react-router": ^1.12.7
     "@hookform/resolvers": ^3.0.0
     "@playwright/test": ^1.33.0
     "@tanstack/react-query": ^4.29.5

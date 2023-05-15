@@ -2,6 +2,8 @@ import { FC, Suspense, useEffect } from 'react';
 import {
   ActionFunction,
   Await,
+  LoaderFunction,
+  defer,
   json,
   redirect,
   useFetcher,
@@ -13,8 +15,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import queryClient from '../../services/queryClient';
 import getPostQuery from '../../queries/getPostQuery';
 import PageError from '../../components/PageError';
-import PostsList from './components/PostsList';
-import PostsLoaderData from './types/PostsLoaderData';
+import getPostsQuery from '../../queries/getPostsQuery';
+import PostsList from '../../components/PostsList';
+import PostsLoaderData from './PostsLoaderData';
 
 const formSchema = z.object({
   postId: z
@@ -23,7 +26,7 @@ const formSchema = z.object({
     .max(3, 'Text must contain at most 3 characters'),
 });
 
-export const action: ActionFunction = async ({ request }) => {
+export const Action: ActionFunction = async ({ request }) => {
   try {
     const formData = await request.formData();
     const postId = formData.get('postId');
@@ -47,7 +50,15 @@ export const action: ActionFunction = async ({ request }) => {
   }
 };
 
-export const Component: FC = () => {
+export const Loader: LoaderFunction = () => {
+  const query = getPostsQuery();
+  return defer({
+    posts:
+      queryClient.getQueryData(query.queryKey) ?? queryClient.fetchQuery(query),
+  });
+};
+
+const Page: FC = () => {
   const { register, watch, reset } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -93,3 +104,5 @@ export const Component: FC = () => {
 export const ErrorBoundary: FC = () => {
   return <PageError errorText={'Error loading post'} />;
 };
+
+export default Page;

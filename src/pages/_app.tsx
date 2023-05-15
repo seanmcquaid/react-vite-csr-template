@@ -1,19 +1,6 @@
 import { FC, Suspense } from 'react';
 import { isRouteErrorResponse, Outlet, useRouteError } from 'react-router-dom';
-import Navbar from './Navbar';
-
-export const Component: FC = () => {
-  return (
-    <div>
-      <Navbar />
-      <div>
-        <Suspense>
-          <Outlet />
-        </Suspense>
-      </div>
-    </div>
-  );
-};
+import Navbar from '../components/Navbar';
 
 export const ErrorBoundary: FC = () => {
   const error = useRouteError();
@@ -32,3 +19,18 @@ export const ErrorBoundary: FC = () => {
     </div>
   );
 };
+
+const App: FC = () => {
+  return (
+    <div>
+      <Navbar />
+      <div>
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </div>
+    </div>
+  );
+};
+
+export default App;

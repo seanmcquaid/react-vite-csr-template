@@ -1,15 +1,12 @@
 import { FC } from 'react';
-import { useAsyncValue, useParams } from 'react-router-dom';
+import { useAsyncValue } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import getPostQuery from '../../../queries/getPostQuery';
-import PostDetailsLoaderData from '../types/PostDetailsLoaderData';
-
-type PostDetailsParams = {
-  id: string;
-};
+import getPostQuery from '../queries/getPostQuery';
+import { useParams } from '../router';
+import PostDetailsLoaderData from '../pages/post/[id]/PostDetailsLoaderData';
 
 const PostInfo: FC = () => {
-  const { id } = useParams<PostDetailsParams>();
+  const { id } = useParams('/post/:id');
   const initialPostInfo = useAsyncValue() as Awaited<
     PostDetailsLoaderData['postInfo']
   >;
