@@ -3,7 +3,7 @@ import { Await, LoaderFunction, defer, useLoaderData } from 'react-router-dom';
 import PageError from '../../../components/PageError';
 import getPostQuery from '../../../queries/getPostQuery';
 import queryClient from '../../../services/queryClient';
-import PostInfo from '../../../components/PostInfo';
+import PostInfo from './_components/PostInfo';
 import PostDetailsLoaderData from './PostDetailsLoaderData';
 
 export const Loader: LoaderFunction = ({ params }) => {

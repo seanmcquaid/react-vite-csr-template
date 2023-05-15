@@ -4,7 +4,7 @@
 import { components, hooks, utils } from '@generouted/react-router/client'
 
 export type Path =
-  | `///`
+  | `/`
   | `/post/:id`
 
 export type Params = {

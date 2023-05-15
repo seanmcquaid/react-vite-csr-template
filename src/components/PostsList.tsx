@@ -1,14 +1,19 @@
 import { FC, useMemo, useTransition } from 'react';
-import { useAsyncValue, useNavigate } from 'react-router-dom';
+import { useAsyncValue } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import Post from '../types/responses/Post';
 import getPostsQuery from '../queries/getPostsQuery';
-import PostsLoaderData from '../pages/index/PostsLoaderData';
+import { useNavigate } from '../router';
+
 export const filterPostsByText = (text: string, posts: Post[]): Post[] =>
   posts.filter(post => post.title.match(text));
 
 interface PostsListProps {
   filterText: string;
+}
+
+interface PostsLoaderData {
+  posts: Promise<Post[]>;
 }
 
 const PostsList: FC<PostsListProps> = ({ filterText }) => {
@@ -26,7 +31,7 @@ const PostsList: FC<PostsListProps> = ({ filterText }) => {
 
   const handleOnClick = (post: Post): void => {
     startTransition(() => {
-      navigate(`post/${post.id}`);
+      navigate(`/post/:id`, { params: { id: post.id.toString() } });
     });
   };
 

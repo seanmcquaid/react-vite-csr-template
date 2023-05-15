@@ -12,12 +12,16 @@ import {
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import queryClient from '../../services/queryClient';
-import getPostQuery from '../../queries/getPostQuery';
-import PageError from '../../components/PageError';
-import getPostsQuery from '../../queries/getPostsQuery';
-import PostsList from '../../components/PostsList';
-import PostsLoaderData from './PostsLoaderData';
+import queryClient from '../services/queryClient';
+import getPostQuery from '../queries/getPostQuery';
+import PageError from '../components/PageError';
+import getPostsQuery from '../queries/getPostsQuery';
+import PostsList from '../components/PostsList';
+import Post from '../types/responses/Post';
+
+interface PostsLoaderData {
+  posts: Promise<Post[]>;
+}
 
 const formSchema = z.object({
   postId: z

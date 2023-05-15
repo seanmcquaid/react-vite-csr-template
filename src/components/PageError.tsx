@@ -1,9 +1,10 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '../router';
 
 interface PageErrorProps {
   errorText: string;
 }
+
 const PageError: FC<PageErrorProps> = ({ errorText }) => {
   const navigate = useNavigate();
 

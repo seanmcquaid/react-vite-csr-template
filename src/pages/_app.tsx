@@ -20,7 +20,7 @@ export const ErrorBoundary: FC = () => {
   );
 };
 
-const App: FC = () => {
+const Root: FC = () => {
   return (
     <div>
       <Navbar />
@@ -33,4 +33,4 @@ const App: FC = () => {
   );
 };
 
-export default App;
+export default Root;

@@ -37,13 +37,8 @@ export default defineConfig(() => {
         exclude: [
           'src/setupTests.ts',
           'src/testUtils',
-          'src/routes/AppRouter.tsx',
-          'src/routes/RouteConstants.ts',
-          'src/Root.tsx',
-          'src/AppConstants.ts',
           'src/i18n',
           'src/main.tsx',
-          'src/mocks',
           'src/env.ts',
         ],
       },
