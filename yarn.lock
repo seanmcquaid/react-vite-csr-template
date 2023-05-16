@@ -1070,6 +1070,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@testing-library/dom@npm:^9.3.0":
+  version: 9.3.0
+  resolution: "@testing-library/dom@npm:9.3.0"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/runtime": ^7.12.5
+    "@types/aria-query": ^5.0.1
+    aria-query: ^5.0.0
+    chalk: ^4.1.0
+    dom-accessibility-api: ^0.5.9
+    lz-string: ^1.5.0
+    pretty-format: ^27.0.2
+  checksum: 790f4da6a8cbe7da8b7769e81e68caea1aed5b5f1973b808895692a945fb854fe8acdc66ffc34b6a57ec49bad9d76ccdd69b632ea8a82ad61d1e97d76cfdf9ec
+  languageName: node
+  linkType: hard
+
 "@testing-library/jest-dom@npm:^5.16.5":
   version: 5.16.5
   resolution: "@testing-library/jest-dom@npm:5.16.5"
@@ -6797,7 +6813,7 @@ __metadata:
     "@hookform/resolvers": ^3.0.0
     "@playwright/test": ^1.33.0
     "@tanstack/react-query": ^4.29.7
-    "@testing-library/dom": ^9.0.0
+    "@testing-library/dom": ^9.3.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@testing-library/user-event": ^14.4.3
