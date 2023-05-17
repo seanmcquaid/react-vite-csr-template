@@ -42,6 +42,8 @@ export default defineConfig(() => {
           'src/env.ts',
           'src/types',
           'src/router.ts',
+          'src/pages/_app.tsx',
+          'src/pages/404.tsx',
         ],
       },
     },
