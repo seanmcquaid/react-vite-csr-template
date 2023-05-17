@@ -3,8 +3,8 @@ import { Await, LoaderFunction, defer, useLoaderData } from 'react-router-dom';
 import PageError from '../../../components/PageError';
 import getPostQuery from '../../../queries/getPostQuery';
 import queryClient from '../../../services/queryClient';
-import PostInfo from './_components/PostInfo';
-import PostDetailsLoaderData from './types/PostDetailsLoaderData';
+import PostInfo from '../_components/PostInfo';
+import Post from '../../../types/responses/Post';
 
 export const Loader: LoaderFunction = ({ params }) => {
   const { id } = params;
@@ -24,7 +24,7 @@ export const Catch: FC = () => {
 };
 
 const PostDetailsPage: FC = () => {
-  const { postInfo } = useLoaderData() as PostDetailsLoaderData;
+  const { postInfo } = useLoaderData() as { postInfo: Promise<Post> };
 
   return (
     <div data-testid="post-details-container">
