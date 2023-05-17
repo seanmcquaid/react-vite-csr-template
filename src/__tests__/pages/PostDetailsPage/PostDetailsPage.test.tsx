@@ -1,20 +1,17 @@
-import { rest } from 'msw';
-import { screen, waitFor } from '@testing-library/react';
 import { Route } from 'react-router-dom';
-import { render } from '../../../testUtils/reactTestingLibraryUtils';
-import { Component as PostDetails } from '../PostDetails';
+import { rest } from 'msw';
+import PostDetailsPage, { Loader } from '../../../pages/post/[id]/index';
+import {
+  render,
+  waitFor,
+  screen,
+} from '../../../testUtils/reactTestingLibraryUtils';
 import server from '../../../../mocks/server';
-import RouteConstants from '../../../routes/RouteConstants';
-import postDetailsLoader from '../postDetailsLoader.ts';
 
 describe('PostDetails', () => {
   it('displays post info if it comes back from the API', async () => {
     render(
-      <Route
-        path={RouteConstants.POST_DETAILS}
-        element={<PostDetails />}
-        loader={postDetailsLoader}
-      />,
+      <Route path="/post/:id" element={<PostDetailsPage />} loader={Loader} />,
       { initialRoute: '/post/1' },
     );
     await waitFor(() =>
@@ -31,11 +28,7 @@ describe('PostDetails', () => {
       ),
     );
     render(
-      <Route
-        path={RouteConstants.POST_DETAILS}
-        element={<PostDetails />}
-        loader={postDetailsLoader}
-      />,
+      <Route path="/post/:id" element={<PostDetailsPage />} loader={Loader} />,
       { initialRoute: '/post/1' },
     );
     await waitFor(() =>

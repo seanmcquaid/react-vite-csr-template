@@ -1,12 +1,11 @@
 import { Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-import PostsList, { filterPostsByText } from '../components/PostsList';
 import {
   render,
-  screen,
   waitFor,
-} from '../../../testUtils/reactTestingLibraryUtils';
-import RouteConstants from '../../../routes/RouteConstants';
+  screen,
+} from '../../testUtils/reactTestingLibraryUtils';
+import PostsList, { filterPostsByText } from '../PostsList';
 
 describe('PostsList', () => {
   describe('filterPostsByText', () => {
@@ -21,14 +20,8 @@ describe('PostsList', () => {
   it('Displays filtered posts', async () => {
     render(
       <>
-        <Route
-          path={RouteConstants.HOME}
-          element={<PostsList filterText={'example'} />}
-        />
-        <Route
-          path={RouteConstants.POST_DETAILS}
-          element={<div data-testid="post-details" />}
-        />
+        <Route path="/" element={<PostsList filterText={'example'} />} />
+        <Route path="/post/:id" element={<div data-testid="post-details" />} />
       </>,
       {
         initialRoute: '/',
@@ -40,14 +33,8 @@ describe('PostsList', () => {
   it('Takes the user to the post details page if they click on the post', async () => {
     render(
       <>
-        <Route
-          path={RouteConstants.HOME}
-          element={<PostsList filterText={''} />}
-        />
-        <Route
-          path={RouteConstants.POST_DETAILS}
-          element={<div data-testid="post-details" />}
-        />
+        <Route path="/" element={<PostsList filterText={''} />} />
+        <Route path="/post/:id" element={<div data-testid="post-details" />} />
       </>,
       {
         initialRoute: '/',

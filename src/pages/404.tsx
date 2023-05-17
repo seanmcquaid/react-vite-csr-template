@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '../router';
 
-export const Component: FC = () => {
+const NotFoundPage: FC = () => {
   const navigate = useNavigate();
 
   const handleOnClick = () => {
@@ -16,3 +16,5 @@ export const Component: FC = () => {
     </div>
   );
 };
+
+export default NotFoundPage;

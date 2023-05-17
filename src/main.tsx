@@ -1,10 +1,11 @@
-import { lazy, startTransition, StrictMode, Suspense } from 'react';
+import { startTransition, StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { ErrorBoundary } from 'react-error-boundary';
+import { Routes } from '@generouted/react-router/lazy';
+import { QueryClientProvider } from '@tanstack/react-query';
 import env from './env';
-
-const App = lazy(() => import('./App'));
+import queryClient from './services/queryClient';
 
 const prepare = async () => {
   if (env.MODE === 'development' && env.VITE_APP_MSW_ENABLED) {
@@ -19,9 +20,11 @@ prepare().then(() =>
     createRoot(document.getElementById('root') as HTMLElement).render(
       <StrictMode>
         <ErrorBoundary fallback={<div>Something went wrong</div>}>
-          <Suspense>
-            <App />
-          </Suspense>
+          <QueryClientProvider client={queryClient}>
+            <Suspense>
+              <Routes />
+            </Suspense>
+          </QueryClientProvider>
         </ErrorBoundary>
       </StrictMode>,
     );

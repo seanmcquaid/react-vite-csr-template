@@ -1,5 +1,5 @@
 import { LoaderFunctionArgs } from 'react-router-dom';
-import postDetailsLoader from '../postDetailsLoader.ts';
+import { Loader as postDetailsLoader } from '../../../pages/post/[id]';
 
 describe('postDetailsLoader', () => {
   it('throws an error if no id is provided', () => {

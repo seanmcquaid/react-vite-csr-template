@@ -1,24 +1,17 @@
 import { Route } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
+import HomePage, { Action, Loader } from '../../../pages/index';
 import {
   render,
-  screen,
   waitFor,
+  screen,
 } from '../../../testUtils/reactTestingLibraryUtils';
-import RouteConstants from '../../../routes/RouteConstants';
-import { Component as Posts, action as postsAction } from '../Posts';
-import postsLoader from '../postsLoader.ts';
 
 describe('Posts', () => {
   beforeEach(() => {
     render(
-      <Route
-        path={RouteConstants.HOME}
-        element={<Posts />}
-        loader={postsLoader}
-        action={postsAction}
-      />,
-      { initialRoute: RouteConstants.HOME },
+      <Route path="/" element={<HomePage />} loader={Loader} action={Action} />,
+      { initialRoute: '/' },
     );
   });
   it('Updates search text if user types', async () => {

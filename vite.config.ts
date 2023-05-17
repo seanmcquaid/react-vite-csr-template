@@ -6,11 +6,18 @@ import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import checker from 'vite-plugin-checker';
 import { visualizer } from 'rollup-plugin-visualizer';
+import generouted from '@generouted/react-router/plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
   return {
-    plugins: [react(), svgr(), checker({ typescript: true }), visualizer()],
+    plugins: [
+      react(),
+      svgr(),
+      checker({ typescript: true }),
+      visualizer(),
+      generouted(),
+    ],
     preview: {
       port: 3000,
     },
@@ -30,14 +37,13 @@ export default defineConfig(() => {
         exclude: [
           'src/setupTests.ts',
           'src/testUtils',
-          'src/routes/AppRouter.tsx',
-          'src/routes/RouteConstants.ts',
-          'src/Root.tsx',
-          'src/AppConstants.ts',
           'src/i18n',
           'src/main.tsx',
-          'src/mocks',
           'src/env.ts',
+          'src/types',
+          'src/router.ts',
+          'src/pages/_app.tsx',
+          'src/pages/404.tsx',
         ],
       },
     },
