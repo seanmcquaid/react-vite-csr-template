@@ -20,7 +20,7 @@
   "dependencies": {
     "@generouted/react-router": "^1.12.8",
     "@hookform/resolvers": "^3.0.0",
-    "@tanstack/react-query": "^4.29.7",
+    "@tanstack/react-query": "^4.29.12",
     "ky": "^0.33.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
