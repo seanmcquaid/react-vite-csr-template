@@ -920,19 +920,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.34.1":
-  version: 1.34.1
-  resolution: "@playwright/test@npm:1.34.1"
+"@playwright/test@npm:^1.34.3":
+  version: 1.34.3
+  resolution: "@playwright/test@npm:1.34.3"
   dependencies:
     "@types/node": "*"
     fsevents: 2.3.2
-    playwright-core: 1.34.1
+    playwright-core: 1.34.3
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 1eb5788739f32544b5d77bcee30245196193152cb2a12baa92b200e4ffd270c28ec60806f58497c5192035282ef120ed0eeed06f0131d9ac8310ff1851bb1b21
+  checksum: b387d85f09d275ed49aac4f600c0657205b4c20979108a52e7072ef0c43ea9b2d3d6d7206869230634680ab1f8e7b03373c63555899da4293cae700320bd31e1
   languageName: node
   linkType: hard
 
@@ -6651,12 +6651,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.34.1":
-  version: 1.34.1
-  resolution: "playwright-core@npm:1.34.1"
+"playwright-core@npm:1.34.3":
+  version: 1.34.3
+  resolution: "playwright-core@npm:1.34.3"
   bin:
-    playwright: cli.js
-  checksum: d4c9c213b4d234b8c923146d46203c826bf9f168639cf35d47a5b9bc720d2f5f3b9d9b0fdad6919c42a8228fc6910e7db2228dca922cdf8f6177f17de03a8f92
+    playwright-core: cli.js
+  checksum: eaf9e9b2d77b9726867dcbc641a1c72b0e8f680cdd71ff904366deea1c96141ff7563f6c6fb29f9975309d1b87dead97ea93f6f44953b59946882fb785b34867
   languageName: node
   linkType: hard
 
@@ -7077,7 +7077,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.21.5
     "@generouted/react-router": ^1.12.9
     "@hookform/resolvers": ^3.0.0
-    "@playwright/test": ^1.34.1
+    "@playwright/test": ^1.34.3
     "@tanstack/react-query": ^4.29.12
     "@testing-library/dom": ^9.3.0
     "@testing-library/jest-dom": ^5.16.5
