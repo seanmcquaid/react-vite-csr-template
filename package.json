@@ -59,7 +59,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-vitest": "^0.2.3",
+    "eslint-plugin-vitest": "^0.2.5",
     "husky": "^8.0.2",
     "jsdom": "^22.0.0",
     "lighthouse": "^10.1.1",
