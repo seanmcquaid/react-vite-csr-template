@@ -1587,9 +1587,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-istanbul@npm:^0.31.1":
-  version: 0.31.1
-  resolution: "@vitest/coverage-istanbul@npm:0.31.1"
+"@vitest/coverage-istanbul@npm:^0.31.2":
+  version: 0.31.2
+  resolution: "@vitest/coverage-istanbul@npm:0.31.2"
   dependencies:
     istanbul-lib-coverage: ^3.2.0
     istanbul-lib-instrument: ^5.2.1
@@ -1599,7 +1599,7 @@ __metadata:
     test-exclude: ^6.0.0
   peerDependencies:
     vitest: ">=0.30.0 <1"
-  checksum: 0cbf095fb1a799c06aff92df2c0fc3242c27e9ef8b7b813669657eac487452456f46a23eee6043f9595b75b08f3ba839cb2d0d683235038e12d9fd934d495f17
+  checksum: 6944d43afc0133f2c023a8fee7a33990b4d4e476ca2c4b500ddc65de5a00f3327afaf53184381febc4b1079ab374724e555d0500a93ddac0f6ece008cb0dac62
   languageName: node
   linkType: hard
 
@@ -6883,7 +6883,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.59.7
     "@typescript-eslint/parser": ^5.59.7
     "@vitejs/plugin-react": ^4.0.0
-    "@vitest/coverage-istanbul": ^0.31.1
+    "@vitest/coverage-istanbul": ^0.31.2
     autoprefixer: ^10.4.13
     bundlesize: ^0.18.1
     cross-fetch: ^3.1.6
