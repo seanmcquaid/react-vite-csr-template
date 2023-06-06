@@ -29,14 +29,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@axe-core/playwright@npm:^4.7.1":
-  version: 4.7.1
-  resolution: "@axe-core/playwright@npm:4.7.1"
+"@axe-core/playwright@npm:^4.7.2":
+  version: 4.7.2
+  resolution: "@axe-core/playwright@npm:4.7.2"
   dependencies:
     axe-core: ^4.7.0
   peerDependencies:
-    playwright: ">= 1.0.0"
-  checksum: 2e7ea973b747ec91314d28053a56c07453af91114b63bc0d1e0f810e43673a837ab3cc0a4ea75d43676b23c9c1405615559ee80055037b4bcd82f29a55c2da0e
+    playwright-core: ">= 1.0.0"
+  checksum: 99606e6a215418e48dad097d8e0c76ffc2813137f2ab4ddbba97189fcc255881669656c7ab9135dc4af3786a504f823a144cc9a29bf4aa0e990c06e7e264abfd
   languageName: node
   linkType: hard
 
@@ -7026,7 +7026,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-template@workspace:."
   dependencies:
-    "@axe-core/playwright": ^4.7.1
+    "@axe-core/playwright": ^4.7.2
     "@babel/core": ^7.22.1
     "@babel/plugin-syntax-flow": ^7.18.6
     "@babel/plugin-transform-react-jsx": ^7.22.3
