@@ -694,17 +694,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@generouted/react-router@npm:^1.12.9":
-  version: 1.12.9
-  resolution: "@generouted/react-router@npm:1.12.9"
+"@generouted/react-router@npm:^1.13.1":
+  version: 1.13.1
+  resolution: "@generouted/react-router@npm:1.13.1"
   dependencies:
     fast-glob: ^3.2.12
-    generouted: ^1.12.9
+    generouted: ^1.13.1
   peerDependencies:
     react: ">=18"
     react-router-dom: ">=6"
     vite: ">=4"
-  checksum: 8d25e311850630956104aa5d6dfca4dac2c43e3922e9c2082a789197c76ce0169d192d75ed5e71a328cf3360b9f9a7d7bb50da39eb60fd7b62eca4398889be40
+  checksum: 894297e8436af346f52a5b255ee41b08acdd98dd23191948face1e3dbec764509a734fd0efd5d9771ad86d505d85602413afb1e16d1fa22a8740cb2b340134e2
   languageName: node
   linkType: hard
 
@@ -4138,12 +4138,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"generouted@npm:^1.12.9":
-  version: 1.12.9
-  resolution: "generouted@npm:1.12.9"
+"generouted@npm:^1.13.1":
+  version: 1.13.1
+  resolution: "generouted@npm:1.13.1"
   peerDependencies:
     vite: ">=3"
-  checksum: 7d0c4e3a5abbd2905e9cc2387cd46478f500e95725e954100cade4f5e477cd3e1e7f16b6dee39dd0f3d244f8bb631afdf443d3fff832ee0dc79011507c558da0
+  checksum: e51068199fb62f0c5d05b80fdbc32972c75596963f77b1160230ca987bf8676a753c1099aa16729c30c528a66eafac7631b31f5d2fcb42dcff4212b66ced63fb
   languageName: node
   linkType: hard
 
@@ -7030,7 +7030,7 @@ __metadata:
     "@babel/core": ^7.22.1
     "@babel/plugin-syntax-flow": ^7.18.6
     "@babel/plugin-transform-react-jsx": ^7.22.3
-    "@generouted/react-router": ^1.12.9
+    "@generouted/react-router": ^1.13.1
     "@hookform/resolvers": ^3.0.0
     "@playwright/test": ^1.34.3
     "@tanstack/react-query": ^4.29.12
