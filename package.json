@@ -63,7 +63,7 @@
     "husky": "^8.0.2",
     "jsdom": "^22.1.0",
     "lighthouse": "^10.3.0",
-    "lint-staged": "^13.2.2",
+    "lint-staged": "^13.2.3",
     "msw": "^1.2.2",
     "playwright-lighthouse": "^3.1.0",
     "playwright-msw": "^2.2.1",
