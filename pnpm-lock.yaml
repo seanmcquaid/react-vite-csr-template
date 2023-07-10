@@ -65,8 +65,8 @@ devDependencies:
     specifier: ^14.4.3
     version: 14.4.3(@testing-library/dom@9.3.1)
   '@types/node':
-    specifier: ^20.3.3
-    version: 20.3.3
+    specifier: ^20.4.1
+    version: 20.4.1
   '@types/react':
     specifier: ^18.2.14
     version: 18.2.14
@@ -168,7 +168,7 @@ devDependencies:
     version: 5.1.6
   vite:
     specifier: ^4.3.9
-    version: 4.3.9(@types/node@20.3.3)(terser@5.18.2)
+    version: 4.3.9(@types/node@20.4.1)(terser@5.18.2)
   vite-plugin-checker:
     specifier: ^0.6.1
     version: 0.6.1(eslint@8.44.0)(typescript@5.1.6)(vite@4.3.9)
@@ -711,7 +711,7 @@ packages:
       generouted: 1.15.1(vite@4.3.9)
       react: 18.2.0
       react-router-dom: 6.14.1(react-dom@18.2.0)(react@18.2.0)
-      vite: 4.3.9(@types/node@20.3.3)(terser@5.18.2)
+      vite: 4.3.9(@types/node@20.4.1)(terser@5.18.2)
     dev: false
 
   /@hookform/resolvers@3.1.1(react-hook-form@7.45.1):
@@ -768,7 +768,7 @@ packages:
       '@jest/schemas': 29.6.0
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
       '@types/yargs': 17.0.24
       chalk: 4.1.2
     dev: true
@@ -863,7 +863,7 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
       playwright-core: 1.35.1
     optionalDependencies:
       fsevents: 2.3.2
@@ -1239,8 +1239,8 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
 
-  /@types/node@20.3.3:
-    resolution: {integrity: sha512-wheIYdr4NYML61AjC8MKj/2jrR/kDQri/CIpVoZwldwhnIrD/j9jIU5bJ8yBKuB2VhpFV7Ab6G2XkBjv9r9Zzw==}
+  /@types/node@20.4.1:
+    resolution: {integrity: sha512-JIzsAvJeA/5iY6Y/OxZbv1lUcc8dNSE77lb2gnBH+/PJ3lFR1Ccvgwl5JWnHAkNHcRsT0TbpVOsiMKZ1F/yyJg==}
 
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -1271,7 +1271,7 @@ packages:
   /@types/set-cookie-parser@2.4.2:
     resolution: {integrity: sha512-fBZgytwhYAUkj/jC/FAV4RQ5EerRup1YQsXQCh8rZfiHkc4UahC192oH0smGwsXol3cL3A5oETuAHeQHmhXM4w==}
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
     dev: true
 
   /@types/stack-utils@2.0.1:
@@ -1298,7 +1298,7 @@ packages:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
     requiresBuild: true
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
     dev: true
     optional: true
 
@@ -1442,7 +1442,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.6)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.6)
       react-refresh: 0.14.0
-      vite: 4.3.9(@types/node@20.3.3)(terser@5.18.2)
+      vite: 4.3.9(@types/node@20.4.1)(terser@5.18.2)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2047,7 +2047,7 @@ packages:
     engines: {node: '>=12.13.0'}
     hasBin: true
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
       escape-string-regexp: 4.0.0
       is-wsl: 2.2.0
       lighthouse-logger: 1.4.2
@@ -3016,7 +3016,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/expect-utils': 29.6.1
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
       jest-get-type: 29.4.3
       jest-matcher-utils: 29.6.1
       jest-message-util: 29.6.1
@@ -3225,7 +3225,7 @@ packages:
     peerDependencies:
       vite: '>=3'
     dependencies:
-      vite: 4.3.9(@types/node@20.3.3)(terser@5.18.2)
+      vite: 4.3.9(@types/node@20.4.1)(terser@5.18.2)
     dev: false
 
   /gensync@1.0.0-beta.2:
@@ -3983,7 +3983,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.1
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
       chalk: 4.1.2
       ci-info: 3.8.0
       graceful-fs: 4.2.11
@@ -5626,7 +5626,7 @@ packages:
     resolution: {integrity: sha512-DI7/OuAUD+GMpR6dmu8lliO2Wg5zfeh+/xsdyJZCzd8o5JgFUjCeLsBDuZjIQJdwXS3J0L/uZYrELKYqx+PXog==}
     engines: {node: '>=8.0'}
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
       image-ssim: 0.2.0
       jpeg-js: 0.4.4
     dev: true
@@ -6210,7 +6210,7 @@ packages:
       which-typed-array: 1.1.9
     dev: true
 
-  /vite-node@0.32.4(@types/node@20.3.3)(terser@5.18.2):
+  /vite-node@0.32.4(@types/node@20.4.1)(terser@5.18.2):
     resolution: {integrity: sha512-L2gIw+dCxO0LK14QnUMoqSYpa9XRGnTTTDjW2h19Mr+GR0EFj4vx52W41gFXfMLqpA00eK4ZjOVYo1Xk//LFEw==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -6220,7 +6220,7 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.3.9(@types/node@20.3.3)(terser@5.18.2)
+      vite: 4.3.9(@types/node@20.4.1)(terser@5.18.2)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -6277,7 +6277,7 @@ packages:
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.1
       typescript: 5.1.6
-      vite: 4.3.9(@types/node@20.3.3)(terser@5.18.2)
+      vite: 4.3.9(@types/node@20.4.1)(terser@5.18.2)
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.8
@@ -6292,13 +6292,13 @@ packages:
       '@rollup/pluginutils': 5.0.2
       '@svgr/core': 7.0.0
       '@svgr/plugin-jsx': 7.0.0
-      vite: 4.3.9(@types/node@20.3.3)(terser@5.18.2)
+      vite: 4.3.9(@types/node@20.4.1)(terser@5.18.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.3.9(@types/node@20.3.3)(terser@5.18.2):
+  /vite@4.3.9(@types/node@20.4.1)(terser@5.18.2):
     resolution: {integrity: sha512-qsTNZjO9NoJNW7KnOrgYwczm0WctJ8m/yqYAMAK9Lxt4SoySUfS5S8ia9K7JHpa3KEeMfyF8LoJ3c5NeBJy6pg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -6323,7 +6323,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
       esbuild: 0.17.19
       postcss: 8.4.24
       rollup: 3.26.2
@@ -6364,7 +6364,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.5
       '@types/chai-subset': 1.3.3
-      '@types/node': 20.3.3
+      '@types/node': 20.4.1
       '@vitest/expect': 0.32.4
       '@vitest/runner': 0.32.4
       '@vitest/snapshot': 0.32.4
@@ -6384,8 +6384,8 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.5.0
-      vite: 4.3.9(@types/node@20.3.3)(terser@5.18.2)
-      vite-node: 0.32.4(@types/node@20.3.3)(terser@5.18.2)
+      vite: 4.3.9(@types/node@20.4.1)(terser@5.18.2)
+      vite-node: 0.32.4(@types/node@20.4.1)(terser@5.18.2)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
