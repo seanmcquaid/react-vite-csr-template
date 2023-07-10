@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^4.0.1
     version: 4.0.1(vite@4.3.9)
   '@vitest/coverage-istanbul':
-    specifier: ^0.32.4
-    version: 0.32.4(vitest@0.32.4)
+    specifier: ^0.33.0
+    version: 0.33.0(vitest@0.32.4)
   autoprefixer:
     specifier: ^10.4.13
     version: 10.4.13(postcss@8.4.24)
@@ -1447,8 +1447,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/coverage-istanbul@0.32.4(vitest@0.32.4):
-    resolution: {integrity: sha512-nnOPaDXygSUsOQNxDp9KbyAg1TNTgP+VYuhtY7vV+XY1vcrUoYIEqRpTxa0d/kVnkBmFi6mE12k5jfwrOkY/pg==}
+  /@vitest/coverage-istanbul@0.33.0(vitest@0.32.4):
+    resolution: {integrity: sha512-DGv6ybomCbLFGlNOGHgVCsaqHPWJWLp8JPrwzZo8I4vZ/O3muqTyZq5R52CZl0ENqgjFGWjra7yNPFUgxKf5pw==}
     peerDependencies:
       vitest: '>=0.32.0 <1'
     dependencies:
