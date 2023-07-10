@@ -47,7 +47,7 @@
     "@typescript-eslint/parser": "^5.61.0",
     "@vitejs/plugin-react": "^4.0.1",
     "@vitest/coverage-istanbul": "^0.33.0",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.14",
     "bundlesize": "^0.18.1",
     "cross-fetch": "^4.0.0",
     "dpdm": "^3.13.1",
