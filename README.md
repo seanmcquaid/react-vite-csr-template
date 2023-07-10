@@ -1,6 +1,6 @@
-# React SPA Template
+# React + Vite CSR Template
 
-My personal React SPA Template I use for all new personal web projects that I just want to use a SPA for.
+My personal React + Vite Client Side Rendered Template I use for all new personal web projects that I just want to use a SPA for.
 
 ## To Set Up In AWS
 
