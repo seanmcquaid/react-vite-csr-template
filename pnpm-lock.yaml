@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@generouted/react-router':
-    specifier: ^1.15.0
-    version: 1.15.0(react-router-dom@6.14.1)(react@18.2.0)(vite@4.3.9)
+    specifier: ^1.15.1
+    version: 1.15.1(react-router-dom@6.14.1)(react@18.2.0)(vite@4.3.9)
   '@hookform/resolvers':
     specifier: ^3.1.1
     version: 3.1.1(react-hook-form@7.45.1)
@@ -700,8 +700,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@generouted/react-router@1.15.0(react-router-dom@6.14.1)(react@18.2.0)(vite@4.3.9):
-    resolution: {integrity: sha512-sWndUkWxUUwRvE0soOhfdz3XwNtc2aGGNrSSYn4ss04o310KdzCtlJ0uUVwgSzW3LGXScLI7EO26aAz8Ev5G1g==}
+  /@generouted/react-router@1.15.1(react-router-dom@6.14.1)(react@18.2.0)(vite@4.3.9):
+    resolution: {integrity: sha512-pvzM7+3DI197aAYuNIPFlHTQXMSNb5Emh1OYL7b3gYuT+W2+ZQkA88u5hHkU5wk+EMN5ywTYCbNam5BKZJeSdw==}
     peerDependencies:
       react: '>=18'
       react-router-dom: '>=6'
