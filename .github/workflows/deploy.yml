@@ -18,11 +18,15 @@ jobs:
     steps:
       - name: Checkout latest
         uses: actions/checkout@v3
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.2
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
+          cache: 'pnpm'
       - name: Create .env file
         run: |
           touch .env
@@ -47,12 +51,10 @@ jobs:
         run: |
           echo "ENVIRONMENT=prod" >> $GITHUB_ENV
           echo "VITE_APP_ENVIRONMENT=prod" >> .env
-      - name: Restore Yarn cache
-        uses: c-hive/gha-yarn-cache@v2
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
       - name: Build the app
-        run: yarn build
+        run: pnpm build
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:

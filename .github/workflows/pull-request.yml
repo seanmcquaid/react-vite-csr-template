@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
       - uses: ./.github/actions/setup-pull-request-job
       - name: Run Unit Tests
-        run: yarn coverage
+        run: pnpm coverage
       - uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           path: './coverage/lcov.info'
@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v3
       - uses: ./.github/actions/setup-pull-request-job
       - name: Lint
-        run: yarn lint:nowarn
+        run: pnpm lint:nowarn
   bundle-size:
     runs-on: ubuntu-latest
     steps:
@@ -37,9 +37,9 @@ jobs:
         uses: actions/checkout@v3
       - uses: ./.github/actions/setup-pull-request-job
       - name: Build the app
-        run: yarn build
+        run: pnpm build
       - name: Bundlesize Check
-        run: yarn bundlesize
+        run: pnpm bundlesize
   playwright-tests:
     runs-on: ubuntu-latest
     steps:
@@ -47,6 +47,6 @@ jobs:
         uses: actions/checkout@v3
       - uses: ./.github/actions/setup-pull-request-job
       - name: Install Playwright Browsers
-        run: yarn playwright install --with-deps
+        run: pnpm playwright install --with-deps
       - name: Run Playwright tests
-        run: yarn playwright:run
+        run: pnpm playwright:run
