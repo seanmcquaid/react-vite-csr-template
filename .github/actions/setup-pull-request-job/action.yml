@@ -22,4 +22,4 @@ runs:
         echo "VITE_APP_VERSION=$npm_package_version" >> .env
     - name: Install Dependencies
       shell: bash
-      run: pnpm install --frozen-lockfie
+      run: pnpm install --frozen-lockfile
