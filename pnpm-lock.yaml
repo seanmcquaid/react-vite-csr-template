@@ -83,8 +83,8 @@ devDependencies:
     specifier: ^5.61.0
     version: 5.61.0(eslint@8.44.0)(typescript@5.1.6)
   '@vitejs/plugin-react':
-    specifier: ^4.0.1
-    version: 4.0.1(vite@4.3.9)
+    specifier: ^4.0.2
+    version: 4.0.2(vite@4.3.9)
   '@vitest/coverage-istanbul':
     specifier: ^0.33.0
     version: 0.33.0(vitest@0.33.0)
@@ -104,8 +104,8 @@ devDependencies:
     specifier: ^8.44.0
     version: 8.44.0
   eslint-config-prettier:
-    specifier: ^8.5.0
-    version: 8.5.0(eslint@8.44.0)
+    specifier: ^8.8.0
+    version: 8.8.0(eslint@8.44.0)
   eslint-plugin-import:
     specifier: ^2.27.5
     version: 2.27.5(@typescript-eslint/parser@5.61.0)(eslint@8.44.0)
@@ -117,7 +117,7 @@ devDependencies:
     version: 0.15.3(eslint@8.44.0)
   eslint-plugin-prettier:
     specifier: ^4.2.1
-    version: 4.2.1(eslint-config-prettier@8.5.0)(eslint@8.44.0)(prettier@3.0.0)
+    version: 4.2.1(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.0)
   eslint-plugin-react:
     specifier: ^7.32.2
     version: 7.32.2(eslint@8.44.0)
@@ -1424,8 +1424,8 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vitejs/plugin-react@4.0.1(vite@4.3.9):
-    resolution: {integrity: sha512-g25lL98essfeSj43HJ0o4DMp0325XK0ITkxpgChzJU/CyemgyChtlxfnRbjfwxDGCTRxTiXtQAsdebQXKMRSOA==}
+  /@vitejs/plugin-react@4.0.2(vite@4.3.9):
+    resolution: {integrity: sha512-zbnVp3Esfg33zDaoLrjxG+p/dPiOtpvJA+1oOEQwSxMMTRL9zi1eghIcd2WtLjkcKnPsa3S15LzS/OzDn2BOCA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.2.0
@@ -2674,8 +2674,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-prettier@8.5.0(eslint@8.44.0):
-    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
+  /eslint-config-prettier@8.8.0(eslint@8.44.0):
+    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -2792,7 +2792,7 @@ packages:
       eslint: 8.44.0
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.5.0)(eslint@8.44.0)(prettier@3.0.0):
+  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.8.0)(eslint@8.44.0)(prettier@3.0.0):
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -2804,7 +2804,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.44.0
-      eslint-config-prettier: 8.5.0(eslint@8.44.0)
+      eslint-config-prettier: 8.8.0(eslint@8.44.0)
       prettier: 3.0.0
       prettier-linter-helpers: 1.0.0
     dev: true
