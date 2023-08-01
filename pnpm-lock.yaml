@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@generouted/react-router':
     specifier: ^1.15.2
-    version: 1.15.2(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.7)
+    version: 1.15.2(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.8)
   '@hookform/resolvers':
     specifier: ^3.1.1
     version: 3.1.1(react-hook-form@7.45.2)
@@ -84,7 +84,7 @@ devDependencies:
     version: 5.62.0(eslint@8.45.0)(typescript@5.1.6)
   '@vitejs/plugin-react':
     specifier: ^4.0.3
-    version: 4.0.3(vite@4.4.7)
+    version: 4.0.3(vite@4.4.8)
   '@vitest/coverage-istanbul':
     specifier: ^0.34.1
     version: 0.34.1(vitest@0.33.0)
@@ -126,7 +126,7 @@ devDependencies:
     version: 4.6.0(eslint@8.45.0)
   eslint-plugin-vitest:
     specifier: ^0.2.8
-    version: 0.2.8(eslint@8.45.0)(typescript@5.1.6)(vite@4.4.7)(vitest@0.33.0)
+    version: 0.2.8(eslint@8.45.0)(typescript@5.1.6)(vite@4.4.8)(vitest@0.33.0)
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -167,14 +167,14 @@ devDependencies:
     specifier: ^5.1.6
     version: 5.1.6
   vite:
-    specifier: ^4.4.7
-    version: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+    specifier: ^4.4.8
+    version: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
   vite-plugin-checker:
     specifier: ^0.6.1
-    version: 0.6.1(eslint@8.45.0)(typescript@5.1.6)(vite@4.4.7)
+    version: 0.6.1(eslint@8.45.0)(typescript@5.1.6)(vite@4.4.8)
   vite-plugin-svgr:
     specifier: ^3.2.0
-    version: 3.2.0(vite@4.4.7)
+    version: 3.2.0(vite@4.4.8)
   vitest:
     specifier: ^0.33.0
     version: 0.33.0(jsdom@22.1.0)(terser@5.19.2)
@@ -690,7 +690,7 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@generouted/react-router@1.15.2(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.7):
+  /@generouted/react-router@1.15.2(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.8):
     resolution: {integrity: sha512-oOt692tY6CcdQgkEHxcuSCAl8pgW7+smYgh3YevN56n9VWG1P7WilSygIWZKj00gC6po7yVKVu1a/9gmwUdL3g==}
     peerDependencies:
       react: '>=18'
@@ -698,10 +698,10 @@ packages:
       vite: '>=4'
     dependencies:
       fast-glob: 3.3.0
-      generouted: 1.15.2(vite@4.4.7)
+      generouted: 1.15.2(vite@4.4.8)
       react: 18.2.0
       react-router-dom: 6.14.2(react-dom@18.2.0)(react@18.2.0)
-      vite: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+      vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
     dev: false
 
   /@hookform/resolvers@3.1.1(react-hook-form@7.45.2):
@@ -1490,7 +1490,7 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vitejs/plugin-react@4.0.3(vite@4.4.7):
+  /@vitejs/plugin-react@4.0.3(vite@4.4.8):
     resolution: {integrity: sha512-pwXDog5nwwvSIzwrvYYmA2Ljcd/ZNlcsSG2Q9CNDBwnsd55UGAyr2doXtB5j+2uymRCnCfExlznzzSFbBRcoCg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -1500,7 +1500,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.9)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.9)
       react-refresh: 0.14.0
-      vite: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+      vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2968,7 +2968,7 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-vitest@0.2.8(eslint@8.45.0)(typescript@5.1.6)(vite@4.4.7)(vitest@0.33.0):
+  /eslint-plugin-vitest@0.2.8(eslint@8.45.0)(typescript@5.1.6)(vite@4.4.8)(vitest@0.33.0):
     resolution: {integrity: sha512-q8s4tStyKtn3gXf+8nf1ZYTHhoCXKdnozZzp6u8b4ni5v68Y4vxhNh4Z8njUfNjEY8HoPBB77MazHMR23IPb+g==}
     engines: {node: 14.x || >= 16}
     peerDependencies:
@@ -2981,7 +2981,7 @@ packages:
     dependencies:
       '@typescript-eslint/utils': 6.2.1(eslint@8.45.0)(typescript@5.1.6)
       eslint: 8.45.0
-      vite: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+      vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
       vitest: 0.33.0(jsdom@22.1.0)(terser@5.19.2)
     transitivePeerDependencies:
       - supports-color
@@ -3352,12 +3352,12 @@ packages:
       wide-align: 1.1.5
     dev: true
 
-  /generouted@1.15.2(vite@4.4.7):
+  /generouted@1.15.2(vite@4.4.8):
     resolution: {integrity: sha512-y9Pemox6DhJ82F3pOwLVZin3hfJl7JcIYoWsIk9xvakrUk3+k7g+6ZSk5aWuYbLjTArlIa1FCrUOKB2ZWTYP2w==}
     peerDependencies:
       vite: '>=3'
     dependencies:
-      vite: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+      vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
     dev: false
 
   /gensync@1.0.0-beta.2:
@@ -6454,7 +6454,7 @@ packages:
       mlly: 1.4.0
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+      vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -6466,7 +6466,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-checker@0.6.1(eslint@8.45.0)(typescript@5.1.6)(vite@4.4.7):
+  /vite-plugin-checker@0.6.1(eslint@8.45.0)(typescript@5.1.6)(vite@4.4.8):
     resolution: {integrity: sha512-4fAiu3W/IwRJuJkkUZlWbLunSzsvijDf0eDN6g/MGh6BUK4SMclOTGbLJCPvdAcMOQvVmm8JyJeYLYd4//8CkA==}
     engines: {node: '>=14.16'}
     peerDependencies:
@@ -6512,14 +6512,14 @@ packages:
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.1
       typescript: 5.1.6
-      vite: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+      vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.8
       vscode-uri: 3.0.7
     dev: true
 
-  /vite-plugin-svgr@3.2.0(vite@4.4.7):
+  /vite-plugin-svgr@3.2.0(vite@4.4.8):
     resolution: {integrity: sha512-Uvq6niTvhqJU6ga78qLKBFJSDvxWhOnyfQSoKpDPMAGxJPo5S3+9hyjExE5YDj6Lpa4uaLkGc1cBgxXov+LjSw==}
     peerDependencies:
       vite: ^2.6.0 || 3 || 4
@@ -6527,14 +6527,14 @@ packages:
       '@rollup/pluginutils': 5.0.2
       '@svgr/core': 7.0.0
       '@svgr/plugin-jsx': 7.0.0
-      vite: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+      vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vite@4.4.7(@types/node@20.4.5)(terser@5.19.2):
-    resolution: {integrity: sha512-6pYf9QJ1mHylfVh39HpuSfMPojPSKVxZvnclX1K1FyZ1PXDOcLBibdq5t1qxJSnL63ca8Wf4zts6mD8u8oc9Fw==}
+  /vite@4.4.8(@types/node@20.4.5)(terser@5.19.2):
+    resolution: {integrity: sha512-LONawOUUjxQridNWGQlNizfKH89qPigK36XhMI7COMGztz8KNY0JHim7/xDd71CZwGT4HtSRgI7Hy+RlhG0Gvg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -6622,7 +6622,7 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.5.0
       tinypool: 0.6.0
-      vite: 4.4.7(@types/node@20.4.5)(terser@5.19.2)
+      vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
       vite-node: 0.33.0(@types/node@20.4.5)(terser@5.19.2)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
