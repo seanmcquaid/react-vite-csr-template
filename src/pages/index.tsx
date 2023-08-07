@@ -1,4 +1,4 @@
-import { FC, Suspense, useEffect } from 'react';
+import { FC, Suspense, useEffect, useMemo } from 'react';
 import {
   ActionFunction,
   Await,
@@ -8,6 +8,7 @@ import {
   redirect,
   useFetcher,
   useLoaderData,
+  useSearchParams,
 } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -67,7 +68,9 @@ export const Catch: FC = () => {
 };
 
 const HomePage: FC = () => {
-  const { register, watch, reset } = useForm<z.infer<typeof formSchema>>({
+  const { register, watch, reset, setValue } = useForm<
+    z.infer<typeof formSchema>
+  >({
     resolver: zodResolver(formSchema),
     defaultValues: {
       postId: '',
@@ -76,6 +79,23 @@ const HomePage: FC = () => {
   });
   const fetcher = useFetcher();
   const { posts } = useLoaderData() as PostsLoaderData;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const postId = watch('postId');
+  const postIdSearchParam = useMemo(
+    () => searchParams.get('postId'),
+    [searchParams],
+  );
+
+  useEffect(() => {
+    setSearchParams(params => {
+      params.set('postId', postId);
+      return params;
+    });
+  }, [setSearchParams, postId]);
+
+  useEffect(() => {
+    setValue('postId', postIdSearchParam ?? '');
+  }, [postIdSearchParam, setValue]);
 
   useEffect(() => {
     if (fetcher.state === 'submitting') {
@@ -102,7 +122,9 @@ const HomePage: FC = () => {
       </fetcher.Form>
       <Suspense fallback={'loading'}>
         <Await resolve={posts} errorElement={'ERROR'}>
-          <PostsList filterText={watch('postId')} />
+          <PostsList
+            filterText={searchParams.get('postId') ?? watch('postId')}
+          />
         </Await>
       </Suspense>
     </div>
