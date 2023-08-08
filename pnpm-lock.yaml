@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.15.2
     version: 1.15.2(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.8)
   '@hookform/resolvers':
-    specifier: ^3.1.1
-    version: 3.1.1(react-hook-form@7.45.2)
+    specifier: ^3.2.0
+    version: 3.2.0(react-hook-form@7.45.2)
   '@tanstack/react-query':
     specifier: ^4.32.1
     version: 4.32.1(react-dom@18.2.0)(react@18.2.0)
@@ -709,8 +709,8 @@ packages:
       vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
     dev: false
 
-  /@hookform/resolvers@3.1.1(react-hook-form@7.45.2):
-    resolution: {integrity: sha512-tS16bAUkqjITNSvbJuO1x7MXbn7Oe8ZziDTJdA9mMvsoYthnOOiznOTGBYwbdlYBgU+tgpI/BtTU3paRbCuSlg==}
+  /@hookform/resolvers@3.2.0(react-hook-form@7.45.2):
+    resolution: {integrity: sha512-skXQHhLxq0Sz2xDwCyv5dygBCtXJe1GmWwxDzfdtl0X6agD6qcyTG8HrZWkjJoy8AkiLARqYvSYJ8z7+Nwmi7w==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
