@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@generouted/react-router':
-    specifier: ^1.15.2
-    version: 1.15.2(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.8)
+    specifier: ^1.15.4
+    version: 1.15.4(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.8)
   '@hookform/resolvers':
     specifier: ^3.2.0
     version: 3.2.0(react-hook-form@7.45.2)
@@ -695,15 +695,15 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@generouted/react-router@1.15.2(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.8):
-    resolution: {integrity: sha512-oOt692tY6CcdQgkEHxcuSCAl8pgW7+smYgh3YevN56n9VWG1P7WilSygIWZKj00gC6po7yVKVu1a/9gmwUdL3g==}
+  /@generouted/react-router@1.15.4(react-router-dom@6.14.2)(react@18.2.0)(vite@4.4.8):
+    resolution: {integrity: sha512-B3HgOw/G5SbtbH5/6zzphaLRdXBGfN6jTPTFC4I5pWWWQv4yZzzbvBJgrftBF80hXX9XYujxVw8WzZGWqd70jw==}
     peerDependencies:
       react: '>=18'
       react-router-dom: '>=6'
       vite: '>=4'
     dependencies:
-      fast-glob: 3.3.0
-      generouted: 1.15.2(vite@4.4.8)
+      fast-glob: 3.3.1
+      generouted: 1.15.4(vite@4.4.8)
       react: 18.2.0
       react-router-dom: 6.14.2(react-dom@18.2.0)(react@18.2.0)
       vite: 4.4.8(@types/node@20.4.5)(terser@5.19.2)
@@ -3205,6 +3205,18 @@ packages:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
+    dev: true
+
+  /fast-glob@3.3.1:
+    resolution: {integrity: sha512-kNFPyjhh5cKjrUltxs+wFx+ZkbRaxxmZ+X0ZU31SOsxCEtP9VPgtq2teZw1DebupL5GmDaNQ6yKMMVcM41iqDg==}
+    engines: {node: '>=8.6.0'}
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.5
+    dev: false
 
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
@@ -3358,8 +3370,8 @@ packages:
       wide-align: 1.1.5
     dev: true
 
-  /generouted@1.15.2(vite@4.4.8):
-    resolution: {integrity: sha512-y9Pemox6DhJ82F3pOwLVZin3hfJl7JcIYoWsIk9xvakrUk3+k7g+6ZSk5aWuYbLjTArlIa1FCrUOKB2ZWTYP2w==}
+  /generouted@1.15.4(vite@4.4.8):
+    resolution: {integrity: sha512-ZmHlsf5zMF/4NF7np8SVKrbuGCTUvaYhCHzRnGH43+tQ7r1IHQhsAhhZQv++uacyKBHV/2W/z129Ip+i9U1zKw==}
     peerDependencies:
       vite: '>=3'
     dependencies:
