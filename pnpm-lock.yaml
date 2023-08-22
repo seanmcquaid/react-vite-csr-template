@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@generouted/react-router':
-    specifier: ^1.15.4
-    version: 1.15.4(react-router-dom@6.15.0)(react@18.2.0)(vite@4.4.9)
+    specifier: ^1.15.6
+    version: 1.15.6(react-router-dom@6.15.0)(react@18.2.0)(vite@4.4.9)
   '@hookform/resolvers':
     specifier: ^3.2.0
     version: 3.2.0(react-hook-form@7.45.4)
@@ -726,15 +726,15 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@generouted/react-router@1.15.4(react-router-dom@6.15.0)(react@18.2.0)(vite@4.4.9):
-    resolution: {integrity: sha512-B3HgOw/G5SbtbH5/6zzphaLRdXBGfN6jTPTFC4I5pWWWQv4yZzzbvBJgrftBF80hXX9XYujxVw8WzZGWqd70jw==}
+  /@generouted/react-router@1.15.6(react-router-dom@6.15.0)(react@18.2.0)(vite@4.4.9):
+    resolution: {integrity: sha512-lvl//AV52h9K4jZnVwdOqqhQWdi/VVxRt04zWEVL+RLl8bNXBhjOtYSpxO2NR2BVEC0E3wU7qTpwYUteYkhPZg==}
     peerDependencies:
       react: '>=18'
       react-router-dom: '>=6'
       vite: '>=4'
     dependencies:
       fast-glob: 3.3.1
-      generouted: 1.15.4(vite@4.4.9)
+      generouted: 1.15.6(vite@4.4.9)
       react: 18.2.0
       react-router-dom: 6.15.0(react-dom@18.2.0)(react@18.2.0)
       vite: 4.4.9(@types/node@20.5.0)(terser@5.19.2)
@@ -884,7 +884,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dependencies:
       cross-spawn: 7.0.3
-      fast-glob: 3.3.0
+      fast-glob: 3.3.1
       is-glob: 4.0.3
       open: 9.1.0
       picocolors: 1.0.0
@@ -3308,7 +3308,6 @@ packages:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
-    dev: false
 
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
@@ -3462,8 +3461,8 @@ packages:
       wide-align: 1.1.5
     dev: true
 
-  /generouted@1.15.4(vite@4.4.9):
-    resolution: {integrity: sha512-ZmHlsf5zMF/4NF7np8SVKrbuGCTUvaYhCHzRnGH43+tQ7r1IHQhsAhhZQv++uacyKBHV/2W/z129Ip+i9U1zKw==}
+  /generouted@1.15.6(vite@4.4.9):
+    resolution: {integrity: sha512-m8z0O+6gSzFlQshoLUM9EHXi6IaedLAIyRWF2YcpSCM2mNv0/hbEWPiywRQK4MLIjvpD97oY4qzrJeu+c+9VvA==}
     peerDependencies:
       vite: '>=3'
     dependencies:
@@ -3607,7 +3606,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.3.0
+      fast-glob: 3.3.1
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
