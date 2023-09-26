@@ -10,7 +10,7 @@ dependencies:
     version: 1.15.8(react-router-dom@6.16.0)(react@18.2.0)(vite@4.4.9)
   '@hookform/resolvers':
     specifier: ^3.3.1
-    version: 3.3.1(react-hook-form@7.46.1)
+    version: 3.3.1(react-hook-form@7.46.2)
   '@tanstack/react-query':
     specifier: ^4.35.3
     version: 4.35.3(react-dom@18.2.0)(react@18.2.0)
@@ -27,8 +27,8 @@ dependencies:
     specifier: ^4.0.11
     version: 4.0.11(react@18.2.0)
   react-hook-form:
-    specifier: ^7.46.1
-    version: 7.46.1(react@18.2.0)
+    specifier: ^7.46.2
+    version: 7.46.2(react@18.2.0)
   react-router-dom:
     specifier: ^6.16.0
     version: 6.16.0(react-dom@18.2.0)(react@18.2.0)
@@ -39,7 +39,7 @@ dependencies:
 devDependencies:
   '@axe-core/playwright':
     specifier: ^4.7.3
-    version: 4.7.3(playwright-core@1.37.1)
+    version: 4.7.3(playwright-core@1.38.0)
   '@babel/core':
     specifier: ^7.22.20
     version: 7.22.20
@@ -203,13 +203,13 @@ packages:
       '@jridgewell/trace-mapping': 0.3.18
     dev: true
 
-  /@axe-core/playwright@4.7.3(playwright-core@1.37.1):
+  /@axe-core/playwright@4.7.3(playwright-core@1.38.0):
     resolution: {integrity: sha512-v2PRgAyGvop7bamrTpNJtc5b1R7giAPnMzZXrS/VDZBCY5+uwVYtCNgDvBsqp5P1QMZxUMoBN+CERJUTMjFN0A==}
     peerDependencies:
       playwright-core: '>= 1.0.0'
     dependencies:
       axe-core: 4.7.2
-      playwright-core: 1.37.1
+      playwright-core: 1.38.0
     dev: true
 
   /@babel/code-frame@7.22.10:
@@ -738,12 +738,12 @@ packages:
       vite: 4.4.9(@types/node@20.6.2)(terser@5.19.4)
     dev: false
 
-  /@hookform/resolvers@3.3.1(react-hook-form@7.46.1):
+  /@hookform/resolvers@3.3.1(react-hook-form@7.46.2):
     resolution: {integrity: sha512-K7KCKRKjymxIB90nHDQ7b9nli474ru99ZbqxiqDAWYsYhOsU3/4qLxW91y+1n04ic13ajjZ66L3aXbNef8PELQ==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.46.1(react@18.2.0)
+      react-hook-form: 7.46.2(react@18.2.0)
     dev: false
 
   /@humanwhocodes/config-array@0.11.11:
@@ -5155,12 +5155,6 @@ packages:
       pathe: 1.1.1
     dev: true
 
-  /playwright-core@1.37.1:
-    resolution: {integrity: sha512-17EuQxlSIYCmEMwzMqusJ2ztDgJePjrbttaefgdsiqeLWidjYz9BxXaTaZWxH1J95SHGk6tjE+dwgWILJoUZfA==}
-    engines: {node: '>=16'}
-    hasBin: true
-    dev: true
-
   /playwright-core@1.38.0:
     resolution: {integrity: sha512-f8z1y8J9zvmHoEhKgspmCvOExF2XdcxMW8jNRuX4vkQFrzV4MlZ55iwb5QeyiFQgOFCUolXiRHgpjSEnqvO48g==}
     engines: {node: '>=16'}
@@ -5445,8 +5439,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-hook-form@7.46.1(react@18.2.0):
-    resolution: {integrity: sha512-0GfI31LRTBd5tqbXMGXT1Rdsv3rnvy0FjEk8Gn9/4tp6+s77T7DPZuGEpBRXOauL+NhyGT5iaXzdIM2R6F/E+w==}
+  /react-hook-form@7.46.2(react@18.2.0):
+    resolution: {integrity: sha512-x1DWmHQchV7x2Rq9l99M/cQHC8JGchAnw9Z0uTz5KrPa0bTl/Inm1NR7ceOARfIrkNuQNAhuSuZPYa6k7QYn3Q==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
