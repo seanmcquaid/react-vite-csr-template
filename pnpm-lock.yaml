@@ -39,7 +39,7 @@ dependencies:
 devDependencies:
   '@axe-core/playwright':
     specifier: ^4.7.3
-    version: 4.7.3(playwright-core@1.38.0)
+    version: 4.7.3(playwright-core@1.38.1)
   '@babel/core':
     specifier: ^7.22.20
     version: 7.22.20
@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^4.1.0
     version: 4.1.0(vite@4.4.9)
   '@vitest/coverage-istanbul':
-    specifier: ^0.34.4
-    version: 0.34.4(vitest@0.34.5)
+    specifier: ^0.34.5
+    version: 0.34.5(vitest@0.34.5)
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.30)
@@ -203,13 +203,13 @@ packages:
       '@jridgewell/trace-mapping': 0.3.18
     dev: true
 
-  /@axe-core/playwright@4.7.3(playwright-core@1.38.0):
+  /@axe-core/playwright@4.7.3(playwright-core@1.38.1):
     resolution: {integrity: sha512-v2PRgAyGvop7bamrTpNJtc5b1R7giAPnMzZXrS/VDZBCY5+uwVYtCNgDvBsqp5P1QMZxUMoBN+CERJUTMjFN0A==}
     peerDependencies:
       playwright-core: '>= 1.0.0'
     dependencies:
       axe-core: 4.7.2
-      playwright-core: 1.38.0
+      playwright-core: 1.38.1
     dev: true
 
   /@babel/code-frame@7.22.10:
@@ -1542,8 +1542,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/coverage-istanbul@0.34.4(vitest@0.34.5):
-    resolution: {integrity: sha512-jJiN+U5drYrv1fU39T8jOVWc3RklYkNeTR7UyiVD8fa+Tbav9pAxq02pti93OPZIDoXwwg+RhFAuRuAz///rkQ==}
+  /@vitest/coverage-istanbul@0.34.5(vitest@0.34.5):
+    resolution: {integrity: sha512-t07VrdRSRKw7QgOZ20i1bmstv9seUm7Fay8wVtswKHBlMmAAW3K5x+0u18O50mLuVl208Lx21tH/6O7W4BWR9Q==}
     peerDependencies:
       vitest: '>=0.32.0 <1'
     dependencies:
@@ -5198,12 +5198,6 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 1.4.0
       pathe: 1.1.1
-    dev: true
-
-  /playwright-core@1.38.0:
-    resolution: {integrity: sha512-f8z1y8J9zvmHoEhKgspmCvOExF2XdcxMW8jNRuX4vkQFrzV4MlZ55iwb5QeyiFQgOFCUolXiRHgpjSEnqvO48g==}
-    engines: {node: '>=16'}
-    hasBin: true
     dev: true
 
   /playwright-core@1.38.1:
