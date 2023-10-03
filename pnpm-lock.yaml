@@ -125,8 +125,8 @@ devDependencies:
     specifier: ^4.6.0
     version: 4.6.0(eslint@8.50.0)
   eslint-plugin-vitest:
-    specifier: ^0.3.1
-    version: 0.3.1(@typescript-eslint/eslint-plugin@5.62.0)(eslint@8.50.0)(vitest@0.34.5)
+    specifier: ^0.3.2
+    version: 0.3.2(@typescript-eslint/eslint-plugin@5.62.0)(eslint@8.50.0)(typescript@5.2.2)(vitest@0.34.5)
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -3080,8 +3080,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-vitest@0.3.1(@typescript-eslint/eslint-plugin@5.62.0)(eslint@8.50.0)(vitest@0.34.5):
-    resolution: {integrity: sha512-GeR3zISHmqUGWK2sfW+eyCZivMqiQYzPf9UttHXBiEyMveS/jkKLHCrHUllwr3Hz1+i0zoseANd2xL0cFha8Eg==}
+  /eslint-plugin-vitest@0.3.2(@typescript-eslint/eslint-plugin@5.62.0)(eslint@8.50.0)(typescript@5.2.2)(vitest@0.34.5):
+    resolution: {integrity: sha512-A1P0qJVkqHyfDolwm09h8/gu7SbGFOKbacJSeyZ9IRb8uyddgqLcqv4VrqgQfLA7QmGI9lwj1iV90NyZ1cHp8Q==}
     engines: {node: 14.x || >= 16}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': '*'
@@ -3094,10 +3094,10 @@ packages:
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.50.0)(typescript@5.2.2)
       '@typescript-eslint/utils': 6.6.0(eslint@8.50.0)(typescript@5.2.2)
       eslint: 8.50.0
-      typescript: 5.2.2
       vitest: 0.34.5(jsdom@22.1.0)(terser@5.20.0)
     transitivePeerDependencies:
       - supports-color
+      - typescript
     dev: true
 
   /eslint-scope@5.1.1:
