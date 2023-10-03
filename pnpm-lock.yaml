@@ -140,14 +140,14 @@ devDependencies:
     specifier: ^14.0.1
     version: 14.0.1
   msw:
-    specifier: ^1.3.1
-    version: 1.3.1(typescript@5.2.2)
+    specifier: ^1.3.2
+    version: 1.3.2(typescript@5.2.2)
   playwright-lighthouse:
     specifier: ^3.1.0
     version: 3.1.0
   playwright-msw:
     specifier: ^2.2.1
-    version: 2.2.1(@playwright/test@1.38.1)(msw@1.3.1)
+    version: 2.2.1(@playwright/test@1.38.1)(msw@1.3.2)
   postcss:
     specifier: ^8.4.30
     version: 8.4.30
@@ -3642,8 +3642,8 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /graphql@16.7.1:
-    resolution: {integrity: sha512-DRYR9tf+UGU0KOsMcKAlXeFfX89UiiIZ0dRU3mR0yJfu6OjZqUcp68NnFLnqQU5RexygFoDy1EW+ccOYcPfmHg==}
+  /graphql@16.8.1:
+    resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
     dev: true
 
@@ -4738,8 +4738,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /msw@1.3.1(typescript@5.2.2):
-    resolution: {integrity: sha512-GhP5lHSTXNlZb9EaKgPRJ01YAnVXwzkvnTzRn4W8fxU2DXuJrRO+Nb6OHdYqB4fCkwSNpIJH9JkON5Y6rHqJMQ==}
+  /msw@1.3.2(typescript@5.2.2):
+    resolution: {integrity: sha512-wKLhFPR+NitYTkQl5047pia0reNGgf0P6a1eTnA5aNlripmiz0sabMvvHcicE8kQ3/gZcI0YiPFWmYfowfm3lA==}
     engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
@@ -4757,7 +4757,7 @@ packages:
       chalk: 4.1.2
       chokidar: 3.5.3
       cookie: 0.4.2
-      graphql: 16.7.1
+      graphql: 16.8.1
       headers-polyfill: 3.2.5
       inquirer: 8.2.5
       is-node-process: 1.2.0
@@ -5226,7 +5226,7 @@ packages:
       ua-parser-js: 1.0.35
     dev: true
 
-  /playwright-msw@2.2.1(@playwright/test@1.38.1)(msw@1.3.1):
+  /playwright-msw@2.2.1(@playwright/test@1.38.1)(msw@1.3.2):
     resolution: {integrity: sha512-LjT68LWqzJX8boy4KbnPp5ACLf7WDpt6RUem0tQQcQKys+45KNlluzBx8HEl1HNiCBYV/XZw1aI1aD2giKXWRg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -5235,7 +5235,7 @@ packages:
     dependencies:
       '@mswjs/cookies': 0.2.2
       '@playwright/test': 1.38.1
-      msw: 1.3.1(typescript@5.2.2)
+      msw: 1.3.2(typescript@5.2.2)
       strict-event-emitter: 0.4.6
     dev: true
 
