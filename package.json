@@ -18,7 +18,7 @@
     "test:watch": "NODE_OPTIONS='--no-experimental-fetch' vitest"
   },
   "dependencies": {
-    "@generouted/react-router": "^1.15.8",
+    "@generouted/react-router": "^1.15.9",
     "@hookform/resolvers": "^3.3.1",
     "@tanstack/react-query": "^4.35.3",
     "ky": "^1.0.1",
