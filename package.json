@@ -30,7 +30,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.7.3",
+    "@axe-core/playwright": "^4.8.1",
     "@babel/core": "^7.23.2",
     "@babel/plugin-syntax-flow": "^7.22.5",
     "@babel/plugin-transform-react-jsx": "^7.22.15",
