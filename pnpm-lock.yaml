@@ -38,8 +38,8 @@ dependencies:
 
 devDependencies:
   '@axe-core/playwright':
-    specifier: ^4.7.3
-    version: 4.7.3(playwright-core@1.38.1)
+    specifier: ^4.8.1
+    version: 4.8.1(playwright-core@1.38.1)
   '@babel/core':
     specifier: ^7.23.2
     version: 7.23.2
@@ -203,12 +203,12 @@ packages:
       '@jridgewell/trace-mapping': 0.3.18
     dev: true
 
-  /@axe-core/playwright@4.7.3(playwright-core@1.38.1):
-    resolution: {integrity: sha512-v2PRgAyGvop7bamrTpNJtc5b1R7giAPnMzZXrS/VDZBCY5+uwVYtCNgDvBsqp5P1QMZxUMoBN+CERJUTMjFN0A==}
+  /@axe-core/playwright@4.8.1(playwright-core@1.38.1):
+    resolution: {integrity: sha512-KC1X++UdRAwMLRvB+BIKFheyLHUnbJTL0t0Wbv6TJMozn2V2QyEtAcN6jyUiudtGiLUGhHCtj/eWorBnVZ4dAA==}
     peerDependencies:
       playwright-core: '>= 1.0.0'
     dependencies:
-      axe-core: 4.7.2
+      axe-core: 4.8.2
       playwright-core: 1.38.1
     dev: true
 
@@ -1933,6 +1933,11 @@ packages:
 
   /axe-core@4.8.1:
     resolution: {integrity: sha512-9l850jDDPnKq48nbad8SiEelCv4OrUWrKab/cPj0GScVg6cb6NbCCt/Ulk26QEq5jP9NnGr04Bit1BHyV6r5CQ==}
+    engines: {node: '>=4'}
+    dev: true
+
+  /axe-core@4.8.2:
+    resolution: {integrity: sha512-/dlp0fxyM3R8YW7MFzaHWXrf4zzbr0vaYb23VBFCl83R7nWNPg/yaQw2Dc8jzCMmDVLhSdzH8MjrsuIUuvX+6g==}
     engines: {node: '>=4'}
     dev: true
 
