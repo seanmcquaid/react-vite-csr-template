@@ -44,8 +44,8 @@ devDependencies:
     specifier: ^7.23.2
     version: 7.23.2
   '@babel/plugin-syntax-flow':
-    specifier: ^7.22.5
-    version: 7.22.5(@babel/core@7.23.2)
+    specifier: ^7.23.3
+    version: 7.23.3(@babel/core@7.23.2)
   '@babel/plugin-transform-react-jsx':
     specifier: ^7.22.15
     version: 7.22.15(@babel/core@7.23.2)
@@ -387,8 +387,8 @@ packages:
       '@babel/types': 7.23.0
     dev: true
 
-  /@babel/plugin-syntax-flow@7.22.5(@babel/core@7.23.2):
-    resolution: {integrity: sha512-9RdCl0i+q0QExayk2nOS7853w08yLucnnPML6EN9S8fgMPVtdLDCdx/cOQ/i44Lb9UeQX9A35yaqBBOMMZxPxQ==}
+  /@babel/plugin-syntax-flow@7.23.3(@babel/core@7.23.2):
+    resolution: {integrity: sha512-YZiAIpkJAwQXBJLIQbRFayR5c+gJ35Vcz3bg954k7cd73zqjvhacJuL9RbrzPz8qPmZdgqP6EUKwy0PCNhaaPA==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
