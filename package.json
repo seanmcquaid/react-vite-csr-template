@@ -34,7 +34,7 @@
     "@babel/core": "^7.23.3",
     "@babel/plugin-syntax-flow": "^7.23.3",
     "@babel/plugin-transform-react-jsx": "^7.22.15",
-    "@playwright/test": "^1.39.0",
+    "@playwright/test": "^1.40.0",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.0",
